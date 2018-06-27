@@ -1,7 +1,8 @@
 package com.zhongkexinli.micro.serv.common.util;
 
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
