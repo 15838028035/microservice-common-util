@@ -1,12 +1,7 @@
 package com.zhongkexinli.micro.serv.common.msg;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
-import org.springframework.beans.BeanUtils;
-
-import com.github.pagehelper.PageInfo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
