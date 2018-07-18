@@ -22,11 +22,13 @@ import java.util.regex.Pattern;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
+
 /**
  * 
  * 内容摘要:处理数字类型共用类.
  */
-public class StringUtil {
+public final class StringUtil {
 
 
   private static Log logger = LogFactory.getLog(StringUtil.class);
@@ -541,15 +543,15 @@ public class StringUtil {
     char[] randomChar = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o',
         'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
     Random random = new Random();
-    StringBuilder StringBuilder = new StringBuilder();
+    StringBuilder stringBuilder = new StringBuilder();
     for (int i = 0; i < length; i++) {
       int r = random.nextInt();
       if (r < 0) {
         continue;
       }
-      StringBuilder.append(randomChar[Math.abs(r) % randomChar.length]);
+      stringBuilder.append(randomChar[Math.abs(r) % randomChar.length]);
     }
-    return StringBuilder.toString();
+    return stringBuilder.toString();
   }
 
   /**
@@ -761,7 +763,7 @@ public class StringUtil {
   public static String toChi(String input) {
     try {
       byte[] bytes = input.getBytes("ISO8859-1");
-      return new String(bytes, "UTF-8");
+      return new String(bytes, CommonConstants.ENCODING_UTF_8);
     } catch (Exception ex) {
       logger.error(ex);
     }
@@ -777,7 +779,7 @@ public class StringUtil {
    * 
    */
   public static String toIso(String input) {
-    return changeEncoding(input, "UTF-8", "ISO8859-1");
+    return changeEncoding(input, CommonConstants.ENCODING_UTF_8, "ISO8859-1");
   }
 
   /**
@@ -1270,8 +1272,6 @@ public class StringUtil {
    */
   public static String replaceStr(String source, String strArray[], String newStr) {
 	  String result = "";
-	  
-	 // String[] strArray = oldStr.split(",");
 	  
 	  	for(String str: strArray){
 	  		if(source.indexOf(str)!=-1){

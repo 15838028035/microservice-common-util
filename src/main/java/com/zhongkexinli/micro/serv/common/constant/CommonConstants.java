@@ -18,4 +18,7 @@ public class CommonConstants {
     public static final String CONTEXT_KEY_USER_TOKEN = "currentUserToken";
     public static final String JWT_KEY_USER_ID = "userId";
     public static final String JWT_KEY_NAME = "name";
+    
+    public static final String ENCODING_UTF_8 = "UTF-8";
+    
 }
