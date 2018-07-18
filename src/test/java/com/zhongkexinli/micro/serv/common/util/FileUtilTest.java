@@ -1,4 +1,4 @@
-package com.weixindev.micro.serv.common.util;
+package com.zhongkexinli.micro.serv.common.util;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

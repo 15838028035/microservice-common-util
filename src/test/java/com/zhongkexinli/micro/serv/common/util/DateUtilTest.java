@@ -11,6 +11,8 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.zhongkexinli.micro.serv.common.util.DateUtil;
+
 public class DateUtilTest {
 	
 	private DateUtil dateUtil;

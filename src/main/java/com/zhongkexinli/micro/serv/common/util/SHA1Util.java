@@ -10,14 +10,14 @@ public class SHA1Util {
 	
 	private static final Logger logger=Logger.getLogger(SHA1Util.class);
 	
-	public static String SHA1(String decript) {
+	public static String sha1(String decript) {
         try {
             MessageDigest digest = java.security.MessageDigest
                     .getInstance("SHA-1");
             digest.update(decript.getBytes());
             byte messageDigest[] = digest.digest();
             // Create Hex String
-            StringBuffer hexString = new StringBuffer();
+            StringBuilder hexString = new StringBuilder();
             // 字节数组转换为 十六进制 数
             for (int i = 0; i < messageDigest.length; i++) {
                 String shaHex = Integer.toHexString(messageDigest[i] & 0xFF);

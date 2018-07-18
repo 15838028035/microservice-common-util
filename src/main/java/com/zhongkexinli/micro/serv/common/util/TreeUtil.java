@@ -36,34 +36,6 @@ public class TreeUtil{
     }
     return trees;
   }
-  
-  /**
-   * 两层循环实现建树
-   * 
-   * @param treeNodes 传入的树节点列表
-   * @return
-   */
- /* public static <T extends LayuiXtree> List<T> bulidXtree(List<T> treeNodes,Object root) {
-
-    List<T> trees = new ArrayList<T>();
-
-    for (T treeNode : treeNodes) {
-
-      if (String.valueOf(root).equals(treeNode.getParentId())) {
-        trees.add(treeNode);
-      }
-
-      for (T it : treeNodes) {
-        if (it.getParentId()!=null && it.getParentId().equals(treeNode.getValue())) {
-          if (treeNode.getData() == null) {
-            treeNode.setData(new ArrayList<LayuiXtree>());
-          }
-          treeNode.add(it);
-        }
-      }
-    }
-    return trees;
-  }*/
 
   /**
    * 使用递归方法建树

@@ -11,7 +11,7 @@ public class SHA1UtilTest {
 	 */
 	@Test
 	public void SHA1Test() {
-		assertNotNull(SHA1Util.SHA1("123456"));
+		assertNotNull(SHA1Util.sha1("123456"));
 	}
 
 }
