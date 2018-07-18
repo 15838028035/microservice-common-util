@@ -1,5 +1,7 @@
 package com.zhongkexinli.micro.serv.common.exception;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 public class BaseExceptionTest {
@@ -24,6 +26,14 @@ public class BaseExceptionTest {
 	public void baseExceptionExceptionThrowMsgTest() throws Exception{
 		Throwable cause = new Throwable();
 		throw new BaseException("BaseException",cause);
+	}
+	
+	@Test(expected = BaseException.class)
+	public void baseExceptionTest5() throws Exception{
+		BaseException baseException = new BaseException();
+		baseException.setStatus(200);
+		assertTrue(baseException.getStatus()==200);
+		throw baseException;
 	}
 
 }

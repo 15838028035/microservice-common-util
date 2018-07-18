@@ -11,7 +11,7 @@ public class AccountMailExceptionTest {
 
 	@Test(expected = AccountMailException.class)
 	public void accountMailExceptionExceptionTest() throws Exception{
-		throw new FreemarkerTemplateException("AccountMailException");
+		throw new AccountMailException("AccountMailException");
 	}
 
 	@Test(expected = AccountMailException.class)
