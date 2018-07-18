@@ -17,9 +17,6 @@ public class LayuiXtree {
 	
 	@ApiModelProperty(value = "子节点列表")
 	private List<LayuiXtree> data = new ArrayList<LayuiXtree>();
-	
-	//@ApiModelProperty(value = "父亲ID")
-	// private String parentId;
 
 	public String getTitle() {
 		return title;
@@ -48,13 +45,5 @@ public class LayuiXtree {
 	 public void add(LayuiXtree layuiXtree){
 		 data.add(layuiXtree);
 	 }
-
-	/*public String getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(String parentId) {
-		this.parentId = parentId;
-	}*/
 	
 }

@@ -9,18 +9,18 @@ public class FreemarkerTemplateExceptionTest {
 	}
 
 	@Test(expected = FreemarkerTemplateException.class)
-	public void FreemarkerTemplateExceptionTest() throws Exception{
+	public void freemarkerTemplateExceptionExceptionTest() throws Exception{
 		throw new FreemarkerTemplateException("FreemarkerTemplateException");
 	}
 
 	@Test(expected = FreemarkerTemplateException.class)
-	public void FreemarkerTemplateExceptionThrowTest()  throws Exception{
+	public void freemarkerTemplateExceptionThrowTest()  throws Exception{
 		Throwable cause = new Throwable();
 		throw new FreemarkerTemplateException(cause);
 	}
 
 	@Test(expected = FreemarkerTemplateException.class)
-	public void FreemarkerTemplateExceptionMsgTest() throws Exception{
+	public void freemarkerTemplateExceptionMsgTest() throws Exception{
 		Throwable cause = new Throwable();
 		throw new FreemarkerTemplateException("FreemarkerTemplateException",cause);
 	}

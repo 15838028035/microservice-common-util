@@ -1,19 +1,29 @@
 package com.zhongkexinli.micro.serv.common.exception;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
 import org.junit.Test;
 
 public class BaseExceptionTest {
-
-	@After
-	public void tearDown() throws Exception {
+	
+	@Test(expected = BaseException.class)
+	public void baseExceptionExceptionTest() throws Exception{
+		throw new BaseException();
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
+	@Test(expected = BaseException.class)
+	public void baseExceptionExceptionMsgTest() throws Exception{
+		throw new BaseException("BaseException");
+	}
+
+	@Test(expected = BaseException.class)
+	public void baseExceptionExceptionThrowTest()  throws Exception{
+		Throwable cause = new Throwable();
+		throw new BaseException(cause);
+	}
+
+	@Test(expected = BaseException.class)
+	public void baseExceptionExceptionThrowMsgTest() throws Exception{
+		Throwable cause = new Throwable();
+		throw new BaseException("BaseException",cause);
 	}
 
 }
