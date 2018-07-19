@@ -62,7 +62,7 @@ public class SortInfoTest {
 	
 	@Test
 	public void parseSortColumnsSortTest2() {
-		 List<SortInfo> sortInfList = SortInfo.parseSortColumns("sortColumn1 \\s+ desc");
+		 List<SortInfo> sortInfList = SortInfo.parseSortColumns("sortColumn1");
 		 
 		 assertTrue(sortInfList.size()==1);
 		 assertEquals("sortColumn1",((SortInfo)sortInfList.get(0)).getColumnName());

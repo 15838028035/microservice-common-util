@@ -12,7 +12,6 @@ import com.zhongkexinli.micro.serv.common.constant.SystemConstants;
  * Function: REST API接口统一响应接口实体. <br/>
  * Date: 2017年8月16日 下午15:25:04 <br/>
  * 
- * @author guooo
  * @version
  * @since JDK 1.6
  * @see
@@ -31,7 +30,7 @@ public class RestAPIResult<T> implements Serializable {
     private int respCode = 1;
 
 //    @ApiModelProperty(value = "respMsg : 如果code!=1,错误信息")
-    private String respMsg="成功！";
+    private String respMsg="成功";
 
     @SuppressWarnings("unchecked")
 //    @ApiModelProperty(value = "respCode为1时返回结果")
