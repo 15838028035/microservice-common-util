@@ -10,10 +10,6 @@ import java.util.List;
  */
 public class PageUtils {
 
-  private PageUtils() {
-
-  }
-
   /**
    * 获得第一次分页结果
    * 
