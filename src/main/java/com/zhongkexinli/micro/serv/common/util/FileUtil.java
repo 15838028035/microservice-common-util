@@ -25,10 +25,6 @@ import org.apache.commons.logging.LogFactory;
 public class FileUtil {
   public static final int DEFAULT_CHUNK_SIZE = 1024;
   public static final int BUFFERSIZE = 4096;
-
-  private FileUtil() {
-
-  }
   
   private static Log logger = LogFactory.getLog(FileUtil.class);
 

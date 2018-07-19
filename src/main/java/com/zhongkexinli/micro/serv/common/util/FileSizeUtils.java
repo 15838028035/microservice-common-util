@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
  * 文件大小工具类
  *
  */
-public class FileSizeUtils {
+public final class FileSizeUtils {
   public static final long ONE_KB = 1024L;
   public static final long ONE_MB = ONE_KB * 1024;
   public static final long ONE_GB = ONE_MB * 1024;

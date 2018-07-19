@@ -1,6 +1,7 @@
 package com.zhongkexinli.micro.serv.common.util;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -20,6 +21,8 @@ public class FileSizeUtilsTest {
 
 	    assertEquals("-1",FileSizeUtils.getHumanReadableFileSize(-1));
 	    assertEquals("-1000000",FileSizeUtils.getHumanReadableFileSize(-1000000));
+	    
+	    assertNull(FileSizeUtils.getHumanReadableFileSize(null));
 	}
 
 }
