@@ -1,3 +1,5 @@
+https://travis-ci.org/15838028035/microservice-common-util.svg?branch=master
+
 # 项目简介
 
 ## 环境准备：
