@@ -112,6 +112,12 @@ public class BaseEntityTest {
 	}
 	
 	@Test
+	public void conditionWhereTest() {
+		baseModel.setConditionWhere("conditionWhere");
+		assertEquals("conditionWhere must be conditionWhere","conditionWhere", baseModel.getConditionWhere());
+	}
+	
+	@Test
 	public void toStringTest() {
 		System.out.println(baseModel);
 	}
