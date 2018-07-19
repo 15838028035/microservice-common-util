@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 import org.apache.log4j.Logger;
 
-public class SHA1Util {
+public abstract class SHA1Util {
 	
 	private static final Logger logger=Logger.getLogger(SHA1Util.class);
 	

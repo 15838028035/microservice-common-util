@@ -22,7 +22,7 @@ import org.apache.commons.logging.LogFactory;
  * 文件工具类
  *
  */
-public class FileUtil {
+public abstract class FileUtil {
   public static final int DEFAULT_CHUNK_SIZE = 1024;
   public static final int BUFFERSIZE = 4096;
   

@@ -8,7 +8,7 @@ import com.zhongkexinli.micro.serv.common.vo.TreeNode;
 
 /**
  */
-public class TreeUtil{
+public abstract class TreeUtil{
   /**
    * 两层循环实现建树
    * 

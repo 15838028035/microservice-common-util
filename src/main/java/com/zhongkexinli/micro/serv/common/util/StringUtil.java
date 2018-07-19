@@ -28,8 +28,7 @@ import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
  * 
  * 内容摘要:处理数字类型共用类.
  */
-public final class StringUtil {
-
+public abstract class StringUtil {
 
   private static Log logger = LogFactory.getLog(StringUtil.class);
   

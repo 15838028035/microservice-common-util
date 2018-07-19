@@ -17,7 +17,7 @@ import java.util.TimeZone;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class DateUtil {
+public abstract class DateUtil {
 
 
   private static Log logger = LogFactory.getLog(DateUtil.class);
