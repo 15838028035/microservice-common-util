@@ -3,7 +3,7 @@ package com.zhongkexinli.micro.serv.common.bean;
 
 import java.io.Serializable;
 
-import com.zhongkexinli.micro.serv.common.constant.SystemConstants;
+import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -63,22 +63,22 @@ public class RestAPIResult2<T> implements Serializable {
 
 	public RestAPIResult2(String errorMsg){
 		this.respMsg = errorMsg;
-		this.respCode =SystemConstants.Code.error;
+		this.respCode =CommonConstants.ERROR;
 	}
 	
 	public RestAPIResult2(){
 	}
  
 	public void success(T object){
-		this.respCode = SystemConstants.Code.success;
-		this.respMsg = SystemConstants.Code.SUCCESS;
+		this.respCode = CommonConstants.SUCCESS;
+		this.respMsg = CommonConstants.SUCCESS_MSG;
 	}
 	public void error(){
-		this.respCode = SystemConstants.Code.error;
-		this.respMsg = SystemConstants.Code.FAIL;
+		this.respCode = CommonConstants.ERROR;
+		this.respMsg = CommonConstants.FAIL;
 	}
 	public void error(String message){
-		this.respCode = SystemConstants.Code.error;
+		this.respCode = CommonConstants.ERROR;
 		this.respMsg = message;
 	}
 

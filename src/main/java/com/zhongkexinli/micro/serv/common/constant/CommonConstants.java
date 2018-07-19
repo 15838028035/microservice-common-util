@@ -21,4 +21,13 @@ public final class CommonConstants {
     
     public static final String ENCODING_UTF_8 = "UTF-8";
     
+    public static final Integer ERROR = 0;
+
+    public static final String FAIL = "0";
+    
+
+    public static final Integer SUCCESS = 1;
+
+    public static final String SUCCESS_MSG = "成功";
+    
 }

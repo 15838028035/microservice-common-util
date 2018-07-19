@@ -24,6 +24,13 @@ public class CommonConstantsTest {
 		assertEquals("userId",CommonConstants.JWT_KEY_USER_ID);
 		assertEquals("name",CommonConstants.JWT_KEY_NAME);
 		assertEquals("UTF-8",CommonConstants.ENCODING_UTF_8);
+		
+		
+		assertEquals("0",CommonConstants.FAIL);
+		assertEquals("成功",CommonConstants.SUCCESS_MSG);
+		
+		assertTrue(CommonConstants.ERROR==0);
+		assertTrue(CommonConstants.SUCCESS==1);
 	}
 
 }

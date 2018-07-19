@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.zhongkexinli.micro.serv.common.constant.SystemConstants;
+import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
 
 /**
  * ClassName:RestAPIResulut <br/>
@@ -106,7 +106,7 @@ public class RestAPIResult<T> implements Serializable {
     }
 	public RestAPIResult(String errorMsg){
 		this.respMsg = errorMsg;
-		this.respCode =SystemConstants.Code.error;
+		this.respCode =CommonConstants.ERROR;
 		this.respData = (T) new Object();
 		this.respMap = new HashMap<String, Object>();
 	}
@@ -117,19 +117,19 @@ public class RestAPIResult<T> implements Serializable {
 	}
  
 	public void success(T object){
-		this.respCode = SystemConstants.Code.success;
-		this.respMsg = SystemConstants.Code.SUCCESS;
+		this.respCode = CommonConstants.SUCCESS;
+		this.respMsg = CommonConstants.SUCCESS_MSG;
 		this.respData = object;
 		this.respMap=new HashMap<String, Object>();
 	}
 	public void error(){
-		this.respCode = SystemConstants.Code.error;
-		this.respMsg = SystemConstants.Code.FAIL;
+		this.respCode = CommonConstants.ERROR;
+		this.respMsg = CommonConstants.FAIL;
 		this.respData=(T) new Object();
 		this.respMap=new HashMap<String, Object>();
 	}
 	public void error(String message){
-		this.respCode = SystemConstants.Code.error;
+		this.respCode = CommonConstants.ERROR;
 		this.respMsg = message;
 		this.respData=(T) new Object();
 		this.respMap=new HashMap<String, Object>();
