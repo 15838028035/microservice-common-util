@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <description>常用工具类:字符串、日期、文件、加密、异常、分页等工具类</description>
- <url>https://github.com/15838028035/microservice-common-util.git</url>
+ <url>http://www.thinkit.com.cn/</url>
 
 <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
