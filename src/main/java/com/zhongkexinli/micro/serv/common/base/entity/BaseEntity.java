@@ -19,102 +19,103 @@ public class BaseEntity implements Serializable {
   /**
    * 创建人 create_by
    */
-	@ApiModelProperty(value = "创建人")
+  @ApiModelProperty(value = "创建人")
   private Integer createBy;
 
   /**
    * 创建人 create_By_UName
    */
-	@ApiModelProperty(value = "创建人")
+  @ApiModelProperty(value = "创建人")
   private String createByUname;
 
   /**
    * 创建日期 create_date
    */
-	@ApiModelProperty(value = "创建日期 ")
+  @ApiModelProperty(value = "创建日期 ")
   private String createDate;
 
   /**
    * 创建时间查询
    */
-	@ApiModelProperty(value = "创建时间查询")
+  @ApiModelProperty(value = "创建时间查询")
   private String createDateBegin;
 
   /**
    * 创建时间查询
    */
-	@ApiModelProperty(value = "创建时间查询")
+  @ApiModelProperty(value = "创建时间查询")
   private String createDateEnd;
+  
   /**
    * 更新人 update_by
    */
-	@ApiModelProperty(value = "更新人")
+  @ApiModelProperty(value = "更新人")
   private Integer updateBy;
 
   /**
    * 更新人 update_By_Uname
    */
-	@ApiModelProperty(value = "更新人")
+  @ApiModelProperty(value = "更新人")
   private String updateByUname;
 
   /**
    * 更新日期 update_date
    */
-	@ApiModelProperty(value = "更新日期 ")
+  @ApiModelProperty(value = "更新日期 ")
   private String updateDate;
 
   /**
    * 更新日期 查询
    */
-	@ApiModelProperty(value = "更新日期 查询")
+  @ApiModelProperty(value = "更新日期 查询")
   private String updateDatebegin;
 
   /**
    * 更新日期 查询
    */
-	@ApiModelProperty(value = "更新日期 查询")
+  @ApiModelProperty(value = "更新日期 查询")
   private String updateDateEnd;
 
   /**
    * 是否有效 enable_flag
    */
-	@ApiModelProperty(value = "是否有效")
+  @ApiModelProperty(value = "是否有效")
   private String enableFlag = "";
 
   /**
    * 加载状态 lock_status
    */
-	@ApiModelProperty(value = "加锁状态")
+  @ApiModelProperty(value = "加锁状态")
   private String lockStatus = "";
 
   /**
    * 应用ID app_id
    */
-	@ApiModelProperty(value = "应用ID")
+  @ApiModelProperty(value = "应用ID")
   private String appId;
 
   /**
    * 排序字段
    */
-	@ApiModelProperty(value = "排序字段")
+  @ApiModelProperty(value = "排序字段")
   private String sidx;
 
   /**
    * 排序方式
    */
-	@ApiModelProperty(value = "排序方式")
+  @ApiModelProperty(value = "排序方式")
   private String sord;
 
   /**
    * 状态
    */
-	@ApiModelProperty(value = "状态")
+  @ApiModelProperty(value = "状态")
   private String status;
 
   /**
    * 查询条件
    */
-	@ApiModelProperty(value = "查询条件")
+  @ApiModelProperty(value = "查询条件")
   private String conditionWhere;
 
   /**
@@ -259,5 +260,4 @@ public class BaseEntity implements Serializable {
   public void setConditionWhere(String conditionWhere) {
     this.conditionWhere = conditionWhere;
   }
-	
 }

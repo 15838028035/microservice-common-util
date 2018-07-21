@@ -47,19 +47,19 @@ public class PageTool {
   
   /**
    * layui分页
-   * @param page
-   * @return
+   * @param page 分页对象
+   * @return 分页字符串信息
    */
   public static String pageToJsonLayui(Page page) {
-	    Map<String, Object> mapResult = new HashMap<String, Object>();
-	    mapResult.put("pageNumber", page.getPageNumber());
-	    mapResult.put("pageSize", page.getPageSize());
-	    mapResult.put("page", page.getPageNumber());
-	    mapResult.put("totalPage", page.getTotalPages());
-	    mapResult.put("total", page.getTotalCount());
-	    mapResult.put("rows", page.getResult());
-	    return page.toJsonString(mapResult);
-	  }
+    Map<String, Object> mapResult = new HashMap<String, Object>();
+    mapResult.put("pageNumber", page.getPageNumber());
+    mapResult.put("pageSize", page.getPageSize());
+    mapResult.put("page", page.getPageNumber());
+    mapResult.put("totalPage", page.getTotalPages());
+    mapResult.put("total", page.getTotalCount());
+    mapResult.put("rows", page.getResult());
+    return page.toJsonString(mapResult);
+  }
   
   public static String toJsonString(Page page, Object object) {
     return page.toJsonString(object);

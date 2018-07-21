@@ -182,9 +182,15 @@ public class Page<T> implements Serializable {
     return toJsonString(this, list);
   }
 
+  /**
+   * 分页toString
+   * @param page 分页信息
+   * @param list 列表信息
+   * @return 分页字符串信息
+   */
   public String toJsonString(Page page, List list) {
 
-//	 /*	FiXED ：处理
+///*FiXED ：处理
 //    JSONObject all = new JSONObject();
 //    if (list == null) {
 //      all.put(JSONROWS, "");
@@ -195,7 +201,7 @@ public class Page<T> implements Serializable {
 //    all.put(JSONPAGE, page);
 //    String jsonString = all.toString();
 //    return jsonString;
-	  return null;
+    return null;
   }
 
   /**
@@ -206,7 +212,7 @@ public class Page<T> implements Serializable {
    * @return 获得json字符串
    */
   public static String toJsonString(Object object) {
-/*	FiXED ：处理
+  /*FiXED ：处理
     JsonConfig cfg = new JsonConfig();
     DateJsonFormat df = new DateJsonFormat();
     cfg.registerJsonValueProcessor(java.util.Date.class, df);
@@ -214,8 +220,7 @@ public class Page<T> implements Serializable {
     JSONObject all = JSONObject.fromObject(object, cfg);
     String jsonString = all.toString();
     return jsonString;*/
-	  
-	  return null;
+    return null;
   }
 
 }

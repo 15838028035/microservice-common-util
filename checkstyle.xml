@@ -135,6 +135,8 @@
             <property name="throwsIndent" value="4"/>
             <property name="lineWrappingIndentation" value="4"/>
             <property name="arrayInitIndent" value="2"/>
+            <message key="indentation.error" value="你缩进了{1}个空格，正确应该缩进 {2}个空格。"/>
+            <message key="indentation.child.error" value="你缩进了{1}个空格，正确应该缩进 {2}个空格。"/>
         </module>
         <module name="AbbreviationAsWordInName">
             <property name="ignoreFinal" value="false"/>

@@ -6,6 +6,10 @@ import java.security.NoSuchAlgorithmException;
 
 import org.apache.log4j.Logger;
 
+/**
+ * 	SHA加密
+ *
+ */
 public abstract class SHA1Util {
 	
 	private static final Logger logger=Logger.getLogger(SHA1Util.class);

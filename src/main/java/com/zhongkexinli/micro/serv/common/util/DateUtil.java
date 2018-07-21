@@ -57,7 +57,7 @@ public abstract class DateUtil {
    */
   public static Date formatDate(String date, String format) {
     Date d = null;
-    if(date==null) {
+    if(date == null) {
     	return null;
     }
     try {
