@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
 
-  <groupId>com.zhongkexinli.cloud</groupId>
+  <groupId>com.thinkit.cloud</groupId>
   <artifactId>microservice-common-util</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
@@ -76,24 +76,24 @@
     </dependencies>
 
 <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <url>http://192.168.96.88:8081/nexus/content/repositories/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>http://192.168.96.88:8081/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
+<!--         <repository> -->
+<!--             <id>nexus-releases</id> -->
+<!--             <url>http://192.168.96.88:8081/nexus/content/repositories/releases</url> -->
+<!--         </repository> -->
+<!--         <snapshotRepository> -->
+<!--             <id>nexus-snapshots</id> -->
+<!--             <url>http://192.168.96.88:8081/nexus/content/repositories/snapshots</url> -->
+<!--         </snapshotRepository> -->
         
         <!--多种发布方式 https://issues.sonatype.org/ -->
-<!--         <snapshotRepository> -->
-<!--          <id>oss-snapshot</id> -->
-<!--          <url>https://oss.sonatype.org/content/repositories/snapshots</url> -->
-<!--         </snapshotRepository> -->
-<!--         <repository> -->
-<!--          <id>oss-releases</id> -->
-<!--          <url>https://oss.sonatype.org/content/groups/public</url> -->
-<!--         </repository> -->
+        <snapshotRepository>
+         <id>oss-snapshot</id>
+         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+         <id>oss-releases</id>
+         <url>https://oss.sonatype.org/content/groups/public</url>
+        </repository>
 	    
     </distributionManagement>
     
