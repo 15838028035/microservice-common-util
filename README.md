@@ -4,10 +4,26 @@ https://travis-ci.org/15838028035/microservice-common-util.svg?branch=master
     常见常用日期、字符串、数字、文件、异常、分页、树等公共类库
     
 # maven使用
- `
-    <depenency>com.thinkit.cloud</depency>
-    <artictId>microservice-common-util</artictId>
-    <version>0.0.1</version> `
+```xml
+    <dependency>com.thinkit.cloud</dependency>
+    <artifactId>microservice-common-util</artifactId>
+    <version>0.0.1</version> 
+  ```
+
+
+## SNAPSHOT版
+
+本项目的BUG修复和新特性一般会先发布在*-SNAPSHOT版里供大家预览，如果要使用*-SNAPSHOT版，则需要在你的pom.xml中添加这段：
+
+```xml
+<repositories>
+  <repository>
+      <snapshots />
+      <id>sonatype snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+  </repository>
+</repositories>
+```
 
 ## 环境准备：
 
