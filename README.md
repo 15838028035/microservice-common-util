@@ -1,6 +1,13 @@
 https://travis-ci.org/15838028035/microservice-common-util.svg?branch=master
 
 # 项目简介
+    常见常用日期、字符串、数字、文件、异常、分页、树等公共类库
+    
+# maven使用
+ `
+    <depenency>com.thinkit.cloud</depency>
+    <artictId>microservice-common-util</artictId>
+    <version>0.0.1</version> `
 
 ## 环境准备：
 
