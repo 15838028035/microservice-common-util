@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
 
-  <groupId>com.thinkit.cloud</groupId>
+  <groupId>cn.com.thinkit.cloud</groupId>
   <artifactId>microservice-common-util</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
