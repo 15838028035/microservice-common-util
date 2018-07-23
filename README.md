@@ -5,7 +5,7 @@ https://travis-ci.org/15838028035/microservice-common-util.svg?branch=master
     
 # maven使用
 ```xml
-    <dependency>com.thinkit.cloud</dependency>
+    <dependency>cn.com.thinkit.cloud</dependency>
     <artifactId>microservice-common-util</artifactId>
     <version>0.0.1</version> 
   ```
