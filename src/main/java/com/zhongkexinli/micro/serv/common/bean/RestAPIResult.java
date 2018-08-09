@@ -37,7 +37,7 @@ public class RestAPIResult<T> implements Serializable {
     private T respData = (T) new Object();
 
 //    @ApiModelProperty(value = "附加信息")
-    private Map<String, Object> respMap = new HashMap<String, Object>();
+    private Map<String, Object> respMap = new HashMap<>();
     
 //    @ApiModelProperty(value = "接口返回数据的签名信息")
     private String signature;
@@ -108,31 +108,31 @@ public class RestAPIResult<T> implements Serializable {
 		this.respMsg = errorMsg;
 		this.respCode =CommonConstants.ERROR;
 		this.respData = (T) new Object();
-		this.respMap = new HashMap<String, Object>();
+		this.respMap = new HashMap<>();
 	}
 	
 	public RestAPIResult(){
 		this.respData=(T) new Object();
-		this.respMap=new HashMap<String, Object>();
+		this.respMap=new HashMap<>();
 	}
  
 	public void success(T object){
 		this.respCode = CommonConstants.SUCCESS;
 		this.respMsg = CommonConstants.SUCCESS_MSG;
 		this.respData = object;
-		this.respMap=new HashMap<String, Object>();
+		this.respMap=new HashMap<>();
 	}
 	public void error(){
 		this.respCode = CommonConstants.ERROR;
 		this.respMsg = CommonConstants.FAIL;
 		this.respData=(T) new Object();
-		this.respMap=new HashMap<String, Object>();
+		this.respMap=new HashMap<>();
 	}
 	public void error(String message){
 		this.respCode = CommonConstants.ERROR;
 		this.respMsg = message;
 		this.respData=(T) new Object();
-		this.respMap=new HashMap<String, Object>();
+		this.respMap=new HashMap<>();
 	}
 	
 }

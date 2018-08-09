@@ -13,7 +13,7 @@ import org.junit.Test;
 import com.zhongkexinli.micro.serv.common.base.entity.BaseEntity;
 
 public class MapAndObjectTest {
-	Map map = new HashMap();
+	Map<Object,Object> map = new HashMap<>();
 	BaseEntity baseEntity = new BaseEntity();
 	
 	@Before

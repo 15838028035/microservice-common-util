@@ -51,7 +51,7 @@ public class PageTool {
    * @return 分页字符串信息
    */
   public static String pageToJsonLayui(Page page) {
-    Map<String, Object> mapResult = new HashMap<String, Object>();
+    Map<String, Object> mapResult = new HashMap<>();
     mapResult.put("pageNumber", page.getPageNumber());
     mapResult.put("pageSize", page.getPageSize());
     mapResult.put("page", page.getPageNumber());
