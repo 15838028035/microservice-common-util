@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * 
  * 分页对象
@@ -14,7 +16,7 @@ import java.util.List;
  */
 public class Page<T> implements Serializable {
 
-  private List<T> result = new ArrayList<>();
+  private  transient List<T> result = new ArrayList<>();
 
   private transient  T filters;
 
@@ -189,18 +191,16 @@ public class Page<T> implements Serializable {
    */
   public String toJsonString(Page page, List list) {
 
-///*FiXED ：处理
-//    JSONObject all = new JSONObject();
-//    if (list == null) {
-//      all.put(JSONROWS, "");
-//    } else {
-//      all.put(JSONROWS, JSONArray.fromObject(list, cfg));
-//    }
-//
-//    all.put(JSONPAGE, page);
-//    String jsonString = all.toString();
-//    return jsonString;
-    return null;
+    JSONObject all = new JSONObject();
+    if (list == null) {
+      all.put(JSONROWS, "");
+    } else {
+      all.put(JSONROWS, all.toJSONString(list));
+    }
+
+    all.put(JSONPAGE, page);
+    String jsonString = all.toString();
+    return jsonString;
   }
 
   /**
@@ -211,15 +211,7 @@ public class Page<T> implements Serializable {
    * @return 获得json字符串
    */
   public static String toJsonString(Object object) {
-  /*FiXED ：处理
-    JsonConfig cfg = new JsonConfig();
-    DateJsonFormat df = new DateJsonFormat();
-    cfg.registerJsonValueProcessor(java.util.Date.class, df);
-
-    JSONObject all = JSONObject.fromObject(object, cfg);
-    String jsonString = all.toString();
-    return jsonString;*/
-    return null;
+    return JSONObject.toJSONString(object);
   }
 
 }

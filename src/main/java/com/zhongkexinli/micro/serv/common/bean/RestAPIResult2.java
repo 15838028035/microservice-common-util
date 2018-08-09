@@ -2,7 +2,6 @@
 package com.zhongkexinli.micro.serv.common.bean;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
 import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
 
