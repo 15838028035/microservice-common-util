@@ -1047,7 +1047,7 @@ public abstract class DateUtil {
     Calendar tempCal = Calendar.getInstance(locale);
     tempCal.set(Calendar.DAY_OF_WEEK, tempCal.getFirstDayOfWeek());
     SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE", locale);
-    List<String> resultList = new ArrayList<String>();
+    List<String> resultList = new ArrayList<>();
     for (int i = 0; i < 7; i++) {
       resultList.add(dateFormat.format(tempCal.getTime()));
       tempCal.roll(Calendar.DAY_OF_WEEK, 1);
@@ -1065,7 +1065,7 @@ public abstract class DateUtil {
     Calendar tempCal = Calendar.getInstance(locale);
     tempCal.set(Calendar.MONTH, Calendar.JANUARY);
     SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM", locale);
-    List<String> resultList = new ArrayList<String>();
+    List<String> resultList = new ArrayList<>();
     for (int i = Calendar.JANUARY; i <= tempCal.getActualMaximum(Calendar.MONTH); i++) {
       resultList.add(dateFormat.format(tempCal.getTime()));
       tempCal.roll(Calendar.MONTH, 1);

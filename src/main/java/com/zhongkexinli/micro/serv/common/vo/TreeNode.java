@@ -14,7 +14,7 @@ public class TreeNode {
         this.children = children;
     }
 
-    List<TreeNode> children = new ArrayList<TreeNode>();
+    List<TreeNode> children = new ArrayList<>();
 
     public int getId() {
         return id;

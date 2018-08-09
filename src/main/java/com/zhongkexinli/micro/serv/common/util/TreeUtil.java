@@ -28,7 +28,7 @@ public abstract class TreeUtil{
       for (T it : treeNodes) {
         if (it.getParentId() == treeNode.getId()) {
           if (treeNode.getChildren() == null) {
-            treeNode.setChildren(new ArrayList<TreeNode>());
+            treeNode.setChildren(new ArrayList<>());
           }
           treeNode.add(it);
         }
@@ -63,7 +63,7 @@ public abstract class TreeUtil{
     for (T it : treeNodes) {
       if (treeNode.getId() == it.getParentId()) {
         if (treeNode.getChildren() == null) {
-          treeNode.setChildren(new ArrayList<TreeNode>());
+          treeNode.setChildren(new ArrayList<>());
         }
         treeNode.add(findChildren(it, treeNodes));
       }

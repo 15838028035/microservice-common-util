@@ -16,7 +16,7 @@ public class TreeNodeTest {
 		treeNode.setId(0);
 		treeNode.setParentId(0);
 		
-		List<TreeNode> children = new ArrayList<TreeNode>();
+		List<TreeNode> children = new ArrayList<>();
 		
 		TreeNode treeNode1 = new TreeNode();
 		treeNode1.setId(1);

@@ -26,7 +26,7 @@ public class LayuiXtreeTest {
 
 	@Test
 	public void setDataTest() {
-		List<LayuiXtree> data = new ArrayList<LayuiXtree>();
+		List<LayuiXtree> data = new ArrayList<>();
 		LayuiXtree layuiXtree1 = new LayuiXtree();
 		layuiXtree1.setTitle("title1");
 		
@@ -42,7 +42,7 @@ public class LayuiXtreeTest {
 
 	@Test
 	public void testAdd() {
-		List<LayuiXtree> data = new ArrayList<LayuiXtree>();
+		List<LayuiXtree> data = new ArrayList<>();
 		LayuiXtree layuiXtree1 = new LayuiXtree();
 		layuiXtree1.setTitle("title1");
 		

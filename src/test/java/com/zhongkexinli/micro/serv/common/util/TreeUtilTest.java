@@ -22,7 +22,7 @@ public class TreeUtilTest {
 		treeNode2.setId(2);
 		treeNode2.setParentId(1);
 		
-		List<TreeNode> treeNodes = new ArrayList<TreeNode>();
+		List<TreeNode> treeNodes = new ArrayList<>();
 		
 		treeNodes.add(treeNode1);
 		treeNodes.add(treeNode2);
@@ -46,7 +46,7 @@ public class TreeUtilTest {
 		treeNode2.setId(2);
 		treeNode2.setParentId(1);
 		
-		List<TreeNode> treeNodes = new ArrayList<TreeNode>();
+		List<TreeNode> treeNodes = new ArrayList<>();
 		
 		treeNodes.add(treeNode1);
 		treeNodes.add(treeNode2);
@@ -70,7 +70,7 @@ public class TreeUtilTest {
 		treeNode2.setId(2);
 		treeNode2.setParentId(1);
 		
-		List<TreeNode> treeNodes = new ArrayList<TreeNode>();
+		List<TreeNode> treeNodes = new ArrayList<>();
 		
 		treeNodes.add(treeNode1);
 		treeNodes.add(treeNode2);

@@ -155,14 +155,16 @@ public abstract class StringUtil {
    */
   public static String zeroStrEx(String sourceStr, int strLen) {
     String s = sourceStr.trim();
+    StringBuilder sb = new StringBuilder();
+    
     if (s.length() > strLen) {
       return sourceStr;
     } else {
       int l = strLen - s.length();
       for (int i = 0; i < l; i++) {
-        s = "0" + s;
+        sb.append("0"+s);
       }
-      return s;
+      return sb.toString();
     }
   }
 
@@ -246,42 +248,28 @@ public abstract class StringUtil {
    * 判断字符串非空
    */
   public static boolean isBlank(String str) {
-    if (str != null && !str.trim().equals("")) {
-      return false;
-    } else {
-      return true;
-    }
+    return str != null && !str.trim().equals("");
   }
 
   /**
    * 判断字符串数组空
    */
   public static boolean isBlank(String[] str) {
-    if (str == null || str.length == 0) {
-      return true;
-    }
-    return false;
+    return str == null || str.length == 0;
   }
 
   /**
    * 判断字符串非空
    */
   public static boolean isNotBlank(String str) {
-    if (str != null && !str.trim().equals("")) {
-      return true;
-    } else {
-      return false;
-    }
+    return str != null && !str.trim().equals("");
   }
 
   /**
    * 判断字符串非空
    */
   public static boolean isNotBlank(String[] str) {
-    if (str == null || str.length == 0) {
-      return false;
-    }
-    return true;
+    return str == null || str.length == 0;
   }
 
   /**
@@ -564,7 +552,7 @@ public abstract class StringUtil {
    * @return 字符串集合
    */
   public static List<String> splitString(String str, int length) {
-    List<String> list = new ArrayList<String>();
+    List<String> list = new ArrayList<>();
     for (int i = 0; i < str.length(); i += length) {
       int endIndex = i + length;
       if (endIndex <= str.length()) {
@@ -588,12 +576,12 @@ public abstract class StringUtil {
    * @return 转化后的字符串
    */
   public static String toString(List<String> list, String separator) {
-    StringBuilder StringBuilder = new StringBuilder();
+    StringBuilder stringBuilder = new StringBuilder();
     for (String str : list) {
-      StringBuilder.append(separator + str);
+    	stringBuilder.append(separator + str);
     }
-    StringBuilder.deleteCharAt(0);
-    return StringBuilder.toString();
+    stringBuilder.deleteCharAt(0);
+    return stringBuilder.toString();
   }
 
   /**
@@ -607,7 +595,7 @@ public abstract class StringUtil {
     str = trimBlank(str);
     String[] strArray = str.split(",");
 
-    List<String> strList = new ArrayList<String>();
+    List<String> strList = new ArrayList<>();
     for (String strObj : strArray) {
       strList.add(strObj);
     }
@@ -624,14 +612,15 @@ public abstract class StringUtil {
    * @return 将数组键转为为字符串,以分隔符分割开来,分割后的字符串不加单引号
    */
   public static String convertArrayToSplitString(Object[] array, String splitStr) {
-    String toString = "";
+    StringBuilder stringBuilder = new StringBuilder();
     for (int i = 0; i < array.length; i++) {
       if (i > 0) {
-        toString += splitStr;
+    	  stringBuilder.append(splitStr);
+        
       }
-      toString += array[i].toString();
+      stringBuilder.append(array[i].toString());
     }
-    return toString;
+    return stringBuilder.toString();
   }
 
   /**
@@ -644,14 +633,15 @@ public abstract class StringUtil {
    * @return 将数组键转为为字符串,以分隔符分割开来,分割后的字符串加单引号
    */
   public static String convertArrayToSplitString2(Object[] array, String splitStr) {
-    String toString = "";
+	  StringBuilder stringBuilder = new StringBuilder();
     for (int i = 0; i < array.length; i++) {
       if (i > 0) {
-        toString += splitStr;
+    	  stringBuilder.append(splitStr);
       }
-      toString += "'" + array[i].toString() + "'";
+      
+      stringBuilder.append("'" + array[i].toString() + "'");
     }
-    return toString;
+    return stringBuilder.toString();
   }
 
   /**
@@ -961,20 +951,21 @@ public abstract class StringUtil {
    * @return xxx,fsd,erwr形式的字符串
    */
   public static String getStrSplitWithChar(List<String> list, String str) {
-    String result = "";
+    StringBuilder result = new StringBuilder();
+    
     if (list == null) {
-      return result;
+      return "";
     }
     for (int i = 0; i < list.size(); i++) {
-      result += list.get(i) + str;
+      result.append( list.get(i) + str);
     }
-    if (result.endsWith(str)) {
+    if (result.toString().endsWith(str)) {
       int pos = result.lastIndexOf(str);
       if (pos > -1) {
-        result = result.substring(0, pos);
+    	 return  result.toString().substring(0, pos);
       }
     }
-    return result;
+    return result.toString();
   }
 
   /**

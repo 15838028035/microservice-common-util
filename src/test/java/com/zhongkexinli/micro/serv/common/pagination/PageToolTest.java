@@ -17,7 +17,7 @@ public class PageToolTest {
 
   @Test
   public void pageToJsonLayuiTest() {
-    List<TestClass1> TestClass1 = new ArrayList<TestClass1>();
+    List<TestClass1> TestClass1 = new ArrayList<>();
 
     Page page = new Page(20);
     page.setPageNumber(10);

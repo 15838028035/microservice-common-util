@@ -20,7 +20,7 @@ public class LayuiXtree {
 	private String value;
 	
 	@ApiModelProperty(value = "子节点列表")
-	private List<LayuiXtree> data = new ArrayList<LayuiXtree>();
+	private List<LayuiXtree> data = new ArrayList<>();
 
 	public String getTitle() {
 		return title;

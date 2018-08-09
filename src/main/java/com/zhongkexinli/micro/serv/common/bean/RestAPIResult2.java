@@ -36,7 +36,7 @@ public class RestAPIResult2<T> implements Serializable {
   private String token;//token
 
   private Object respData;
-  private String LoginFlag;//判断是否跳登录
+  private String loginFlag;//判断是否跳登录
     
   private String loginNo;
     public String getLoginNo() {
@@ -109,11 +109,11 @@ public class RestAPIResult2<T> implements Serializable {
 	}
 
 	public String getLoginFlag() {
-		return LoginFlag;
+		return loginFlag;
 	}
 
 	public void setLoginFlag(String loginFlag) {
-		LoginFlag = loginFlag;
+		this.loginFlag = loginFlag;
 	}
 	
 }

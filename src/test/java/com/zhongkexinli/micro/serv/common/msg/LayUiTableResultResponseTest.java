@@ -14,7 +14,7 @@ public class LayUiTableResultResponseTest {
 
 	@Test
 	public void LayUiTableResultResponseTest1() {
-		List<BaseEntity> dataList = new ArrayList<BaseEntity>();
+		List<BaseEntity> dataList = new ArrayList<>();
 		BaseEntity baseEntity = new BaseEntity();
 		for(int i=0;i<100;i++) {
 			
@@ -35,7 +35,7 @@ public class LayUiTableResultResponseTest {
 	
 	@Test
 	public void LayUiTableResultResponseTest2() {
-		List<BaseEntity> dataList = new ArrayList<BaseEntity>();
+		List<BaseEntity> dataList = new ArrayList<>();
 		BaseEntity baseEntity = new BaseEntity();
 		for(int i=0;i<100;i++) {
 			
@@ -56,7 +56,7 @@ public class LayUiTableResultResponseTest {
 	
 	@Test
 	public void LayUiTableResultResponseTest3() {
-		List<BaseEntity> dataList = new ArrayList<BaseEntity>();
+		List<BaseEntity> dataList = new ArrayList<>();
 		BaseEntity baseEntity = new BaseEntity();
 		for(int i=0;i<100;i++) {
 			
