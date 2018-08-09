@@ -58,11 +58,11 @@ public class PageTool {
     mapResult.put("totalPage", page.getTotalPages());
     mapResult.put("total", page.getTotalCount());
     mapResult.put("rows", page.getResult());
-    return page.toJsonString(mapResult);
+    return Page.toJsonString(mapResult);
   }
   
-  public static String toJsonString(Page page, Object object) {
-    return page.toJsonString(object);
+  public static String toJsonString(Object object) {
+    return Page.toJsonString(object);
   }
 
   public String toJsonString(Page page, List list) {

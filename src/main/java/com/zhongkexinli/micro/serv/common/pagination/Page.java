@@ -139,6 +139,10 @@ public class Page<T> implements Serializable {
   public int getThisPageNumber() {
     return pageNumber;
   }
+  
+  public int getPageNumber() {
+    return pageNumber;
+  }
 
   public List<Integer> getLinkPageNumbers() {
     return PageUtils.generateLinkPageNumbers(getThisPageNumber(), getLastPageNumber(), 10);
@@ -147,11 +151,7 @@ public class Page<T> implements Serializable {
   public int getFirstResult() {
     return PageUtils.getFirstResult(pageNumber, pageSize);
   }
-
-  public int getPageNumber() {
-    return pageNumber;
-  }
-
+  
   public void setPageNumber(int pageNumber) {
     this.pageNumber = pageNumber;
   }
@@ -195,12 +195,11 @@ public class Page<T> implements Serializable {
     if (list == null) {
       all.put(JSONROWS, "");
     } else {
-      all.put(JSONROWS, all.toJSONString(list));
+      all.put(JSONROWS, JSONObject.toJSONString(list));
     }
 
     all.put(JSONPAGE, page);
-    String jsonString = all.toString();
-    return jsonString;
+    return  all.toString();
   }
 
   /**

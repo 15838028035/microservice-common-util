@@ -219,7 +219,7 @@ public abstract class FileUtil {
         file.mkdirs();
       }
     } catch (Exception ex) {
-      System.err.println("Make Folder Error:" + ex.getMessage());
+      logger.error("createFolder  Error:" + ex.getMessage(),ex);
     }
   }
   
@@ -266,8 +266,6 @@ public abstract class FileUtil {
         fileContent = fileContent + line + "\n";
       }
       read.close();
-      read = null;
-      reader.close();
       read = null;
     } catch (Exception ex) {
       fileContent = "";
