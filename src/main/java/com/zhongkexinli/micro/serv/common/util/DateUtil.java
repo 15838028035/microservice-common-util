@@ -562,13 +562,13 @@ public abstract class DateUtil {
     String minute;
     String second;
 
-    int dateSlash1 = date.indexOf("/");
-    int dateSlash2 = date.lastIndexOf("/");
+    int dateSlash1 = date.indexOf('/');
+    int dateSlash2 = date.lastIndexOf('/');
 
     if (dateSlash1 <= 0 || dateSlash1 == dateSlash2)
       return null;
-    int timeColon1 = time.indexOf(":");
-    int timeColon2 = time.lastIndexOf(":");
+    int timeColon1 = time.indexOf(':');
+    int timeColon2 = time.lastIndexOf(':');
 
     if (timeColon1 <= 0)
       return null;
@@ -607,7 +607,12 @@ public abstract class DateUtil {
    */
   public static Date toDate(String monthStr, String dayStr, String yearStr, String hourStr, String minuteStr,
       String secondStr) {
-    int month, day, year, hour, minute, second;
+    int month;
+    int day;
+    int year;
+    int hour;
+    int minute;
+    int second;
 
     try {
       month = Integer.parseInt(monthStr);
@@ -659,8 +664,9 @@ public abstract class DateUtil {
    * @return A date String in the given format
    */
   public static String toDateString(Date date, String format) {
-    if (date == null)
+    if (date == null) {
       return "";
+    }
     SimpleDateFormat dateFormat = null;
     if (format != null) {
       dateFormat = new SimpleDateFormat(format);

@@ -4,6 +4,11 @@ package com.zhongkexinli.micro.serv.common.constant;
  * Created by ace on 2017/8/29.
  */
 public final class CommonConstants {
+
+  private CommonConstants() {
+   //单例
+  }
+  
   public static final String RESOURCE_TYPE_MENU = "menu";
   public static final String RESOURCE_TYPE_BTN = "button";
   // 用户token异常

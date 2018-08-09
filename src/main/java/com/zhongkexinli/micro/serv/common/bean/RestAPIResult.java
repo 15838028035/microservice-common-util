@@ -34,10 +34,10 @@ public class RestAPIResult<T> implements Serializable {
 
     @SuppressWarnings("unchecked")
 //    @ApiModelProperty(value = "respCode为1时返回结果")
-    private T respData = (T) new Object();
+    private transient  T respData = (T) new Object();
 
 //    @ApiModelProperty(value = "附加信息")
-    private Map<String, Object> respMap = new HashMap<>();
+    private transient Map<String, Object> respMap = new HashMap<>();
     
 //    @ApiModelProperty(value = "接口返回数据的签名信息")
     private String signature;

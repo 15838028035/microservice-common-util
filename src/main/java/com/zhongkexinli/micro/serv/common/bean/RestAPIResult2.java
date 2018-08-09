@@ -2,6 +2,7 @@
 package com.zhongkexinli.micro.serv.common.bean;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
 
@@ -35,7 +36,7 @@ public class RestAPIResult2<T> implements Serializable {
   @ApiModelProperty(value = "token")
   private String token;//token
 
-  private Object respData;
+  private transient Object respData;
   private String loginFlag;//判断是否跳登录
     
   private String loginNo;
@@ -74,6 +75,7 @@ public class RestAPIResult2<T> implements Serializable {
 	public void success(T object){
 		this.respCode = CommonConstants.SUCCESS;
 		this.respMsg = CommonConstants.SUCCESS_MSG;
+	  this.respData = object;
 	}
 	public void error(){
 		this.respCode = CommonConstants.ERROR;

@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class PageRequest<T> implements Serializable {
 
-  private T filters;
+  private transient T filters;
 
   private int pageNumber;
 

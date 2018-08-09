@@ -82,7 +82,7 @@ public class DesUtil {
    * @throws IOException 异常
    * @throws Exception 异常
    */
-  public static String decrypt(String data) throws IOException, Exception {
+  public static String decrypt(String data) throws  Exception {
     return decrypt(data, DES_KEY);
   }
    
@@ -96,7 +96,7 @@ public class DesUtil {
    * @throws IOException 异常
    * @throws Exception 异常
    */
-  public static String decrypt(String data, String key) throws IOException, Exception {
+  public static String decrypt(String data, String key) throws Exception {
     if (data == null) {
       return null;
     }

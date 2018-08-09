@@ -14,9 +14,9 @@ import java.util.List;
  */
 public class Page<T> implements Serializable {
 
-  private List<T> result = new ArrayList<T>();
+  private List<T> result = new ArrayList<>();
 
-  private T filters;
+  private transient  T filters;
 
   private int pageSize;
   private int pageNumber;

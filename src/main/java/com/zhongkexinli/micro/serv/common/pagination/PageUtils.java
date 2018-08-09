@@ -59,7 +59,7 @@ public class PageUtils {
 
     List<Integer> result = new ArrayList<>();
     for (int i = startPageNumber; i <= endPageNumber; i++) {
-      result.add(new Integer(i));
+      result.add(i);
     }
     return result;
   }
