@@ -50,7 +50,6 @@ public abstract class FileUtil {
         outputStream.write(by, 0, c);
       }
     } catch (IOException e) {
-    	e.printStackTrace();
       logger.error(e);
     }finally {
       if(outputStream!=null) {
@@ -66,7 +65,6 @@ public abstract class FileUtil {
         try {
           in.close();
         } catch (IOException e) {
-        	e.printStackTrace();
           logger.error(e);
         }
       }
@@ -140,7 +138,7 @@ public abstract class FileUtil {
     if (code == null || code.equals("")) {
       code = "UTF-8";
     }
-    String fileContent = "";
+    StringBuilder fileContent = new StringBuilder();
     File file = new File(filePath);
     InputStreamReader read = null;
     BufferedReader reader = null;
@@ -150,14 +148,14 @@ public abstract class FileUtil {
        reader = new BufferedReader(read);
       String line;
       while ((line = reader.readLine()) != null) {
-        fileContent = fileContent + line + "\n";
+        fileContent.append(line + "\n");
       }
       read.close();
       read = null;
       reader.close();
       read = null;
     } catch (Exception ex) {
-      fileContent = "";
+      fileContent = new StringBuilder("");
       logger.error(ex);
     }finally {
       if(read!=null) {

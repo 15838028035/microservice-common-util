@@ -89,7 +89,7 @@ public abstract class DateUtil {
 
   public static int getIntervalDays(Date fDate, Date oDate) {
 
-    if (null == fDate || null == oDate) {
+    if (null == fDate || null == oDate ) {
       return -1;
     }
 
@@ -104,6 +104,10 @@ public abstract class DateUtil {
 
     Date fDate = formatDate(fDateStr, DATE_FOMRAT_yyyy_MM_dd_HH_MMss);
     Date oDate = formatDate(oDateStr, DATE_FOMRAT_yyyy_MM_dd_HH_MMss);
+    
+    if (null == fDate || null == oDate ) {
+        return -1;
+      }
 
     long intervalMilli = fDate.getTime() - oDate.getTime();
     return (int) (intervalMilli / (24 * 60 * 60 * 1000));
@@ -1324,9 +1328,6 @@ public abstract class DateUtil {
 //获取本周的开始时间
   public static Date getBeginDayOfWeek() {
       Date date = new Date();
-      if (date == null) {
-          return null;
-      }
       Calendar cal = Calendar.getInstance();
       cal.setTime(date);
       int dayofweek = cal.get(Calendar.DAY_OF_WEEK);

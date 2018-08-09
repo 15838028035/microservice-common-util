@@ -56,7 +56,6 @@ public class Page<T> implements Serializable {
     if (pageNumber == 0) {
       pageNumber = 1;
     }
-    this.pageNumber = pageNumber;
     this.pageSize = pageSize;
     setFilters(filters);
     setSortColumns(sortColumns);
