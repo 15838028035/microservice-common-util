@@ -173,7 +173,7 @@ public abstract class FileUtil {
         }
       }
     }
-    return fileContent;
+    return fileContent.toString();
   }
 
   /**
