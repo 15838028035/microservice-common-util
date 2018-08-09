@@ -24,7 +24,7 @@ public class LayUiTableResultResponseTest {
 			
 		}
 		
-		LayUiTableResultResponse layUiTableResultResponse = new LayUiTableResultResponse<BaseEntity>(100L, dataList);
+		LayUiTableResultResponse layUiTableResultResponse = new LayUiTableResultResponse(100L, dataList);
 		
 		assertTrue(layUiTableResultResponse!=null);
 		assertEquals("0",layUiTableResultResponse.getCode());
@@ -45,7 +45,7 @@ public class LayUiTableResultResponseTest {
 			
 		}
 		
-		LayUiTableResultResponse layUiTableResultResponse = new LayUiTableResultResponse<BaseEntity>("0","okay",100L, dataList);
+		LayUiTableResultResponse layUiTableResultResponse = new LayUiTableResultResponse("0","okay",100L, dataList);
 		
 		assertTrue(layUiTableResultResponse!=null);
 		assertEquals("0",layUiTableResultResponse.getCode());
@@ -66,7 +66,7 @@ public class LayUiTableResultResponseTest {
 			
 		}
 		
-		LayUiTableResultResponse layUiTableResultResponse = new LayUiTableResultResponse<BaseEntity>("0","okay",100L, dataList);
+		LayUiTableResultResponse layUiTableResultResponse = new LayUiTableResultResponse("0","okay",100L, dataList);
 		
 		layUiTableResultResponse.setCode("1");
 		layUiTableResultResponse.setMsg("okayMsg");

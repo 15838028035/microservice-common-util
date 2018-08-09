@@ -17,7 +17,7 @@ public abstract class TreeUtil{
    */
   public static <T extends TreeNode> List<T> bulid(List<T> treeNodes,Object root) {
 
-    List<T> trees = new ArrayList<T>();
+    List<T> trees = new ArrayList<>();
 
     for (T treeNode : treeNodes) {
 
@@ -44,7 +44,7 @@ public abstract class TreeUtil{
    * @return
    */
   public static <T extends TreeNode> List<T> buildByRecursive(List<T> treeNodes,Object root) {
-    List<T> trees = new ArrayList<T>();
+    List<T> trees = new ArrayList<>();
     for (T treeNode : treeNodes) {
       if (root.equals(treeNode.getParentId())) {
         trees.add(findChildren(treeNode, treeNodes));

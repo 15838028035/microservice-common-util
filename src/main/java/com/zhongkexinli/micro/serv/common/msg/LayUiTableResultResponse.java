@@ -10,11 +10,10 @@ import io.swagger.annotations.ApiModelProperty;
  * 
  * layui分页相应信息
  *
- * @param <T>
  *            PO对象
  */
 @ApiModel(value = "layui分页相应信息")
-public class LayUiTableResultResponse<T> {
+public class LayUiTableResultResponse {
   @ApiModelProperty(value = "编码")
   private String code;
   @ApiModelProperty(value = "消息")

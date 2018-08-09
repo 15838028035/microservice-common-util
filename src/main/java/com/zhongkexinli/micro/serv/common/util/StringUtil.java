@@ -32,6 +32,10 @@ public abstract class StringUtil {
 
   private static Log logger = LogFactory.getLog(StringUtil.class);
   
+  private StringUtil() {
+	  
+  }
+  
   public static final String UPPERCASE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   public static final String LOWERCASE_CHARS = "abcdefghijklmnopqrstuvwxyz";
   public static final String NUMBER_CHARS = "0123456789";
@@ -896,8 +900,8 @@ public abstract class StringUtil {
     if (fileName != null) {
       fileName = fileName.replace('\\', '/');
 
-      if (fileName.lastIndexOf("/") > 0) {
-        fileName = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.length());
+      if (fileName.lastIndexOf('/') > 0) {
+        fileName = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.length());
       }
 
       int i = fileName.lastIndexOf('.');
@@ -931,8 +935,8 @@ public abstract class StringUtil {
         }
 
       }
-      if (fileName.lastIndexOf("/") > 0) {
-        fileName = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.length());
+      if (fileName.lastIndexOf('/') > 0) {
+        fileName = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.length());
       }
 
       return fileName;
