@@ -489,8 +489,7 @@ public  class DateUtil {
     Calendar c = Calendar.getInstance();
     c.setTimeInMillis(stamp.getTime());
     c.add(calendarField, amount);
-    Timestamp retStamp = new Timestamp(c.getTime().getTime());
-    return retStamp;
+    return  new Timestamp(c.getTime().getTime());
   }
 
   // ----- New methods that take a timezone and locale -- //
@@ -874,7 +873,6 @@ public  class DateUtil {
     } else if (data instanceof Long) {
       return new Date((Long) data);
     } else if (data instanceof String) {
-      // TODO 1.4-dev ignore
     }
     return result;
   }

@@ -922,7 +922,7 @@ public abstract class StringUtil {
    */
   public static String getShortFileName(String fileName) {
     if (fileName != null) {
-      String oldFileName = new String(fileName);
+      String oldFileName = fileName;
 
       fileName = fileName.replace('\\', '/');
 
@@ -1022,9 +1022,7 @@ public abstract class StringUtil {
     }
     Pattern p = Pattern.compile("\\s*|\t|\r|\n");
     Matcher m = p.matcher(srcStr);
-    String after = m.replaceAll("");
-    return after;
-
+    return  m.replaceAll("");
   }
 
   /**
@@ -1039,8 +1037,7 @@ public abstract class StringUtil {
     }
     Pattern p = Pattern.compile("\\t|\r|\n");
     Matcher m = p.matcher(srcStr);
-    String after = m.replaceAll("");
-    return after;
+    return  m.replaceAll("");
   }
 
   public static String replaceHtmlEdit(String inputStr) {
@@ -1161,7 +1158,7 @@ public abstract class StringUtil {
   public static String props(Object o) {
     Class cls = o.getClass();
     String  className = cls.getName();
-    StringBuilder sb = new StringBuilder();
+    StringBuilder sb = new StringBuilder(64);
     sb.append("**** " + className + " attribute list begin **\r\n");
     while (cls != null) {
       Method[] mth = cls.getDeclaredMethods();
@@ -1197,8 +1194,7 @@ public abstract class StringUtil {
       return "";
     }
     try {
-      String flowContentStr = new String(b, "UTF-8");
-      return flowContentStr;
+      return  new String(b, "UTF-8");
     } catch (Exception e) {
       logger.error(e);
     }
@@ -1241,11 +1237,9 @@ public abstract class StringUtil {
       obj = ois.readObject();
       ois.close();
       bis.close();
-    } catch (IOException ex) {
+    } catch (IOException | ClassNotFoundException ex) {
       logger.error(ex);
-    } catch (ClassNotFoundException ex) {
-      logger.error(ex);
-    }
+    }   
     return obj;
   }
   
@@ -1260,16 +1254,16 @@ public abstract class StringUtil {
    * @param newStr
    *          替换为的新字符串
    */
-  public static String replaceStr(String source, String strArray[], String newStr) {
-	  String result = "";
+  public static String replaceStr(String source, String []strArray, String newStr) {
+	  StringBuilder result = new StringBuilder();
 	  
 	  	for(String str: strArray){
 	  		if(source.indexOf(str)!=-1){
-	  			result=result +source.replaceFirst(str, newStr);
+	  			result.append(source.replaceFirst(str, newStr));
 	  		}
 	  	}
 	  
-	  return result;
+	  return result.toString();
   }
   
 }
