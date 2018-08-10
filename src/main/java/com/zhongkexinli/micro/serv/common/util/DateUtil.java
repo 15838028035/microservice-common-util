@@ -872,8 +872,7 @@ public  class DateUtil {
       return (Date) data;
     } else if (data instanceof Long) {
       return new Date((Long) data);
-    } else if (data instanceof String) {
-    }
+    } 
     return result;
   }
 

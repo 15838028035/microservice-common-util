@@ -77,4 +77,8 @@ public class Query extends LinkedHashMap<String, Object> {
     this.limit = limit;
   }
   
+  @Override
+  public String toString() {
+    return super.toString();
+  }
 }

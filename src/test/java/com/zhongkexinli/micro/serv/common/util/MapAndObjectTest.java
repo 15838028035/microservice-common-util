@@ -42,14 +42,14 @@ public class MapAndObjectTest {
 	public void test() {
 		
 		MapAndObject m = new MapAndObject(map,baseEntity);
-		assertEquals("manager",m.get("createByUname"));
+		assertNull(m.get("createByUnameA"));
 		
-		map.put("createByUname", null);
+		map.put("createBy", 1);
 		assertEquals(1 ,m.get("createBy"));
 		
 		baseEntity.setCreateBy(null);
-		assertEquals(null ,m.get("createBy"));
-		
+	  assertEquals(1 ,m.get("createBy"));
+	  
 		assertNull(m.get("9527name"));
 		assertNull(m.get("notexistmethod"));
 	}
@@ -64,7 +64,6 @@ public class MapAndObjectTest {
 			assertNull(m.get(random));
 		}
 		long cost = System.currentTimeMillis() - start;
-		System.out.println("MapAndObject.get() costTime:"+cost+" per request cost:"+(cost/(float)count)+" count="+count);
 		assertTrue("MapAndObject.get() costTime:234 per request cost:0.00234 count=100000",cost < 1000);
 	}
 	

@@ -22,7 +22,12 @@ import org.apache.commons.logging.LogFactory;
  * 文件工具类
  *
  */
-public abstract class FileUtil {
+public  class FileUtil {
+  
+  private FileUtil() {
+    
+  }
+  
   public static final int DEFAULT_CHUNK_SIZE = 1024;
   public static final int BUFFERSIZE = 4096;
   
@@ -229,8 +234,7 @@ public abstract class FileUtil {
    */
   public static String readFile(String resource) {
     InputStream stream = getResourceAsStream(resource);
-    String content = readStreamToString(stream);
-    return content;
+    return readStreamToString(stream);
   }
 
   /**
@@ -255,21 +259,21 @@ public abstract class FileUtil {
    * @return 将输入流转换成字符 
    */
   public static String readStreamToString(InputStream stream) {
-    String fileContent = "";
+    StringBuilder fileContent = new StringBuilder();
 
     try {
       InputStreamReader read = new InputStreamReader(stream, "utf-8");
       BufferedReader reader = new BufferedReader(read);
       String line;
       while ((line = reader.readLine()) != null) {
-        fileContent = fileContent + line + "\n";
+        fileContent.append(line + "\n");
       }
       read.close();
       read = null;
     } catch (Exception ex) {
-      fileContent = "";
+      fileContent = new StringBuilder();
     }
-    return fileContent;
+    return fileContent.toString();
   }
 
   public static byte[] readStreamToByte(InputStream stream) throws Exception {
