@@ -223,10 +223,8 @@ public abstract class StringUtil {
    * @return int 行数
    */
   public static int getRow(int length, int size) {
-    int shang = 0;
-    int yu = 0;
-    shang = length / size;
-    yu = length % size;
+    int shang = length / size;
+    int yu = length % size;
     if (yu > 0) {
       return shang + 1;
     } else {
@@ -382,6 +380,7 @@ public abstract class StringUtil {
       Integer.parseInt(str);
       return true;
     } catch (Exception ex) {
+      logger.error(ex);
       return false;
     }
   }
@@ -440,6 +439,7 @@ public abstract class StringUtil {
     try {
       Long.valueOf(s);
     } catch (Exception e) {
+      logger.error(e);
       return false;
     }
     return true;
@@ -667,7 +667,7 @@ public abstract class StringUtil {
   public static final String[] stringToArray(String str, String separators) {
     StringTokenizer tokenizer;
     String[] array = null;
-    int count = 0;
+   
     if (str == null) {
       return array;
     }
@@ -675,7 +675,8 @@ public abstract class StringUtil {
       separators = ",";
     }
     tokenizer = new StringTokenizer(str, separators);
-    if ((count = tokenizer.countTokens()) <= 0) {
+    int count = tokenizer.countTokens();
+    if (count  <= 0) {
       return array;
     }
     array = new String[count];
@@ -842,7 +843,6 @@ public abstract class StringUtil {
     int findStartPos = 0;
     int a = 0;
     while (a > -1) {
-      int b = 0;
       String str1;
       String str2;
       String str3;
@@ -862,7 +862,7 @@ public abstract class StringUtil {
       }
       a = strA.indexOf(strB, findStartPos);
       if (a > -1) {
-        b = oldStr.length();
+        int b = oldStr.length();
         findStartPos = a + b;
         StringBuilder bbuf = new StringBuilder(source);
         source = bbuf.replace(a, a + b, newStr) + "";
@@ -1102,9 +1102,8 @@ public abstract class StringUtil {
    */
   public static String generateRandomChars(String seed, int n) {
     StringBuilder radomChars = new StringBuilder();
-    BigDecimal random = null;
     for (int i = 0; i < n; i++) {
-      random = BigDecimal.valueOf(Math.random() * (seed.length() - 1));
+      BigDecimal random = BigDecimal.valueOf(Math.random() * (seed.length() - 1));
       random = random.setScale(0, BigDecimal.ROUND_HALF_UP);
       radomChars.append(seed.charAt(random.intValue()));
     }
@@ -1119,12 +1118,11 @@ public abstract class StringUtil {
    */
   public static String randomOrder(String oldStr) {
     StringBuilder newStr = new StringBuilder();
-    String theChar = "";
 
     StringBuilder sb = new StringBuilder(oldStr);
 
     for (int j = 0; j < oldStr.length(); j++) {
-      theChar = generateRandomChars(sb.toString(), 1);
+      String theChar = generateRandomChars(sb.toString(), 1);
       sb.deleteCharAt(sb.indexOf(theChar));
       newStr.append(theChar);
     }
@@ -1133,11 +1131,9 @@ public abstract class StringUtil {
   }
 
   public static List randomOrder(List list) {
-    Object temp = null;
-    int idx = 0;
     for (int i = 0; i < list.size(); i++) {
-      idx = StringUtil.randomInt(list.size() - 1);
-      temp = list.get(idx);
+      int idx = StringUtil.randomInt(list.size() - 1);
+      Object temp = list.get(idx);
       list.remove(idx);
       list.add(temp);
     }
@@ -1163,11 +1159,10 @@ public abstract class StringUtil {
    * @return 显示实体类的属性和方法
    */
   public static String props(Object o) {
-    String toString = "";
     Class cls = o.getClass();
-    String className = "";
-    className = cls.getName();
-    toString = "**** " + className + " attribute list begin **\r\n";
+    String  className = cls.getName();
+    StringBuilder sb = new StringBuilder();
+    sb.append("**** " + className + " attribute list begin **\r\n");
     while (cls != null) {
       Method[] mth = cls.getDeclaredMethods();
       Field[] fd = cls.getDeclaredFields();
@@ -1178,7 +1173,7 @@ public abstract class StringUtil {
             for (int k = 0; k < fd.length; k++) {
               String st = fd[k].getName();
               if (str.toLowerCase().indexOf(st.toLowerCase()) > 0) {
-                toString = toString + st + "===" + mth[i].invoke(o, null) + "\r\n";
+                sb.append(st + "===" + mth[i].invoke(o, null) + "\r\n");
               }
             }
           }
@@ -1188,8 +1183,8 @@ public abstract class StringUtil {
       }
       cls = cls.getSuperclass();
     }
-    toString = toString + "** " + className + " attribute list end *****\r\n";
-    return toString;
+    sb.append("**** " + className + " attribute list end **\r\n");
+    return sb.toString();
   }
 
   /**
@@ -1276,6 +1271,5 @@ public abstract class StringUtil {
 	  
 	  return result;
   }
-  
   
 }
