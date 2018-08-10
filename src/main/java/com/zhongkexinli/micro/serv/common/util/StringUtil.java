@@ -1169,7 +1169,7 @@ public abstract class StringUtil {
           if (str.startsWith("g")) {
             for (int k = 0; k < fd.length; k++) {
               String st = fd[k].getName();
-              if (str.toLowerCase().indexOf(st.toLowerCase()) > 0) {
+              if (str.toLowerCase().indexOf(st.toLowerCase()) >= 0) {
                 sb.append(st + "===" + mth[i].invoke(o, null) + "\r\n");
               }
             }
