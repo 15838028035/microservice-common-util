@@ -2,13 +2,15 @@ package com.zhongkexinli.micro.serv.common.security;
 
 import java.io.IOException;
 import java.security.SecureRandom;
+import java.util.Base64;
+import java.util.Base64.Decoder;
+import java.util.Base64.Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
 import com.zhongkexinli.micro.serv.common.exception.EcnodeDecodeException;
 
 /***
@@ -45,7 +47,8 @@ public class DesUtil {
    */
   public static String encrypt(String data, String key) throws EcnodeDecodeException {
     byte[] bt = encrypt(data.getBytes(), key.getBytes());
-    String strs =  Base64.encode(bt);
+    Encoder encoder = Base64.getEncoder();
+    String strs =  new String(encoder.encode(bt));
     return strs;
   }
   
@@ -109,7 +112,11 @@ public class DesUtil {
       return null;
     }
     try {
-      byte[] buf = Base64.decode(data);
+      // 获取解密对象
+      Decoder decoder = Base64.getDecoder();
+      // 解密
+      byte[] buf = decoder.decode(data);
+      
       byte[] bt = decrypt(buf, key.getBytes());
       return new String(bt);
     } catch (Exception e) {
