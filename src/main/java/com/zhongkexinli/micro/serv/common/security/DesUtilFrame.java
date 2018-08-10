@@ -24,12 +24,6 @@ import org.apache.commons.logging.LogFactory;
 public class DesUtilFrame extends JFrame implements ActionListener {
 
   private static Log logger = LogFactory.getLog(DesUtilFrame.class);
-  
-  /**
-   * 标题
-   */
-  private JLabel titleInformation;
-  private JLabel fileName;
 
   /**
    * fileNameTextField
@@ -59,7 +53,7 @@ public class DesUtilFrame extends JFrame implements ActionListener {
 
     setVisible(true);
 
-    setLocationRelativeTo(null);// 设居中显示;
+    setLocationRelativeTo(null);
 
   }
 
@@ -67,11 +61,11 @@ public class DesUtilFrame extends JFrame implements ActionListener {
    * 添加组件
    */
   public void addComponent() {
-    titleInformation = new JLabel("des3解密工具");
+    JLabel titleInformation = new JLabel("des3解密工具");
 
     add(g, c, titleInformation, 0, 0, 1, 1);
 
-    fileName = new JLabel("密文：");
+    JLabel  fileName = new JLabel("密文：");
 
     add(g, c, fileName, 0, 1, 1, 1);
 

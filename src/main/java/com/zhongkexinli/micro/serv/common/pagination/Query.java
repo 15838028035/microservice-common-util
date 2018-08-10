@@ -16,6 +16,8 @@ public class Query extends LinkedHashMap<String, Object> {
   private Integer pageNum = 1;
     
   private int               pageSize         = 10;
+  
+  private String limitParam = "limit";
 
   /**
    * 分页构造
@@ -27,8 +29,8 @@ public class Query extends LinkedHashMap<String, Object> {
     if (params.get("page") != null) {
       this.page = Integer.parseInt(params.get("page").toString());
     }
-    if (params.get("limit") != null) {
-      this.limit = Integer.parseInt(params.get("limit").toString());
+    if (params.get(limitParam) != null) {
+      this.limit = Integer.parseInt(params.get(limitParam).toString());
     }
     if (params.get("pageNum") != null) {
       this.pageNum = Integer.parseInt(params.get("pageNum").toString());
@@ -37,7 +39,7 @@ public class Query extends LinkedHashMap<String, Object> {
       this.pageSize = Integer.parseInt(params.get("pageSize").toString());
     }
     this.remove("page");
-    this.remove("limit");
+    this.remove(limitParam);
   }
   
   public int getPage() {
@@ -61,6 +63,18 @@ public class Query extends LinkedHashMap<String, Object> {
 
   public void setPageSize(int pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public Integer getPageNum() {
+    return pageNum;
+  }
+
+  public void setPageNum(Integer pageNum) {
+    this.pageNum = pageNum;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
   }
   
 }
