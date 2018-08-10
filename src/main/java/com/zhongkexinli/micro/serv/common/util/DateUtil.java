@@ -2,7 +2,6 @@ package com.zhongkexinli.micro.serv.common.util;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -118,7 +117,7 @@ public  class DateUtil {
   public static String toTimeStr(String time) {
     if (time == null)
       return null;
-    String timeStr = time.substring(0, time.indexOf("+"));
+    String timeStr = time.substring(0, time.indexOf('+'));
     return timeStr;
   }
 
@@ -177,29 +176,10 @@ public  class DateUtil {
     }
     return new SimpleDateFormat(newStyle).format(date);
   }
-
-  public static final String[] months = { // // to be translated over
-      // CommonMonthName, see example in
-      // accounting
-      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
-      "December" };
-
-  public static final String[] days = { // to be translated over CommonDayName,
-      // see example in accounting
-      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-
-  public static final String[][] timevals = { { "1000", "millisecond" }, { "60", "second" }, { "60", "minute" },
-      { "24", "hour" }, { "7", "day" }, { "168", "week" } };
-
-  public static final DecimalFormat df = new DecimalFormat("0.00;-0.00");
+  
   /**
    * JDBC escape format for Timestamp conversions.
    */
-
-  /**
-   * JDBC escape format for java.sql.Time conversions.
-   */
-  public static final String TIME_FORMAT = "HH:mm:ss";
 
   public static double getInterval(Date from, Date thru) {
     return thru != null ? thru.getTime() - from.getTime() : 0;
@@ -808,7 +788,7 @@ public  class DateUtil {
   }
 
   public static String addDateYear(String date, int scale) {
-    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat sf = new SimpleDateFormat(DATE_FORMAT_STYLE5);
 
     Calendar calendar = Calendar.getInstance();
     try {
@@ -919,7 +899,7 @@ public  class DateUtil {
   }
 
   public static String dateStryyyyMMdd(Date date) {
-      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+      SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT_STYLE3);
       String str = format.format(date);
       return str;
   }
@@ -942,7 +922,6 @@ public  class DateUtil {
       try {
           date = format.parse(str);
       } catch (ParseException e) {
-          // TODO Auto-generated catch block
           e.printStackTrace();
       }
 
@@ -992,4 +971,5 @@ public static Timestamp getDayStartTime(Date d) {
     calendar.set(Calendar.MILLISECOND, 0);
     return new Timestamp(calendar.getTimeInMillis());
 }
+
 }
