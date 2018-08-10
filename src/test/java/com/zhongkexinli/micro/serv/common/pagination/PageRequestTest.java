@@ -23,7 +23,7 @@ public class PageRequestTest {
 		pageRequest = new PageRequest(Filters);
 		assertEquals(0,pageRequest.getPageNumber());
 		assertEquals(0,pageRequest.getPageSize());
-		assertEquals("com.lj.app.core.common.pagination.PageRequestTest$Filters",pageRequest.getFilters().getClass().getName());
+		assertEquals("com.zhongkexinli.micro.serv.common.pagination.PageRequestTest$Filters",pageRequest.getFilters().getClass().getName());
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class PageRequestTest {
 		pageRequest = new PageRequest(10,5,Filters);
 		assertEquals(10,pageRequest.getPageNumber());
 		assertEquals(5,pageRequest.getPageSize());
-		assertEquals("com.lj.app.core.common.pagination.PageRequestTest$Filters",pageRequest.getFilters().getClass().getName());
+		assertEquals("com.zhongkexinli.micro.serv.common.pagination.PageRequestTest$Filters",pageRequest.getFilters().getClass().getName());
 	}
 
 	@Test
@@ -56,7 +56,7 @@ public class PageRequestTest {
 		pageRequest = new PageRequest(10,5,Filters,"sortColumn");
 		assertEquals(10,pageRequest.getPageNumber());
 		assertEquals(5,pageRequest.getPageSize());
-		assertEquals("com.lj.app.core.common.pagination.PageRequestTest$Filters",pageRequest.getFilters().getClass().getName());
+		assertEquals("com.zhongkexinli.micro.serv.common.pagination.PageRequestTest$Filters",pageRequest.getFilters().getClass().getName());
 		assertEquals("sortColumn",pageRequest.getSortColumns());
 	}
 
@@ -64,7 +64,7 @@ public class PageRequestTest {
 	public void setGetFilters() {
 		Filters filters = new Filters();
 		pageRequest.setFilters(filters);
-		assertEquals("com.lj.app.core.common.pagination.PageRequestTest$Filters",pageRequest.getFilters().getClass().getName());
+		assertEquals("com.zhongkexinli.micro.serv.common.pagination.PageRequestTest$Filters",pageRequest.getFilters().getClass().getName());
 	}
 
 	@Test

@@ -28,7 +28,7 @@ public class PageToolTest {
     
 
     String result = PageTool.pageToJsonLayui(page);
-    assertEquals("{\"total\":5,\"page\":10,\"records\":100,\"rows\":[]}", result);
+    assertEquals("{\"total\":100,\"pageNumber\":1,\"totalPage\":1,\"pageSize\":100,\"page\":1,\"rows\":[]}", result);
     
   }
 
