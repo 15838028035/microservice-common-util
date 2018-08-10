@@ -44,8 +44,7 @@ public  class DateUtil {
    */
   public static String getNowDate(String format) {
     SimpleDateFormat sd = new SimpleDateFormat(format);
-    String date = sd.format(new Date(System.currentTimeMillis()));
-    return date;
+    return sd.format(new Date(System.currentTimeMillis()));
   }
 
   /**
@@ -117,8 +116,7 @@ public  class DateUtil {
   public static String toTimeStr(String time) {
     if (time == null)
       return null;
-    String timeStr = time.substring(0, time.indexOf('+'));
-    return timeStr;
+    return  time.substring(0, time.indexOf('+'));
   }
 
   public static String toDateStr(String date) {
@@ -128,8 +126,8 @@ public  class DateUtil {
     String day;
     String year;
 
-    int dateSlash1 = date.indexOf("-");
-    int dateSlash2 = date.lastIndexOf("-");
+    int dateSlash1 = date.indexOf('-');
+    int dateSlash2 = date.lastIndexOf('-');
 
     year = date.substring(0, dateSlash1);
     month = date.substring(dateSlash1 + 1, dateSlash2);
@@ -144,8 +142,7 @@ public  class DateUtil {
       return null;
 
     SimpleDateFormat dateFormat = new SimpleDateFormat(style);
-    Date date = dateFormat.parse(timeStr);
-    return date;
+    return  dateFormat.parse(timeStr);
   }
 
   public static Timestamp handleTimeStrToTimestamp(String timeStr, String style) throws ParseException {
@@ -154,8 +151,7 @@ public  class DateUtil {
 
     SimpleDateFormat dateFormat = new SimpleDateFormat(style);
     Date date = dateFormat.parse(timeStr);
-    Timestamp timestamp = new Timestamp(date.getTime());
-    return timestamp;
+    return  new Timestamp(date.getTime());
   }
 
   public static String handleTimestampToTimeStr(Timestamp timestamp, String style) {
@@ -163,8 +159,7 @@ public  class DateUtil {
       return null;
 
     SimpleDateFormat dateFormat = new SimpleDateFormat(style);
-    String timestampStr = dateFormat.format(new Date(timestamp.getTime()));
-    return timestampStr;
+   return  dateFormat.format(new Date(timestamp.getTime()));
   }
 
   public static String handleDateTimeStyle(String timeStr, String oldStyle, String newStyle) {
