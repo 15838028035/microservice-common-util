@@ -48,8 +48,7 @@ public class DesUtil {
   public static String encrypt(String data, String key) throws EcnodeDecodeException {
     byte[] bt = encrypt(data.getBytes(), key.getBytes());
     Encoder encoder = Base64.getEncoder();
-    String strs =  new String(encoder.encode(bt));
-    return strs;
+    return  new String(encoder.encode(bt));
   }
   
   /**

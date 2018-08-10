@@ -6,7 +6,7 @@ package com.zhongkexinli.micro.serv.common.exception;
  *
  */
 @SuppressWarnings("serial")
-public class EcnodeDecodeException extends CoreBaseRunTimeException {
+public class EcnodeDecodeException extends Exception {
 
   public EcnodeDecodeException() {
     super();
