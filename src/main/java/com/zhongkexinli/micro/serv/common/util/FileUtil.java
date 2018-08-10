@@ -57,7 +57,6 @@ public abstract class FileUtil {
         	outputStream.flush();
           outputStream.close();
         } catch (IOException e) {
-        	e.printStackTrace();
           logger.error(e);
         }
       }

@@ -252,7 +252,7 @@ public abstract class StringUtil {
    * 判断字符串非空
    */
   public static boolean isBlank(String str) {
-    return str != null && !str.trim().equals("");
+    return !isNotBlank(str);
   }
 
   /**
@@ -273,7 +273,7 @@ public abstract class StringUtil {
    * 判断字符串非空
    */
   public static boolean isNotBlank(String[] str) {
-    return str == null || str.length == 0;
+    return !(str == null || str.length == 0);
   }
 
   /**
@@ -469,7 +469,7 @@ public abstract class StringUtil {
    * @return boolean 是否
    */
   public static boolean verifyMobile(String mobile) {
-    if (StringUtil.isBlank(mobile) || mobile.length() != 11) {
+    if (StringUtil.isBlank(mobile) || (mobile!=null && mobile.length() != 11)) {
       return false;
     } else if (!isNumber(mobile)) {
       return false;
