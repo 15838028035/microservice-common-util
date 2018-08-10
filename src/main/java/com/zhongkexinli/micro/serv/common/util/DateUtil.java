@@ -43,8 +43,7 @@ public  class DateUtil {
    * @return 得到当前时间
    */
   public static String getNowDate(String format) {
-    SimpleDateFormat sd = new SimpleDateFormat(format);
-    return sd.format(new Date(System.currentTimeMillis()));
+    return formatDate(new Date(System.currentTimeMillis()),format);
   }
 
   /**
@@ -894,21 +893,15 @@ public  class DateUtil {
   }
 
   public static String dateStryyyyMMdd(Date date) {
-      SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT_STYLE3);
-      String str = format.format(date);
-      return str;
+      return formatDate(date,DATE_FORMAT_STYLE3);
   }
 
   public static String dateStr2(Date date) {
-      SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT_STYLE5);
-      String str = format.format(date);
-      return str;
+      return formatDate(date,DATE_FORMAT_STYLE4);
   }
 
   public static String dateStr3(Date date) {
-      SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT_STYLE5);
-      String str = format.format(date);
-      return str;
+      return formatDate(date,DATE_FORMAT_STYLE5);
   }
   
   public static Date getDateYYYYMMddHHMMSS(String str) {
