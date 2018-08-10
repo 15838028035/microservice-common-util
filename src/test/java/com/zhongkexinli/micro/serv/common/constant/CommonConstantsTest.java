@@ -9,25 +9,25 @@ public class CommonConstantsTest {
 
 	@Test
 	public void test() {
-		assertEquals("menu",CommonConstants.RESOURCE_TYPE_MENU,"excepted menu");
-		assertEquals("button",CommonConstants.RESOURCE_TYPE_BTN,"excepted button");
+		assertEquals("excepted menu","menu",CommonConstants.RESOURCE_TYPE_MENU);
+		assertEquals("excepted button","button",CommonConstants.RESOURCE_TYPE_BTN);
 		
 		assertTrue(CommonConstants.EX_USER_INVALID_CODE>0);
 		assertTrue(CommonConstants.EX_CLIENT_FORBIDDEN_CODE>0);
 		assertTrue(CommonConstants.EX_OTHER_CODE>0);
 		
-		assertEquals("currentUserId",CommonConstants.CONTEXT_KEY_USER_ID,"excepted currentUserId");
-		assertEquals("currentUserName",CommonConstants.CONTEXT_KEY_USERNAME,"excepted currentUserName");
-		assertEquals("currentUser",CommonConstants.CONTEXT_KEY_USER_NAME,"excepted currentUser");
+		assertEquals("excepted currentUserId","currentUserId",CommonConstants.CONTEXT_KEY_USER_ID);
+		assertEquals("excepted currentUserName","currentUserName",CommonConstants.CONTEXT_KEY_USERNAME);
+		assertEquals("excepted currentUser","currentUser",CommonConstants.CONTEXT_KEY_USER_NAME);
 		
-		assertEquals("currentUserToken",CommonConstants.CONTEXT_KEY_USER_TOKEN,"excepted currentUserToken");
-		assertEquals("userId",CommonConstants.JWT_KEY_USER_ID,"excepted userId");
-		assertEquals("name",CommonConstants.JWT_KEY_NAME,"excepted name");
-		assertEquals("UTF-8",CommonConstants.ENCODING_UTF_8,"excepted UTF-8");
+		assertEquals("excepted currentUserToken","currentUserToken",CommonConstants.CONTEXT_KEY_USER_TOKEN);
+		assertEquals("excepted userId","userId",CommonConstants.JWT_KEY_USER_ID);
+		assertEquals("excepted name","name",CommonConstants.JWT_KEY_NAME);
+		assertEquals("excepted UTF-8","UTF-8",CommonConstants.ENCODING_UTF_8);
 		
 		
-		assertEquals("0",CommonConstants.FAIL,"excepted 0");
-		assertEquals("成功",CommonConstants.SUCCESS_MSG,"excepted 成功");
+		assertEquals("excepted 0","0",CommonConstants.FAIL);
+		assertEquals("excepted 成功","成功",CommonConstants.SUCCESS_MSG);
 		
 		assertTrue(CommonConstants.ERROR==0);
 		assertTrue(CommonConstants.SUCCESS==1);
