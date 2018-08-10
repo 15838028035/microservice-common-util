@@ -17,22 +17,23 @@ import java.util.TimeZone;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public abstract class DateUtil {
+public  class DateUtil {
 
-
-  private static Log logger = LogFactory.getLog(DateUtil.class);
+  private DateUtil () {
+    // null 
+  }
   
-  public static final String DATE_FOMRAT_HH_mm_ss = "HH:mm:ss";
-  public static final String DATE_FOMRAT_hh_mm_ss = "hh:mm:ss";
-
-  public static final String DATE_FOMRAT_yyyy_MM_dd = "yyyy-MM-dd";
-  public static final String DATE_FOMRAT_yyyyMMdd = "yyyyMMdd";
-
-  public static final String DATE_FOMRAT_yyyy_MM_dd_HH_MMss = "yyyy-MM-dd HH:mm:ss";
-  public static final String DATE_FOMRAT_yyyyMMdd_hh_MMss = "yyyyMMdd hh:mm:ss";
+  private static Log logger = LogFactory.getLog(DateUtil.class);
+  public static final String DATE_FORMAT_STYLE1 = "HH:mm:ss";
+  public static final String DATE_FORMAT_STYLE2 = "hh:mm:ss";
+  public static final String DATE_FORMAT_STYLE3 = "yyyy-MM-dd";
+  public static final String DATE_FORMAT_STYLE4 = "yyyyMMdd";
+  public static final String DATE_FORMAT_STYLE5 = "yyyy-MM-dd HH:mm:ss";
+  public static final String DATE_FORMAT_STYLE6 = "yyyyMMdd hh:mm:ss";
+  
 
   public static final String getNowDateYYYYMMddHHMMSS() {
-    return getNowDate(DATE_FOMRAT_yyyy_MM_dd_HH_MMss);
+    return getNowDate(DATE_FORMAT_STYLE5);
   }
 
   /**
@@ -82,6 +83,7 @@ public abstract class DateUtil {
       SimpleDateFormat sDateFormat = new SimpleDateFormat(format);
       return sDateFormat.format(date);
     } catch (Exception e) {
+      logger.error(e);
 
     }
     return null;
@@ -102,8 +104,8 @@ public abstract class DateUtil {
       return -1;
     }
 
-    Date fDate = formatDate(fDateStr, DATE_FOMRAT_yyyy_MM_dd_HH_MMss);
-    Date oDate = formatDate(oDateStr, DATE_FOMRAT_yyyy_MM_dd_HH_MMss);
+    Date fDate = formatDate(fDateStr, DATE_FORMAT_STYLE5);
+    Date oDate = formatDate(oDateStr, DATE_FORMAT_STYLE5);
     
     if (null == fDate || null == oDate ) {
         return -1;
@@ -190,10 +192,6 @@ public abstract class DateUtil {
       { "24", "hour" }, { "7", "day" }, { "168", "week" } };
 
   public static final DecimalFormat df = new DecimalFormat("0.00;-0.00");
-  /**
-   * JDBC escape format for java.sql.Date conversions.
-   */
-  public static final String DATE_FORMAT = "yyyy-MM-dd";
   /**
    * JDBC escape format for Timestamp conversions.
    */
@@ -282,7 +280,6 @@ public abstract class DateUtil {
   /**
    * Return the date for the first day of the year
    * 
-   * @param stamp
    * @return Timestamp
    */
   public static Timestamp getYearStart(Timestamp stamp) {
@@ -311,352 +308,6 @@ public abstract class DateUtil {
   }
 
   /**
-   * Converts a date String into a java.sql.Date
-   * 
-   * @param date
-   *          The date String: MM/DD/YYYY
-   * @return A java.sql.Date made from the date String
-   */
-  public static java.sql.Date toSqlDate(String date) {
-    Date newDate = toDate(date, "00:00:00");
-
-    if (newDate != null) {
-      return new java.sql.Date(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Makes a java.sql.Date from separate Strings for month, day, year
-   * 
-   * @param monthStr
-   *          The month String
-   * @param dayStr
-   *          The day String
-   * @param yearStr
-   *          The year String
-   * @return A java.sql.Date made from separate Strings for month, day, year
-   */
-  public static java.sql.Date toSqlDate(String monthStr, String dayStr, String yearStr) {
-    Date newDate = toDate(monthStr, dayStr, yearStr, "0", "0", "0");
-
-    if (newDate != null) {
-      return new java.sql.Date(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Makes a java.sql.Date from separate ints for month, day, year
-   * 
-   * @param month
-   *          The month int
-   * @param day
-   *          The day int
-   * @param year
-   *          The year int
-   * @return A java.sql.Date made from separate ints for month, day, year
-   */
-  public static java.sql.Date toSqlDate(int month, int day, int year) {
-    Date newDate = toDate(month, day, year, 0, 0, 0);
-
-    if (newDate != null) {
-      return new java.sql.Date(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Converts a time String into a java.sql.Time
-   * 
-   * @param time
-   *          The time String: either HH:MM or HH:MM:SS
-   * @return A java.sql.Time made from the time String
-   */
-  public static java.sql.Time toSqlTime(String time) {
-    Date newDate = toDate("1/1/1970", time);
-
-    if (newDate != null) {
-      return new java.sql.Time(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Makes a java.sql.Time from separate Strings for hour, minute, and second.
-   * 
-   * @param hourStr
-   *          The hour String
-   * @param minuteStr
-   *          The minute String
-   * @param secondStr
-   *          The second String
-   * @return A java.sql.Time made from separate Strings for hour, minute, and second.
-   */
-  public static java.sql.Time toSqlTime(String hourStr, String minuteStr, String secondStr) {
-    Date newDate = toDate("0", "0", "0", hourStr, minuteStr, secondStr);
-
-    if (newDate != null) {
-      return new java.sql.Time(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Makes a java.sql.Time from separate ints for hour, minute, and second.
-   * 
-   * @param hour
-   *          The hour int
-   * @param minute
-   *          The minute int
-   * @param second
-   *          The second int
-   * @return A java.sql.Time made from separate ints for hour, minute, and second.
-   */
-  public static java.sql.Time toSqlTime(int hour, int minute, int second) {
-    Date newDate = toDate(0, 0, 0, hour, minute, second);
-
-    if (newDate != null) {
-      return new java.sql.Time(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Converts a date and time String into a Timestamp
-   * 
-   * @param dateTime
-   *          A combined data and time string in the format "MM/DD/YYYY HH:MM:SS", the seconds are optional
-   * @return The corresponding Timestamp
-   */
-  public static Timestamp toTimestamp(String dateTime) {
-    Date newDate = toDate(dateTime);
-
-    if (newDate != null) {
-      return new Timestamp(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Converts a date String and a time String into a Timestamp
-   * 
-   * @param date
-   *          The date String: MM/DD/YYYY
-   * @param time
-   *          The time String: either HH:MM or HH:MM:SS
-   * @return A Timestamp made from the date and time Strings
-   */
-  public static Timestamp toTimestamp(String date, String time) {
-    Date newDate = toDate(date, time);
-
-    if (newDate != null) {
-      return new Timestamp(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Makes a Timestamp from separate Strings for month, day, year, hour, minute, and second.
-   * 
-   * @param monthStr
-   *          The month String
-   * @param dayStr
-   *          The day String
-   * @param yearStr
-   *          The year String
-   * @param hourStr
-   *          The hour String
-   * @param minuteStr
-   *          The minute String
-   * @param secondStr
-   *          The second String
-   * @return A Timestamp made from separate Strings for month, day, year, hour, minute, and second.
-   */
-  public static Timestamp toTimestamp(String monthStr, String dayStr, String yearStr, String hourStr, String minuteStr,
-      String secondStr) {
-    Date newDate = toDate(monthStr, dayStr, yearStr, hourStr, minuteStr, secondStr);
-
-    if (newDate != null) {
-      return new Timestamp(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Makes a Timestamp from separate ints for month, day, year, hour, minute, and second.
-   * 
-   * @param month
-   *          The month int
-   * @param day
-   *          The day int
-   * @param year
-   *          The year int
-   * @param hour
-   *          The hour int
-   * @param minute
-   *          The minute int
-   * @param second
-   *          The second int
-   * @return A Timestamp made from separate ints for month, day, year, hour, minute, and second.
-   */
-  public static Timestamp toTimestamp(int month, int day, int year, int hour, int minute, int second) {
-    Date newDate = toDate(month, day, year, hour, minute, second);
-
-    if (newDate != null) {
-      return new Timestamp(newDate.getTime());
-    } else {
-      return null;
-    }
-  }
-
-  public static Timestamp toTimestamp(Date date) {
-    if (date == null)
-      return null;
-    return new Timestamp(date.getTime());
-  }
-
-  /**
-   * Converts a date and time String into a Date
-   * 
-   * @param dateTime
-   *          A combined data and time string in the format "MM/DD/YYYY HH:MM:SS", the seconds are optional
-   * @return The corresponding Date
-   */
-  public static Date toDate(String dateTime) {
-    if (dateTime == null) {
-      return null;
-    }
-    // dateTime must have one space between the date and time...
-    String date = dateTime.substring(0, dateTime.indexOf(" "));
-    String time = dateTime.substring(dateTime.indexOf(" ") + 1);
-
-    return toDate(date, time);
-  }
-
-  /**
-   * Converts a date String and a time String into a Date
-   * 
-   * @param date
-   *          The date String: MM/DD/YYYY
-   * @param time
-   *          The time String: either HH:MM or HH:MM:SS
-   * @return A Date made from the date and time Strings
-   */
-  public static Date toDate(String date, String time) {
-    if (date == null || time == null)
-      return null;
-    String month;
-    String day;
-    String year;
-    String hour;
-    String minute;
-    String second;
-
-    int dateSlash1 = date.indexOf('/');
-    int dateSlash2 = date.lastIndexOf('/');
-
-    if (dateSlash1 <= 0 || dateSlash1 == dateSlash2)
-      return null;
-    int timeColon1 = time.indexOf(':');
-    int timeColon2 = time.lastIndexOf(':');
-
-    if (timeColon1 <= 0)
-      return null;
-    month = date.substring(0, dateSlash1);
-    day = date.substring(dateSlash1 + 1, dateSlash2);
-    year = date.substring(dateSlash2 + 1);
-    hour = time.substring(0, timeColon1);
-
-    if (timeColon1 == timeColon2) {
-      minute = time.substring(timeColon1 + 1);
-      second = "0";
-    } else {
-      minute = time.substring(timeColon1 + 1, timeColon2);
-      second = time.substring(timeColon2 + 1);
-    }
-
-    return toDate(month, day, year, hour, minute, second);
-  }
-
-  /**
-   * Makes a Date from separate Strings for month, day, year, hour, minute, and second.
-   * 
-   * @param monthStr
-   *          The month String
-   * @param dayStr
-   *          The day String
-   * @param yearStr
-   *          The year String
-   * @param hourStr
-   *          The hour String
-   * @param minuteStr
-   *          The minute String
-   * @param secondStr
-   *          The second String
-   * @return A Date made from separate Strings for month, day, year, hour, minute, and second.
-   */
-  public static Date toDate(String monthStr, String dayStr, String yearStr, String hourStr, String minuteStr,
-      String secondStr) {
-    int month;
-    int day;
-    int year;
-    int hour;
-    int minute;
-    int second;
-
-    try {
-      month = Integer.parseInt(monthStr);
-      day = Integer.parseInt(dayStr);
-      year = Integer.parseInt(yearStr);
-      hour = Integer.parseInt(hourStr);
-      minute = Integer.parseInt(minuteStr);
-      second = Integer.parseInt(secondStr);
-    } catch (Exception e) {
-      return null;
-    }
-    return toDate(month, day, year, hour, minute, second);
-  }
-
-  /**
-   * Makes a Date from separate ints for month, day, year, hour, minute, and second.
-   * 
-   * @param month
-   *          The month int
-   * @param day
-   *          The day int
-   * @param year
-   *          The year int
-   * @param hour
-   *          The hour int
-   * @param minute
-   *          The minute int
-   * @param second
-   *          The second int
-   * @return A Date made from separate ints for month, day, year, hour, minute, and second.
-   */
-  public static Date toDate(int month, int day, int year, int hour, int minute, int second) {
-    Calendar calendar = Calendar.getInstance();
-
-    try {
-      calendar.set(year, month - 1, day, hour, minute, second);
-      calendar.set(Calendar.MILLISECOND, 0);
-    } catch (Exception e) {
-      return null;
-    }
-    return new Date(calendar.getTime().getTime());
-  }
-
-  /**
    * Makes a date String in the given from a Date
    * 
    * @param date
@@ -667,28 +318,15 @@ public abstract class DateUtil {
     if (date == null) {
       return "";
     }
-    SimpleDateFormat dateFormat = null;
+    DateFormat dateFormat = new SimpleDateFormat();
     if (format != null) {
       dateFormat = new SimpleDateFormat(format);
-    } else {
-      dateFormat = new SimpleDateFormat();
     }
-
+    
     Calendar calendar = Calendar.getInstance();
 
     calendar.setTime(date);
     return dateFormat.format(date);
-  }
-
-  /**
-   * Makes a date String in the format MM/DD/YYYY from a Date
-   * 
-   * @param date
-   *          The Date
-   * @return A date String in the format MM/DD/YYYY
-   */
-  public static String toDateString(Date date) {
-    return toDateString(date, "MM/dd/yyyy");
   }
 
   public static String toGmtTimestampString(Timestamp timestamp) {
@@ -1090,10 +728,8 @@ public abstract class DateUtil {
    * @return DateFormat object
    */
   public static DateFormat toDateFormat(String dateFormat, TimeZone tz, Locale locale) {
-    DateFormat df = null;
-    if (dateFormat == null) {
-      df = DateFormat.getDateInstance(DateFormat.SHORT, locale);
-    } else {
+    DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+    if (dateFormat != null) {
       df = new SimpleDateFormat(dateFormat);
     }
     df.setTimeZone(tz);
@@ -1111,10 +747,8 @@ public abstract class DateUtil {
    * @return DateFormat object
    */
   public static DateFormat toDateTimeFormat(String dateTimeFormat, TimeZone tz, Locale locale) {
-    DateFormat df = null;
-    if (dateTimeFormat == null) {
-      df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM, locale);
-    } else {
+    DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM, locale);
+    if (dateTimeFormat != null) {
       df = new SimpleDateFormat(dateTimeFormat);
     }
     df.setTimeZone(tz);
@@ -1132,11 +766,9 @@ public abstract class DateUtil {
    * @return DateFormat object
    */
   public static DateFormat toTimeFormat(String timeFormat, TimeZone tz, Locale locale) {
-    DateFormat df = null;
+    DateFormat df =  new SimpleDateFormat(timeFormat);
     if (timeFormat == null) {
       df = DateFormat.getDateInstance(DateFormat.MEDIUM, locale);
-    } else {
-      df = new SimpleDateFormat(timeFormat);
     }
     df.setTimeZone(tz);
     return df;
@@ -1175,19 +807,6 @@ public abstract class DateUtil {
     return dateFormat.format(stamp);
   }
 
-  /**
-   * Returns a TimeZone object based upon an hour offset from GMT.
-   * 
-   * @see java.util.TimeZone
-   */
-  public static TimeZone toTimeZone(int gmtOffset) {
-    if (gmtOffset > 12 || gmtOffset < -14) {
-      throw new IllegalArgumentException("Invalid GMT offset");
-    }
-    String tzId = gmtOffset > 0 ? "Etc/GMT+" : "Etc/GMT";
-    return TimeZone.getTimeZone(tzId + gmtOffset);
-  }
-
   public static String addDateYear(String date, int scale) {
     SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
@@ -1205,7 +824,7 @@ public abstract class DateUtil {
   public static int compareTwoDate(String date1, String date2) {
     Calendar calendar1 = Calendar.getInstance();
     Calendar calendar2 = Calendar.getInstance();
-    DateFormat df = new SimpleDateFormat(DATE_FOMRAT_yyyy_MM_dd_HH_MMss);
+    DateFormat df = new SimpleDateFormat(DATE_FORMAT_STYLE5);
 
     try {
       calendar1.setTime(df.parse(date1));
@@ -1220,7 +839,7 @@ public abstract class DateUtil {
     Calendar calendar1 = Calendar.getInstance();
     Calendar calendar2 = Calendar.getInstance();
     Calendar calendar3 = Calendar.getInstance();
-    DateFormat df = new SimpleDateFormat(DATE_FOMRAT_yyyy_MM_dd_HH_MMss);
+    DateFormat df = new SimpleDateFormat(DATE_FORMAT_STYLE5);
     try {
       calendar1.setTime(df.parse(date1));
       calendar2.setTime(df.parse(date2));
@@ -1285,7 +904,6 @@ public abstract class DateUtil {
     }
     return result;
   }
-  
 
   public static Date rollDay(Date d, int day) {
       Calendar cal = Calendar.getInstance();
@@ -1307,19 +925,19 @@ public abstract class DateUtil {
   }
 
   public static String dateStr2(Date date) {
-      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+      SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT_STYLE5);
       String str = format.format(date);
       return str;
   }
 
   public static String dateStr3(Date date) {
-      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+      SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT_STYLE5);
       String str = format.format(date);
       return str;
   }
   
   public static Date getDateYYYYMMddHHMMSS(String str) {
-      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+      SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT_STYLE5);
       Date date = null;
       try {
           date = format.parse(str);
@@ -1367,7 +985,9 @@ public static int getNowMonth() {
 //获取某个日期的开始时间
 public static Timestamp getDayStartTime(Date d) {
     Calendar calendar = Calendar.getInstance();
-    if(null != d) calendar.setTime(d);
+    if(null != d) {
+      calendar.setTime(d);
+    }
     calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),    calendar.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
     calendar.set(Calendar.MILLISECOND, 0);
     return new Timestamp(calendar.getTimeInMillis());

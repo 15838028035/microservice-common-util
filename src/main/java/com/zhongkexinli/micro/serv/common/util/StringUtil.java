@@ -166,8 +166,9 @@ public abstract class StringUtil {
     } else {
       int l = strLen - s.length();
       for (int i = 0; i < l; i++) {
-        sb.append("0"+s);
+        sb.append("0");
       }
+      sb.append(s);
       return sb.toString();
     }
   }
@@ -695,7 +696,7 @@ public abstract class StringUtil {
    */
   public static String getStringByArray(String[] values) {
     StringBuilder valueStr = new StringBuilder();
-    if (StringUtil.isNotBlank(values)) {
+    if (values != null) {
       for (int i = 0; i < values.length; i++) {
         valueStr.append(values[i]);
       }
@@ -789,7 +790,7 @@ public abstract class StringUtil {
    * 
    */
   public static String changeEncoding(String input, String sourceEncoding, String targetEncoding) {
-    if (StringUtil.isBlank(input)) {
+    if (input == null) {
       return input;
     }
 
@@ -966,7 +967,7 @@ public abstract class StringUtil {
     if (result.toString().endsWith(str)) {
       int pos = result.lastIndexOf(str);
       if (pos > -1) {
-    	 return  result.toString().substring(0, pos);
+    	return result.toString().substring(0, pos);
       }
     }
     return result.toString();
