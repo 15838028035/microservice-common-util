@@ -21,6 +21,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.6.RELEASE</version>
+		<relativePath>./</relativePath>
 	</parent>
 
  <dependencies>
@@ -76,24 +77,24 @@
     </dependencies>
 
 <distributionManagement>
-<!--         <repository> -->
-<!--             <id>nexus-releases</id> -->
-<!--             <url>http://192.168.96.88:8081/nexus/content/repositories/releases</url> -->
-<!--         </repository> -->
-<!--         <snapshotRepository> -->
-<!--             <id>nexus-snapshots</id> -->
-<!--             <url>http://192.168.96.88:8081/nexus/content/repositories/snapshots</url> -->
-<!--         </snapshotRepository> -->
-        
-        <!--多种发布方式 https://issues.sonatype.org/ -->
-        <snapshotRepository>
-         <id>oss-snapshot</id>
-         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-         <id>oss-releases</id>
-         <url> https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <id>nexus-releases</id>
+            <url>http://192.168.96.88:8081/repository/maven-releases/</url>
         </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://192.168.96.88:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        
+<!--         多种发布方式 https://issues.sonatype.org/ -->
+<!--         <snapshotRepository> -->
+<!--          <id>oss-snapshot</id> -->
+<!--          <url>https://oss.sonatype.org/content/repositories/snapshots</url> -->
+<!--         </snapshotRepository> -->
+<!--         <repository> -->
+<!--          <id>oss-releases</id> -->
+<!--          <url> https://oss.sonatype.org/service/local/staging/deploy/maven2</url> -->
+<!--         </repository> -->
 	    
     </distributionManagement>
     
