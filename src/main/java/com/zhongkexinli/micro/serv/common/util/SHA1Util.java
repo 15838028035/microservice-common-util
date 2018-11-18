@@ -4,7 +4,8 @@ package com.zhongkexinli.micro.serv.common.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 	SHA加密
@@ -12,7 +13,7 @@ import org.apache.log4j.Logger;
  */
 public abstract class SHA1Util {
 	
-	private static final Logger logger=Logger.getLogger(SHA1Util.class);
+	private static final Logger logger=LoggerFactory.getLogger(SHA1Util.class);
 	
 	public static String sha1(String decript) {
         try {
