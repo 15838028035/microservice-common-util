@@ -18,7 +18,8 @@ public  class TreeUtil{
    * 两层循环实现建树
    * 
    * @param treeNodes 传入的树节点列表
-   * @return
+   * @param root 根节点
+   * @return 对象
    */
   public static <T extends TreeNode> List<T> bulid(List<T> treeNodes,Object root) {
 
@@ -46,7 +47,8 @@ public  class TreeUtil{
    * 使用递归方法建树
    * 
    * @param treeNodes
-   * @return
+   * @param root 根节点
+   * @return 树形列表
    */
   public static <T extends TreeNode> List<T> buildByRecursive(List<T> treeNodes,Object root) {
     List<T> trees = new ArrayList<>();
@@ -62,7 +64,7 @@ public  class TreeUtil{
    * 递归查找子节点
    * 
    * @param treeNodes
-   * @return
+   * @return 树形列表
    */
   public static <T extends TreeNode> T findChildren(T treeNode, List<T> treeNodes) {
     for (T it : treeNodes) {

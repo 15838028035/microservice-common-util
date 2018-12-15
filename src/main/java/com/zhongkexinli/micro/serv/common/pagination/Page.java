@@ -165,7 +165,8 @@ public class Page<T> implements Serializable {
   }
 
   /**
-   * 根据pageSize与totalCount计算总页数, 默认值为-1.
+   *  根据pageSize与totalCount计算总页数, 默认值为-1.
+   * @return int 总分页数
    */
   public int getTotalPages() {
     if (totalCount < 0) {

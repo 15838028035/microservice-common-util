@@ -71,9 +71,9 @@ public  class DateUtil {
   /**
    * 格式化Date对象为string
    * 
-   * @param date
-   * @param format
-   * @return
+   * @param date 日期对象
+   * @param format 日期格式
+   * @return  格式化Date对象为string
    */
   public static String formatDate(Date date, String format) {
     try {
@@ -170,10 +170,6 @@ public  class DateUtil {
     }
     return new SimpleDateFormat(newStyle).format(date);
   }
-  
-  /**
-   * JDBC escape format for Timestamp conversions.
-   */
 
   public static double getInterval(Date from, Date thru) {
     return thru != null ? thru.getTime() - from.getTime() : 0;

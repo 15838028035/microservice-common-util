@@ -8,13 +8,9 @@ import java.util.Map;
 import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
 
 /**
- * ClassName:RestAPIResulut <br/>
- * Function: REST API接口统一响应接口实体. <br/>
- * Date: 2017年8月16日 下午15:25:04 <br/>
- * 
- * @version
- * @since JDK 1.6
- * @see
+ * ClassName:RestAPIResulut 
+ * Function: REST API接口统一响应接口实体.
+ * Date: 2017年8月16日 下午15:25:04
  */
 //@ApiModel(value = "REST API接口统一响应接口实体")
 public class RestAPIResult<T> implements Serializable {
@@ -22,7 +18,6 @@ public class RestAPIResult<T> implements Serializable {
 	/**
 	 * serialVersionUID:
 	 * 
-	 * @since JDK 1.6
 	 */
 	private static final long serialVersionUID = 1L;
 

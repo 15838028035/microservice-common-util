@@ -62,7 +62,7 @@ public class SortInfo implements Serializable {
       return Collections.<SortInfo>emptyList();
     }
 
-    List<SortInfo> results = new ArrayList();
+    List<SortInfo> results = new ArrayList<SortInfo>();
     String[] sortSegments = sortColumns.trim().split(",");
     for (int i = 0; i < sortSegments.length; i++) {
       String sortSegment = sortSegments[i];

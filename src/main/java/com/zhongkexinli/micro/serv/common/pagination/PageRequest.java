@@ -43,7 +43,7 @@ public class PageRequest<T> implements Serializable {
 
   /**
    * 构造函数
-   * 
+   * @param pageNumber  分页编号
    * @param pageSize
    *          分页大小
    * @param filters
