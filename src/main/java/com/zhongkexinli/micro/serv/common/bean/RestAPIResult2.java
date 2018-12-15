@@ -35,19 +35,13 @@ public class RestAPIResult2<T> implements Serializable {
   @ApiModelProperty(value = "token")
   private String token;//token
 
+  @ApiModelProperty(value = "返回数据")
   private transient Object respData;
-  private String loginFlag;//判断是否跳登录
-    
-  private String loginNo;
-    public String getLoginNo() {
-		return loginNo;
-	}
+  
+  @ApiModelProperty(value = "判断是否跳登录")
+  private String loginFlag;
 
-	public void setLoginNo(String loginNo) {
-		this.loginNo = loginNo;
-	}
-
-	public int getRespCode() {
+	  public int getRespCode() {
         return respCode;
     }
 
