@@ -19,8 +19,8 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
 
@@ -30,7 +30,7 @@ import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
  */
 public abstract class StringUtil {
 
-  private static Log logger = LogFactory.getLog(StringUtil.class);
+  private static Logger logger = LoggerFactory.getLogger(StringUtil.class);
   
   private StringUtil() {
 	  
@@ -380,7 +380,7 @@ public abstract class StringUtil {
       Integer.parseInt(str);
       return true;
     } catch (Exception ex) {
-      logger.error(ex);
+      logger.error("isInt", ex);
       return false;
     }
   }
@@ -439,7 +439,7 @@ public abstract class StringUtil {
     try {
       Long.valueOf(s);
     } catch (Exception e) {
-      logger.error(e);
+      logger.error("isNumber", e);
       return false;
     }
     return true;
@@ -723,7 +723,7 @@ public abstract class StringUtil {
         return Integer.parseInt(input.toString());
       }
     } catch (Exception e) {
-      logger.error(e);
+      logger.error("parseInt",e);
     }
     return defaultInt;
   }
@@ -742,7 +742,7 @@ public abstract class StringUtil {
         return Float.parseFloat(input.toString());
       }
     } catch (Exception ex) {
-      logger.error(ex);
+      logger.error("parseFloat",ex);
     }
     return defaultFloat;
   }
@@ -760,7 +760,7 @@ public abstract class StringUtil {
       byte[] bytes = input.getBytes("ISO8859-1");
       return new String(bytes, CommonConstants.ENCODING_UTF_8);
     } catch (Exception ex) {
-      logger.error(ex);
+      logger.error("toChi",ex);
     }
     return input;
   }
@@ -799,7 +799,7 @@ public abstract class StringUtil {
       byte[] bytes = input.getBytes(sourceEncoding);
       return new String(bytes, targetEncoding);
     } catch (Exception ex) {
-      logger.error(ex);
+      logger.error("changeEncoding",ex);
     }
     return input;
   }
@@ -1176,7 +1176,7 @@ public abstract class StringUtil {
           }
         }
       } catch (Exception ex) {
-        logger.error(ex);
+        logger.error("props",ex);
       }
       cls = cls.getSuperclass();
     }
@@ -1196,7 +1196,7 @@ public abstract class StringUtil {
     try {
       return  new String(b, "UTF-8");
     } catch (Exception e) {
-      logger.error(e);
+      logger.error("byteToString", e);
     }
     return "";
   }
@@ -1218,7 +1218,7 @@ public abstract class StringUtil {
       oos.close();
       bos.close();
     } catch (IOException ex) {
-      logger.error(ex);
+      logger.error("object2Byte",ex);
     }
     return bytes;
   }
@@ -1238,7 +1238,7 @@ public abstract class StringUtil {
       ois.close();
       bis.close();
     } catch (IOException | ClassNotFoundException ex) {
-      logger.error(ex);
+      logger.error("byte2Object",ex);
     }   
     return obj;
   }
