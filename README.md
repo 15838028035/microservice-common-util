@@ -1,5 +1,7 @@
 https://travis-ci.org/15838028035/microservice-common-util.svg?branch=master
 
+https://travis-ci.com/15838028035/microservice-common-util
+
 # 项目简介
     常见常用日期、字符串、数字、文件、异常、分页、树等公共类库
     
