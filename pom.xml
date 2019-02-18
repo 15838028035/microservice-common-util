@@ -77,24 +77,24 @@
     
 
 <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <url>http://192.168.96.88:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>http://192.168.96.88:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
+<!--         <repository> -->
+<!--             <id>nexus-releases</id> -->
+<!--             <url>http://192.168.96.88:8081/repository/maven-releases/</url> -->
+<!--         </repository> -->
+<!--         <snapshotRepository> -->
+<!--             <id>nexus-snapshots</id> -->
+<!--             <url>http://192.168.96.88:8081/repository/maven-snapshots/</url> -->
+<!--         </snapshotRepository> -->
         
 <!--         多种发布方式 https://issues.sonatype.org/ -->
-<!--         <snapshotRepository> -->
-<!--          <id>oss-snapshot</id> -->
-<!--          <url>https://oss.sonatype.org/content/repositories/snapshots</url> -->
-<!--         </snapshotRepository> -->
-<!--         <repository> -->
-<!--          <id>oss-releases</id> -->
-<!--          <url> https://oss.sonatype.org/service/local/staging/deploy/maven2</url> -->
-<!--         </repository> -->
+        <snapshotRepository>
+         <id>oss-snapshot</id>
+         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+         <id>oss-releases</id>
+         <url> https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
 	    
     </distributionManagement>
     
