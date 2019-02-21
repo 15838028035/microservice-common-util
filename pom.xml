@@ -7,7 +7,7 @@
   <groupId>cn.com.thinkit.cloud</groupId>
   <artifactId>microservice-common-util</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <description>常用工具类:字符串、日期、文件、加密、异常、分页等工具类</description>
  <url>http://www.thinkit.com.cn/</url>
 
@@ -88,11 +88,11 @@
         
 <!--         多种发布方式 https://issues.sonatype.org/ -->
         <snapshotRepository>
-         <id>oss-snapshot</id>
+         <id>ossrh</id>
          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-         <id>oss-releases</id>
+         <id>ossrh</id>
          <url> https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
 	    
@@ -148,6 +148,29 @@
 <!--               </execution> -->
 <!--             </executions> -->
 <!--           </plugin> -->
+
+<!--                     <plugin> -->
+<!--                         <groupId>org.sonatype.plugins</groupId> -->
+<!--                         <artifactId>nexus-staging-maven-plugin</artifactId> -->
+<!--                         <version>1.6.3</version> -->
+<!--                         <extensions>true</extensions> -->
+<!--                         <configuration> -->
+<!--                             <serverId>ossrh</serverId> -->
+<!--                             <nexusUrl>https://oss.sonatype.org/</nexusUrl> -->
+<!--                             <autoReleaseAfterClose>true</autoReleaseAfterClose> -->
+<!--                         </configuration> -->
+<!--                     </plugin> -->
+<!--                     <plugin> -->
+<!--                         <groupId>org.apache.maven.plugins</groupId> -->
+<!--                         <artifactId>maven-release-plugin</artifactId> -->
+<!--                         <version>2.3.2</version> -->
+<!--                         <configuration> -->
+<!--                             <autoVersionSubmodules>true</autoVersionSubmodules> -->
+<!--                             <useReleaseProfile>false</useReleaseProfile> -->
+<!--                             <releaseProfiles>release</releaseProfiles> -->
+<!--                             <goals>deploy</goals> -->
+<!--                         </configuration> -->
+<!--                     </plugin> -->
         </plugins>
       </build>
     </profile>
