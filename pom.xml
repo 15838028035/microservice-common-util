@@ -88,11 +88,11 @@
         
 <!--         多种发布方式 https://issues.sonatype.org/ -->
         <snapshotRepository>
-         <id>oss-snapshot</id>
+         <id>ossrh</id>
          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-         <id>oss-releases</id>
+         <id>ossrh</id>
          <url> https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
 	    
