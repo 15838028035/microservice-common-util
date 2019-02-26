@@ -7,7 +7,7 @@
 ```xml
     <dependency>cn.com.thinkit.cloud</dependency>
     <artifactId>microservice-common-util</artifactId>
-    <version>0.0.1</version> 
+    <version>0.0.3</version> 
   ```
 
 
