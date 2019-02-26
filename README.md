@@ -5,9 +5,11 @@
     
 # maven使用
 ```xml
-    <dependency>cn.com.thinkit.cloud</dependency>
-    <artifactId>microservice-common-util</artifactId>
-    <version>0.0.3</version> 
+    <dependency>
+            <groupId>cn.com.thinkit.cloud</groupId>
+            <artifactId>microservice-common-util</artifactId>
+             <version>0.0.3</version>
+    </dependency> 
   ```
 
 
