@@ -7,11 +7,33 @@
   <groupId>cn.com.thinkit.cloud</groupId>
   <artifactId>microservice-common-util</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.3</version>
+  <version>0.0.4-RELEASE</version>
+  <name>microservice-common-util Java SDK</name>
   <description>常用工具类:字符串、日期、文件、加密、异常、分页等工具类</description>
- <url>http://www.thinkit.com.cn/</url>
+  <url>http://www.thinkit.com.cn/</url>
+  
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+   </licenses>
+   
+    <scm>
+    <connection>scm:git:https://github.com/15838028035/microservice-common-util.git</connection>
+    <developerConnection>scm:git:git@github.com:15838028035/microservice-common-util.git</developerConnection>
+    <url>https://github.com/15838028035/microservice-common-util</url>
+    </scm>
 
-<properties>
+  <developers>
+    <developer>
+      <name>15838028035</name>
+      <email>15838028035@163com</email>
+      <url>https://github.com/15838028035</url>
+    </developer>
+   </developers>
+
+    <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 	</properties>
@@ -134,20 +156,20 @@
               <additionalparam>-Xdoclint:none</additionalparam>
             </configuration>
           </plugin>
-<!--           <plugin> -->
-<!--             <groupId>org.apache.maven.plugins</groupId> -->
-<!--             <artifactId>maven-gpg-plugin</artifactId> -->
-<!--             <version>1.5</version> -->
-<!--             <executions> -->
-<!--               <execution> -->
-<!--                 <id>sign-artifacts</id> -->
-<!--                 <phase>verify</phase> -->
-<!--                 <goals> -->
-<!--                   <goal>sign</goal> -->
-<!--                 </goals> -->
-<!--               </execution> -->
-<!--             </executions> -->
-<!--           </plugin> -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.5</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
 
 <!--                     <plugin> -->
 <!--                         <groupId>org.sonatype.plugins</groupId> -->
