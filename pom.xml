@@ -7,7 +7,7 @@
   <groupId>cn.com.thinkit.cloud</groupId>
   <artifactId>microservice-common-util</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.5</version>
+  <version>0.0.6</version>
   <name>microservice-common-util Java SDK</name>
   <description>常用工具类:字符串、日期、文件、加密、异常、分页等工具类</description>
   <url>http://www.thinkit.com.cn/</url>
@@ -74,19 +74,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.7.0</version>
-        </dependency>
-        <!--美化的UI1 -->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>swagger-bootstrap-ui</artifactId>
-            <version>1.7.2</version>
-        </dependency>
-
-        <!--美化的UI2 -->
-        <dependency>
-            <groupId>com.github.caspar-chen</groupId>
-            <artifactId>swagger-ui-layer</artifactId>
-            <version>0.0.3</version>
         </dependency>
       
       <dependency>
