@@ -18,5 +18,12 @@ public class RestAPIResult2Test {
 		
 		assertEquals("错误了,真的错了",restAPIResult.getRespMsg());
 	}
+	
+	 @Test
+	  public void RestAPIResultTest5() {
+	    new RestAPIResult2().respCode(0)
+	                        .respMsg("aa {0}", "bb")
+	                        .respData("222");
+	  }
 
 }

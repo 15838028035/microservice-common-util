@@ -104,6 +104,47 @@ public class RestAPIResult2<T> implements Serializable {
 		this.respMsg = message;
 	}
 
+	/**
+ * 	链式调用
+ * @param respCode
+ * @return
+ */
+  public RestAPIResult2 respCode(int respCode){
+    this.respCode = respCode;
+    this.respMsg = respMsg;
+    return this;
+  }
+  
+  /**
+   *  链式调用
+   * @param respCode
+   * @return
+   */
+    public RestAPIResult2 respMsg(String msg,String formatParam){
+      String respMsg = MessageFormat.format(msg, formatParam);
+      this.respMsg = respMsg;
+      return this;
+   }
+    
+    /**
+     *  链式调用
+     * @param respCode
+     * @return
+     */
+      public RestAPIResult2 respMsg(String msg){
+        return respMsg(msg, null);
+     }
+      
+    /**
+     *  链式调用
+     * @param respCode
+     * @return
+     */
+      public RestAPIResult2 respData(Object respData){
+        this.respData = respData;
+        return this;
+     }
+  
 	public String getDataCode() {
 		return dataCode;
 	}
