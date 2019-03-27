@@ -2,6 +2,7 @@
 package com.zhongkexinli.micro.serv.common.bean;
 
 import java.io.Serializable;
+import java.text.MessageFormat;
 
 import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
 
@@ -70,6 +71,30 @@ public class RestAPIResult2<T> implements Serializable {
 		this.respMsg = CommonConstants.SUCCESS_MSG;
 	  this.respData = object;
 	}
+	
+	/**
+	 * 新增格式化函数
+	 * @param msg
+	 * @param formatParam
+	 * @param object
+	 */
+	public void messageFormat(String msg, String formatParam,T object){
+    this.respCode = CommonConstants.SUCCESS;
+    String respMsg = MessageFormat.format(msg, formatParam);
+    this.respMsg = respMsg;
+    this.respData = object;
+  }
+	
+	/**
+   * 新增格式化函数
+   * @param msg
+   * @param formatParam
+   * @param object
+   */
+  public void messageFormat(String msg, String formatParam){
+     messageFormat( msg,  formatParam,null);
+  }
+	
 	public void error(){
 		this.respCode = CommonConstants.ERROR;
 		this.respMsg = CommonConstants.FAIL;
