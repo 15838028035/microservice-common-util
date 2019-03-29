@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.com/15838028035/microservice-common-util.svg?branch=master)](https://travis-ci.com/15838028035/microservice-common-util)
 
+[![Maven Central](https://img.shields.io/maven-central/v/cn.com.thinkit.cloud/microservice-common-util.svg)](https://mvnrepository.com/artifact/cn.com.thinkit.cloud/microservice-common-util)
+
+
 # 项目简介
     常见常用日期、字符串、数字、文件、异常、分页、树等公共类库
     
@@ -8,7 +11,7 @@
     <dependency>
             <groupId>cn.com.thinkit.cloud</groupId>
             <artifactId>microservice-common-util</artifactId>
-             <version>0.0.6</version>
+             <version>0.0.7</version>
     </dependency> 
   ```
 
