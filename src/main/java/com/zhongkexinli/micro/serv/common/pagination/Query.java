@@ -20,6 +20,13 @@ public class Query extends LinkedHashMap<String, Object> {
   private String limitParam = "limit";
 
   /**
+   * 不带分页查询条件
+   */
+  public Query() {
+    
+  }
+  
+  /**
    * 分页构造
    * @param params 分页参数
    */
@@ -40,6 +47,17 @@ public class Query extends LinkedHashMap<String, Object> {
     }
     this.remove("page");
     this.remove(limitParam);
+  }
+  
+  /**
+   * 构造链式查询
+   * @param key  key
+   * @param value value
+   * @return
+   */
+  public Query putFilter(String key, Object value) {
+      this.put(key, value);
+      return this;
   }
   
   public int getPage() {

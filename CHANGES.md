@@ -1,5 +1,11 @@
 microservice-common-util 发版日志
 =======================
+
+com.zhongkexinli.micro.serv.common.pagination.Query 新增链式调用方法putFilter
+
+0.0.7 (2019-03-29)
+------------------
+
 RestAPIResult2 新增链式调用方法
 
 0.0.6 (2019-03-27)
