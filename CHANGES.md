@@ -1,6 +1,10 @@
 microservice-common-util 发版日志
 =======================
 
+com.zhongkexinli.micro.serv.common.bean.RestAPIResult2 新增方法respMsg(String msg,Object... arguments)
+
+0.0.8 (2019-04-03)
+------------------
 com.zhongkexinli.micro.serv.common.pagination.Query 新增链式调用方法putFilter
 
 0.0.7 (2019-03-29)

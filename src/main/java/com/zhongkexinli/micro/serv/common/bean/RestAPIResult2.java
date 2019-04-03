@@ -4,6 +4,8 @@ package com.zhongkexinli.micro.serv.common.bean;
 import java.io.Serializable;
 import java.text.MessageFormat;
 
+import org.slf4j.helpers.MessageFormatter;
+
 import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
 
 import io.swagger.annotations.ApiModel;
@@ -114,17 +116,23 @@ public class RestAPIResult2<T> implements Serializable {
     this.respMsg = respMsg;
     return this;
   }
-  
-  /**
-   *  链式调用
-   * @param respCode
-   * @return
-   */
-    public RestAPIResult2 respMsg(String msg,String formatParam){
-      String respMsg = MessageFormat.format(msg, formatParam);
-      this.respMsg = respMsg;
-      return this;
-   }
+    
+    /**
+     *  链式调用
+     * @param respCode
+     * @return
+     */
+      public RestAPIResult2 respMsg(String msg,Object... arguments){
+        String formattedMessage = msg;
+        if (arguments != null) {
+          formattedMessage = MessageFormatter.arrayFormat(msg, arguments).getMessage();
+      } else {
+          formattedMessage = msg;
+      }
+        
+        this.respMsg = formattedMessage;
+        return this;
+     }
     
     /**
      *  链式调用
