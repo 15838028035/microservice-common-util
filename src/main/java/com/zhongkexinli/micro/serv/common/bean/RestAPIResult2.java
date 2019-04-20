@@ -2,7 +2,6 @@
 package com.zhongkexinli.micro.serv.common.bean;
 
 import java.io.Serializable;
-import java.text.MessageFormat;
 
 import org.slf4j.helpers.MessageFormatter;
 
@@ -99,7 +98,7 @@ public class RestAPIResult2<T> implements Serializable {
      * @return
      */
       public RestAPIResult2 respMsg(String msg,Object... arguments){
-        String formattedMessage = msg;
+        String formattedMessage;
         if (arguments != null) {
           formattedMessage = MessageFormatter.arrayFormat(msg, arguments).getMessage();
       } else {
