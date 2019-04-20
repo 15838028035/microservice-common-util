@@ -11,7 +11,7 @@
     <dependency>
             <groupId>cn.com.thinkit.cloud</groupId>
             <artifactId>microservice-common-util</artifactId>
-             <version>0.0.8</version>
+             <version>0.0.9</version>
     </dependency> 
   ```
 

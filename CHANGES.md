@@ -1,6 +1,10 @@
 microservice-common-util 发版日志
 =======================
-
+0.0.9 (2019-04-20)
+------------------
+ - com.zhongkexinli.micro.serv.common.bean.RestAPIResult2删除messageFormat(String msg, String formatParam,T object)方法
+ - com.zhongkexinli.micro.serv.common.bean.RestAPIResult2 存在sonar坏味道修复
+ - sonar坏味道修复，删除无用的类
 
 0.0.8 (2019-04-03)
 ------------------
