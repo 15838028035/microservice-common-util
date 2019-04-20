@@ -12,11 +12,6 @@ public class RestAPIResult2Test {
 	  RestAPIResult2 restAPIResult = new RestAPIResult2("okay");
 		assertTrue(restAPIResult.getRespCode()==0);
 		assertEquals("okay",restAPIResult.getRespMsg());
-		
-		
-		restAPIResult.messageFormat("错误了,{0}", "真的错了");
-		
-		assertEquals("错误了,真的错了",restAPIResult.getRespMsg());
 	}
 	
 	 @Test

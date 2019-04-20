@@ -74,29 +74,6 @@ public class RestAPIResult2<T> implements Serializable {
 	  this.respData = object;
 	}
 	
-	/**
-	 * 新增格式化函数
-	 * @param msg
-	 * @param formatParam
-	 * @param object
-	 */
-	public void messageFormat(String msg, String formatParam,T object){
-    this.respCode = CommonConstants.SUCCESS;
-    String respMsg = MessageFormat.format(msg, formatParam);
-    this.respMsg = respMsg;
-    this.respData = object;
-  }
-	
-	/**
-   * 新增格式化函数
-   * @param msg
-   * @param formatParam
-   * @param object
-   */
-  public void messageFormat(String msg, String formatParam){
-     messageFormat( msg,  formatParam,null);
-  }
-	
 	public void error(){
 		this.respCode = CommonConstants.ERROR;
 		this.respMsg = CommonConstants.FAIL;
@@ -113,7 +90,6 @@ public class RestAPIResult2<T> implements Serializable {
  */
   public RestAPIResult2 respCode(int respCode){
     this.respCode = respCode;
-    this.respMsg = respMsg;
     return this;
   }
     
@@ -153,36 +129,36 @@ public class RestAPIResult2<T> implements Serializable {
         return this;
      }
   
-	public String getDataCode() {
-		return dataCode;
-	}
-
-	public void setDataCode(String dataCode) {
-		this.dataCode = dataCode;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public Object getRespData() {
-		return respData;
-	}
-
-	public void setRespData(Object respData) {
-		this.respData = respData;
-	}
-
-	public String getLoginFlag() {
-		return loginFlag;
-	}
-
-	public void setLoginFlag(String loginFlag) {
-		this.loginFlag = loginFlag;
-	}
+  	public String getDataCode() {
+  		return dataCode;
+  	}
+  
+  	public void setDataCode(String dataCode) {
+  		this.dataCode = dataCode;
+  	}
+  
+  	public String getToken() {
+  		return token;
+  	}
+  
+  	public void setToken(String token) {
+  		this.token = token;
+  	}
+  
+  	public Object getRespData() {
+  		return respData;
+  	}
+  
+  	public void setRespData(Object respData) {
+  		this.respData = respData;
+  	}
+  
+  	public String getLoginFlag() {
+  		return loginFlag;
+  	}
+  
+  	public void setLoginFlag(String loginFlag) {
+  		this.loginFlag = loginFlag;
+  	}
 	
 }
