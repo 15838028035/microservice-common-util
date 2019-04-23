@@ -6,7 +6,7 @@ install:
  mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -e
 
 after_success:
-- mvn clean deploy  -Dmaven.test.skip=true -Prelease -X
+
 notifications:
   email:
     - 15838028035@163.com
