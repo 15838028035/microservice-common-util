@@ -19,12 +19,12 @@ import com.zhongkexinli.micro.serv.common.exception.EcnodeDecodeException;
  */
 public class DesUtil {
 
+  public static  final  String DES = "DES";
+  public static final String DES_KEY = "wang!@#$%";
+  
   private DesUtil() {
     
   }
-  
-  public static  final  String DES = "DES";
-  public static final String DES_KEY = "wang!@#$%";
 
   /**
    * Description 根据键值进行加密

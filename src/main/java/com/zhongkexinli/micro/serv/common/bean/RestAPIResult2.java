@@ -43,6 +43,19 @@ public class RestAPIResult2<T> implements Serializable {
   @ApiModelProperty(value = "判断是否跳登录")
   private String loginFlag;
 
+  
+  /**
+   * 空构造
+   */
+  public RestAPIResult2(){
+    //空构造
+  }
+  
+  public RestAPIResult2(String errorMsg){
+    this.respMsg = errorMsg;
+    this.respCode =CommonConstants.ERROR;
+  }
+  
 	  public int getRespCode() {
         return respCode;
     }
@@ -59,14 +72,6 @@ public class RestAPIResult2<T> implements Serializable {
         this.respMsg = respMsg;
     }
 
-	public RestAPIResult2(String errorMsg){
-		this.respMsg = errorMsg;
-		this.respCode =CommonConstants.ERROR;
-	}
-	
-	public RestAPIResult2(){
-	}
- 
 	public void success(T object){
 		this.respCode = CommonConstants.SUCCESS;
 		this.respMsg = CommonConstants.SUCCESS_MSG;
