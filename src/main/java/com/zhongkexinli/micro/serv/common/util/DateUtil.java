@@ -903,7 +903,6 @@ public  class DateUtil {
       try {
           date = format.parse(str);
       } catch (ParseException e) {
-          e.printStackTrace();
           logger.error("getDateYYYYMMddHHMMSS",e);
       } 
 

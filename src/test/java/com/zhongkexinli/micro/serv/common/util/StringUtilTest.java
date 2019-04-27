@@ -71,11 +71,6 @@ public class StringUtilTest {
   }
 
   @Test
-  public void dateRandomTest() {
-    assertTrue(StringUtil.dateRandom().length() > 0);
-  }
-
-  @Test
   public void getRowTest() {
     assertTrue(StringUtil.getRow(10, 5) == 2);
     assertTrue(StringUtil.getRow(10, 10) == 1);

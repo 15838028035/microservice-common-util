@@ -199,21 +199,6 @@ public abstract class StringUtil {
   }
 
   /**
-   * 产生随机数字.
-   * 
-   * @return String String
-   */
-  public static String dateRandom() {
-    Date dt = new Date();
-    long time = dt.getTime();
-    String timeStr = String.valueOf(time);
-    Random random = new Random();
-    random.setSeed(999L);
-    String randomStr = String.valueOf(Math.abs(random.nextInt()));
-    return timeStr + randomStr;
-  }
-
-  /**
    * 根据字符长度，每行大小获去有多少行.
    * 
    * @param length
