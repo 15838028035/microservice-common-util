@@ -2,6 +2,7 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/cn.com.thinkit.cloud/microservice-common-util.svg)](https://mvnrepository.com/artifact/cn.com.thinkit.cloud/microservice-common-util)
 
+[![Quality Gate](https://sonarqube.com/api/badges/gate?key=cn.com.thinkit.cloud%3Amicroservice-common-util)](https://sonarcloud.io/dashboard?id=15838028035_microservice-common-util)
 
 # 项目简介
     常见常用日期、字符串、数字、文件、异常、分页、树等公共类库
