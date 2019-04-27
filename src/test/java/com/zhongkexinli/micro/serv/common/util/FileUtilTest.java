@@ -16,10 +16,6 @@ import com.zhongkexinli.micro.serv.common.util.FileUtil;
 public class FileUtilTest {
 
   private static Log logger = LogFactory.getLog(FileUtilTest.class);
-  @Test
-  public void createFileInputStreamTest() {
-    // TODO:test me
-  }
 
   @Test
   public void isAllowUpTest() {
