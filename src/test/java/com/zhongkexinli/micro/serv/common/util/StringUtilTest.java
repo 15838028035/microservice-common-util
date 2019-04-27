@@ -16,8 +16,6 @@ import org.junit.Test;
 
 import com.zhongkexinli.micro.serv.common.base.entity.BaseEntity;
 
-import ch.qos.logback.classic.Logger;
-
 /**
  * 
  * 字符串测试工具类

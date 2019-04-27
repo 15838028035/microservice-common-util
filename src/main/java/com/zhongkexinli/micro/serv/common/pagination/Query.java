@@ -94,9 +94,4 @@ public class Query extends LinkedHashMap<String, Object> {
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
-  
-  @Override
-  public String toString() {
-    return super.toString();
-  }
 }
