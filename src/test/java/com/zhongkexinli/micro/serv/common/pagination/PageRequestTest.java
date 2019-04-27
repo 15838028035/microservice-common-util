@@ -19,8 +19,8 @@ public class PageRequestTest {
 	
 	@Test
 	public void PageRequestTTest() {
-		Filters Filters = new Filters();
-		pageRequest = new PageRequest(Filters);
+		Filters filters = new Filters();
+		pageRequest = new PageRequest(filters);
 		assertEquals(0,pageRequest.getPageNumber());
 		assertEquals(0,pageRequest.getPageSize());
 		assertEquals("com.zhongkexinli.micro.serv.common.pagination.PageRequestTest$Filters",pageRequest.getFilters().getClass().getName());

@@ -6,12 +6,17 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 
 import com.zhongkexinli.micro.serv.common.base.entity.BaseEntity;
+
+import ch.qos.logback.classic.Logger;
 
 /**
  * 
@@ -19,7 +24,11 @@ import com.zhongkexinli.micro.serv.common.base.entity.BaseEntity;
  *
  */
 public class StringUtilTest {
-
+  
+  private static Log logger = LogFactory.getLog(StringUtilTest.class);
+  private String testStrABC = "a,b,c";
+  private String testStrABC2 = ",a,b,c";
+  
   @Test
   public void minute2HourTest() {
     assertEquals("0.00", StringUtil.minute2Hour("0"));
@@ -30,25 +39,20 @@ public class StringUtilTest {
     assertEquals("2.00", StringUtil.minute2Hour("120"));
   }
 
-  @Test
-  public void getRoundTest() {
-    // TODO: test me
-  }
-
   @Test(expected = IllegalArgumentException.class)
   public void strTosqlDateTest() {
-    assertNull(StringUtil.strTosqlDate(null, "yyyy-MM-dd"));
-    assertNull(StringUtil.strTosqlDate("", "yyyy-MM-dd"));
+    assertNull(StringUtil.strTosqlDate(null, DateUtil.DATE_FORMAT_STYLE3));
+    assertNull(StringUtil.strTosqlDate("", DateUtil.DATE_FORMAT_STYLE3));
 
-    assertNotNull(StringUtil.strTosqlDate("2016-06-10", "yyyy-MM-dd"));
-    assertNotNull(StringUtil.strTosqlDate("2016-06-10 10:00:00", "yyyy-MM-dd HH:mm:ss"));
+    assertNotNull(StringUtil.strTosqlDate("2016-06-11", DateUtil.DATE_FORMAT_STYLE3));
+    assertNotNull(StringUtil.strTosqlDate("2016-06-11 10:00:00", DateUtil.DATE_FORMAT_STYLE5));
 
-    assertNull(StringUtil.strTosqlDate("2016-06-10", "bad format"));
-    assertNull(StringUtil.strTosqlDate("bad date", "yyyy-MM-dd"));
+    assertNull(StringUtil.strTosqlDate("2016-06-12", "bad format date "));
+    assertNull(StringUtil.strTosqlDate("bad date style", DateUtil.DATE_FORMAT_STYLE3));
   }
 
   @Test
-  public void zero_StrExTest() {
+  public void zeroStrExTest() {
     assertEquals("00001", StringUtil.zeroStrEx("1", 5));
     assertEquals("00002", StringUtil.zeroStrEx("2", 5));
     assertEquals("00010", StringUtil.zeroStrEx("10", 5));
@@ -207,10 +211,7 @@ public class StringUtilTest {
     assertTrue(StringUtil.isEqualsTrue("true"));
     assertFalse(StringUtil.isEqualsTrue("true "));
     assertFalse(StringUtil.isEqualsTrue(" TRUE "));
-    assertFalse(StringUtil.isEqualsTrue(" TRUE "));
     assertFalse(StringUtil.isEqualsTrue("TRUE "));
-    assertFalse(StringUtil.isEqualsTrue(" TRUE "));
-    assertFalse(StringUtil.isEqualsTrue(" TRUE "));
   }
 
   @Test
@@ -236,28 +237,28 @@ public class StringUtilTest {
 
   @Test
   public void isDateTest() {
-    assertTrue(StringUtil.isDate("2016-06-10", "yyyy-MM-dd"));
-    assertTrue(StringUtil.isDate("20160610", "yyyyMMdd"));
-    assertTrue(StringUtil.isDate("2016-06-10 10:00:00", "yyyy-MM-dd HH:mm:ss"));
+    assertTrue(StringUtil.isDate("2016-06-10", DateUtil.DATE_FORMAT_STYLE3));
+    assertTrue(StringUtil.isDate("20160610", DateUtil.DATE_FORMAT_STYLE4));
+    assertTrue(StringUtil.isDate("2016-06-10 10:00:00",DateUtil.DATE_FORMAT_STYLE5));
   }
 
   @Test(expected = NullPointerException.class)
   public void isDateException1Test() {
-    assertFalse(StringUtil.isDate(null, "yyyy-MM-dd"));
-    assertFalse(StringUtil.isDate("", "yyyy-MM-dd"));
-    assertFalse(StringUtil.isDate(" ", "yyyy-MM-dd"));
-    assertFalse(StringUtil.isDate("bad date", "yyyy-MM-dd"));
+    assertFalse(StringUtil.isDate(null, DateUtil.DATE_FORMAT_STYLE3));
+    assertFalse(StringUtil.isDate("", DateUtil.DATE_FORMAT_STYLE3));
+    assertFalse(StringUtil.isDate(" ", DateUtil.DATE_FORMAT_STYLE3));
+    assertFalse(StringUtil.isDate("bad date", DateUtil.DATE_FORMAT_STYLE3));
 
-    assertTrue(StringUtil.isDate("2016-06-10", "bad format"));
+    assertTrue(StringUtil.isDate("2016-06-12", "bad format"));
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void isDateException2Test() {
-    assertFalse(StringUtil.isDate("", "yyyy-MM-dd"));
-    assertFalse(StringUtil.isDate(" ", "yyyy-MM-dd"));
-    assertFalse(StringUtil.isDate("bad date", "yyyy-MM-dd"));
+    assertFalse(StringUtil.isDate("", DateUtil.DATE_FORMAT_STYLE3));
+    assertFalse(StringUtil.isDate(" ", DateUtil.DATE_FORMAT_STYLE3));
+    assertFalse(StringUtil.isDate("bad date", DateUtil.DATE_FORMAT_STYLE3));
 
-    assertTrue(StringUtil.isDate("2016-06-10", "bad format"));
+    assertTrue(StringUtil.isDate("2016-06-13", "bad format"));
   }
 
   @Test
@@ -281,10 +282,6 @@ public class StringUtilTest {
     assertFalse(StringUtil.verifyIdCardNo("abc"));
     assertFalse(StringUtil.verifyIdCardNo("abcdef"));
     assertTrue(StringUtil.verifyIdCardNo("411224198608786717"));
-  }
-
-  @Test
-  public void testVerifyName() {
   }
 
   @Test
@@ -316,21 +313,12 @@ public class StringUtilTest {
   }
 
   @Test
-  public void testAddPrefix() {
-  }
-
-  @Test
   public void getUuidTest() {
     assertNotNull(StringUtil.getUuid());
   }
 
   @Test
   public void getRandomStringTest() {
-
-    System.out.println(StringUtil.getRandomString(4));
-    System.out.println(StringUtil.getRandomString(5));
-    System.out.println(StringUtil.getRandomString(6));
-
     assertTrue(StringUtil.getRandomString(4).length() > 0);
     assertTrue(StringUtil.getRandomString(5).length() > 0);
     assertTrue(StringUtil.getRandomString(6).length() > 0);
@@ -339,58 +327,62 @@ public class StringUtilTest {
   @Test
   public void splitStringTest() {
     String splitString = "abcdefgh";
-    assertTrue(StringUtil.splitString(splitString, 2).size() > 0);
+    assertFalse(StringUtil.splitString(splitString, 2).isEmpty());
   }
 
   @Test
   public void splitStringToStringListTest() {
+    String testStr = "a,b,c";
     assertTrue(StringUtil.splitStringToStringList(null).size() == 1);
     assertTrue(StringUtil.splitStringToStringList("a").size() == 1);
     assertTrue(StringUtil.splitStringToStringList("a,b").size() == 2);
 
-    assertEquals("a", StringUtil.splitStringToStringList("a,b,c").get(0));
-    assertEquals("b", StringUtil.splitStringToStringList("a,b,c").get(1));
-    assertEquals("c", StringUtil.splitStringToStringList("a,b,c").get(2));
+    assertEquals("a", StringUtil.splitStringToStringList(testStr).get(0));
+    assertEquals("b", StringUtil.splitStringToStringList(testStr).get(1));
+    assertEquals("c", StringUtil.splitStringToStringList(testStr).get(2));
 
-    assertEquals("", StringUtil.splitStringToStringList(",a,b,c").get(0));
-    assertEquals("a", StringUtil.splitStringToStringList(",a,b,c").get(1));
-    assertEquals("b", StringUtil.splitStringToStringList(",a,b,c").get(2));
-    assertEquals("c", StringUtil.splitStringToStringList(",a,b,c").get(3));
+    assertEquals("", StringUtil.splitStringToStringList(testStrABC2).get(0));
+    assertEquals("a", StringUtil.splitStringToStringList(testStrABC2).get(1));
+    assertEquals("b", StringUtil.splitStringToStringList(testStrABC2).get(2));
+    assertEquals("c", StringUtil.splitStringToStringList(testStrABC2).get(3));
   }
 
   @Test
   public void convertArrayToSplitStringTest() {
-    assertEquals("a", StringUtil.stringToArray("a,b,c", ",")[0]);
-    assertEquals("b", StringUtil.stringToArray("a,b,c", ",")[1]);
-    assertEquals("c", StringUtil.stringToArray("a,b,c", ",")[2]);
+    String testStr = "a,b,c";
+    assertEquals("a", StringUtil.stringToArray(testStr, ",")[0]);
+    assertEquals("b", StringUtil.stringToArray(testStr, ",")[1]);
+    assertEquals("c", StringUtil.stringToArray(testStr, ",")[2]);
 
     assertEquals("a", StringUtil.stringToArray(",a,b,c", ",")[0]);
     assertEquals("b", StringUtil.stringToArray(",a,b,c", ",")[1]);
     assertEquals("c", StringUtil.stringToArray(",a,b,c", ",")[2]);
 
-    assertEquals("a,b,c", StringUtil.convertArrayToSplitString(StringUtil.stringToArray("a,b,c", ","), ","));
+    assertEquals("a,b,c", StringUtil.convertArrayToSplitString(StringUtil.stringToArray(testStr, ","), ","));
     assertEquals("a,b,c", StringUtil.convertArrayToSplitString(StringUtil.stringToArray(",a,b,c", ","), ","));
   }
 
   @Test
   public void convertArrayToSplitString2Test() {
-    assertEquals("a", StringUtil.stringToArray("a,b,c", ",")[0]);
-    assertEquals("b", StringUtil.stringToArray("a,b,c", ",")[1]);
-    assertEquals("c", StringUtil.stringToArray("a,b,c", ",")[2]);
+    String testStr = "a,b,c";
+    assertEquals("a", StringUtil.stringToArray(testStr, ",")[0]);
+    assertEquals("b", StringUtil.stringToArray(testStr, ",")[1]);
+    assertEquals("c", StringUtil.stringToArray(testStr, ",")[2]);
 
     assertEquals("a", StringUtil.stringToArray(",a,b,c", ",")[0]);
     assertEquals("b", StringUtil.stringToArray(",a,b,c", ",")[1]);
     assertEquals("c", StringUtil.stringToArray(",a,b,c", ",")[2]);
 
-    assertEquals("'a','b','c'", StringUtil.convertArrayToSplitString2(StringUtil.stringToArray("a,b,c", ","), ","));
+    assertEquals("'a','b','c'", StringUtil.convertArrayToSplitString2(StringUtil.stringToArray(testStr, ","), ","));
     assertEquals("'a','b','c'", StringUtil.convertArrayToSplitString2(StringUtil.stringToArray(",a,b,c", ","), ","));
   }
 
   @Test
   public void stringToArrayTest() {
-    assertEquals("a", StringUtil.stringToArray("a,b,c", ",")[0]);
-    assertEquals("b", StringUtil.stringToArray("a,b,c", ",")[1]);
-    assertEquals("c", StringUtil.stringToArray("a,b,c", ",")[2]);
+    String testStr = "a,b,c";
+    assertEquals("a", StringUtil.stringToArray(testStr, ",")[0]);
+    assertEquals("b", StringUtil.stringToArray(testStr, ",")[1]);
+    assertEquals("c", StringUtil.stringToArray(testStr, ",")[2]);
 
     assertEquals("a", StringUtil.stringToArray(",a,b,c", ",")[0]);
     assertEquals("b", StringUtil.stringToArray(",a,b,c", ",")[1]);
@@ -402,10 +394,10 @@ public class StringUtilTest {
     assertEquals("abc", StringUtil.getStringByArray(StringUtil.stringToArray("a,b,c", ",")));
     assertEquals("abc", StringUtil.getStringByArray(StringUtil.stringToArray(",a,b,c", ",")));
     assertEquals("abc", StringUtil.getStringByArray(StringUtil.stringToArray("a,b,c,", ",")));
-    assertEquals("abc", StringUtil.getStringByArray(StringUtil.stringToArray(",a,b,c,", ",")));
+    assertEquals("abc", StringUtil.getStringByArray(StringUtil.stringToArray(testStrABC2, ",")));
 
     assertEquals("", StringUtil.getStringByArray(null));
-    assertEquals(",a,b,c,", StringUtil.getStringByArray(StringUtil.stringToArray(",a,b,c,", ";")));
+    assertEquals(",a,b,c,", StringUtil.getStringByArray(StringUtil.stringToArray(testStrABC2, ";")));
   }
 
   @Test
@@ -456,11 +448,12 @@ public class StringUtilTest {
 
   @Test
   public void replaceTest() {
-    assertEquals("ABcdefABAd", StringUtil.replace("abcdefABAd", "ab", "AB"));
-    assertEquals("abCDefABAd", StringUtil.replace("abcdefABAd", "cd", "CD"));
-    assertEquals("abcdEEABAd", StringUtil.replace("abcdefABAd", "ef", "EE"));
-    assertEquals("abcdefABAd", StringUtil.replace("abcdefABAd", "Ab", "fg"));
-    assertEquals("abcfgfABAd", StringUtil.replace("abcdefABAd", "de", "fg"));
+    String testStr = "abcdefABAd";
+    assertEquals("ABcdefABAd", StringUtil.replace(testStr, "ab", "AB"));
+    assertEquals("abCDefABAd", StringUtil.replace(testStr, "cd", "CD"));
+    assertEquals("abcdEEABAd", StringUtil.replace(testStr, "ef", "EE"));
+    assertEquals("abcdefABAd", StringUtil.replace(testStr, "Ab", "fg"));
+    assertEquals("abcfgfABAd", StringUtil.replace(testStr, "de", "fg"));
 
     assertEquals(null, StringUtil.replace(null, "de", "fg"));
   }
@@ -542,11 +535,6 @@ public class StringUtilTest {
   }
 
   @Test
-  public void getShortFileNameTest() {
-    // TODO:test me
-  }
-
-  @Test
   public void generateRandomLowercaseTest() {
     assertTrue(StringUtil.generateRandomLowercase(5).length() == 5);
     assertTrue(StringUtil.generateRandomLowercase(6).length() == 6);
@@ -587,7 +575,7 @@ public class StringUtilTest {
   @Test
   public void randomOrderListTest() {
 
-    List<String> stringList = new ArrayList<String>();
+    List<String> stringList = new ArrayList();
     stringList.add("a");
     stringList.add("b");
 
@@ -596,29 +584,29 @@ public class StringUtilTest {
 
   @Test
   public void generateRandomCharsTest() {
-    assertTrue(StringUtil.generateRandomChars("abcdefg", 3).length() == 3);
-    assertTrue(StringUtil.generateRandomChars("abcdefg", 4).length() == 4);
-    assertTrue(StringUtil.generateRandomChars("abcdefg", 5).length() == 5);
-    assertTrue(StringUtil.generateRandomChars("abcdefg", 6).length() == 6);
+    assertTrue(StringUtil.generateRandomChars("abcdefgc", 3).length() == 3);
+    assertTrue(StringUtil.generateRandomChars("abcdefgd", 4).length() == 4);
+    assertTrue(StringUtil.generateRandomChars("abcdefge", 5).length() == 5);
+    assertTrue(StringUtil.generateRandomChars("abcdefgf", 6).length() == 6);
   }
 
   @Test
   public void randomOrderTest() {
-    assertTrue(StringUtil.randomOrder("abcdef").length() == 6);
-    assertTrue(StringUtil.randomOrder("abcdfe").length() == 6);
-    assertTrue(StringUtil.randomOrder("abcefd").length() == 6);
-    assertTrue(StringUtil.randomOrder("abcedf").length() == 6);
-    assertTrue(StringUtil.randomOrder("bacdef").length() == 6);
-    assertTrue(StringUtil.randomOrder("badcef").length() == 6);
+    assertTrue(StringUtil.randomOrder("abcdefa").length() == 7);
+    assertTrue(StringUtil.randomOrder("abcdfeb").length() == 7);
+    assertTrue(StringUtil.randomOrder("abcefdc").length() == 7);
+    assertTrue(StringUtil.randomOrder("abcedfd").length() == 7);
+    assertTrue(StringUtil.randomOrder("bacdefe").length() == 7);
+    assertTrue(StringUtil.randomOrder("badceff").length() == 7);
   }
 
   @Test
   public void propsTest() {
-    System.out.println(StringUtil.props(new BaseEntity()));
+    logger.debug(StringUtil.printAllMethodAndAttrInfo(new BaseEntity()));
   }
 
   @Test
-  public void byteToStringTest() throws Exception {
+  public void byteToStringTest() throws UnsupportedEncodingException {
     String str = "123";
     byte[] b = str.getBytes("UTF-8");
     String rest = StringUtil.byteToString(b);

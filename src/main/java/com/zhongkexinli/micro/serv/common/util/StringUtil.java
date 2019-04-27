@@ -1155,7 +1155,7 @@ public abstract class StringUtil {
    * @param o 对象
    * @return 显示实体类的属性和方法
    */
-  public static String props(Object o) {
+  public static String printAllMethodAndAttrInfo(Object o) {
     Class cls = o.getClass();
     String  className = cls.getName();
     StringBuilder sb = new StringBuilder(64);

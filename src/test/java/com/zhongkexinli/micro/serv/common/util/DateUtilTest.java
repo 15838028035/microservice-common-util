@@ -26,11 +26,11 @@ public class DateUtilTest {
 
 	@Test
 	public void formatDateTest() {
-		assertEquals("2015-10-01",(DateUtil.formatDate(DateUtil.formatDate("2015-10-01", "yyyy-MM-dd"), "yyyy-MM-dd")));
+		assertEquals("2015-11-01",(DateUtil.formatDate(DateUtil.formatDate("2015-11-01", "yyyy-MM-dd"), "yyyy-MM-dd")));
 		assertEquals("2015-10-01 00:00:00",(DateUtil.formatDate(DateUtil.formatDate("2015-10-01", "yyyy-MM-dd"), "yyyy-MM-dd HH:mm:ss")));
-		assertEquals("00:00:00",(DateUtil.formatDate(DateUtil.formatDate("2015-10-01", "yyyy-MM-dd"), "HH:mm:ss")));
+		assertEquals("00:00:00",(DateUtil.formatDate(DateUtil.formatDate("2015-12-01", "yyyy-MM-dd"), "HH:mm:ss")));
 		
-		assertEquals(null,(DateUtil.formatDate(DateUtil.formatDate("2015-10-01", "yyyy-MM-dd"), "bad format")));
+		assertEquals(null,(DateUtil.formatDate(DateUtil.formatDate("2015-01-01", "yyyy-MM-dd"), "bad format")));
 	}
 
 	@Test
@@ -63,14 +63,14 @@ public class DateUtilTest {
 	
 	@Test
 	public void getIntervalDaysNumIsZerorTest(){
-		int interDays = DateUtil.getIntervalDays("2015-08-10 00:00:00", "2015-08-20 00:00:00");
-		assertTrue(interDays==-10);
+		int interDays = DateUtil.getIntervalDays("2015-08-10 00:00:00", "2015-08-21 00:00:00");
+		assertTrue(interDays==-11);
 	}
 	
 	@Test
 	public void getIntervalDaysNumBadeFormatDateTest(){
-		int interDays = DateUtil.getIntervalDays("2015-08-20 00:00:00", "2015-08-20 00:00:00");
-		assertTrue(interDays==0);
+		int interDays = DateUtil.getIntervalDays("2015-08-23 00:00:00", "2015-08-22 00:00:00");
+		assertTrue(interDays==1);
 	}
 	
 	@Test

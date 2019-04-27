@@ -4,9 +4,13 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BaseEntityTest {
 
+  private Logger logger = LoggerFactory.getLogger(getClass());
+  
 	private BaseEntity baseModel;
 	
 	@Before
@@ -23,25 +27,25 @@ public class BaseEntityTest {
 	@Test
 	public void createByUnameTest() {
 		baseModel.setCreateByUname("createByUname");
-		assertEquals("createByUname must be createByUname","createByUname", baseModel.getCreateByUname().toString());
+		assertEquals("createByUname must be createByUname","createByUname", baseModel.getCreateByUname());
 	}
 
 	@Test
 	public void setGetCreateDateTest() {
-		baseModel.setCreateDate("2015-10-01 10:00:00");
-		assertEquals("CreateDate must be 2015-10-01 10:00:00","2015-10-01 10:00:00", baseModel.getCreateDate());
+		baseModel.setCreateDate("2015-10-11 10:00:00");
+		assertEquals("CreateDate must be 2015-10-11 10:00:00","2015-10-11 10:00:00", baseModel.getCreateDate());
 	}
 	
 	@Test
 	public void createDateBeginTest() {
-		baseModel.setCreateDateBegin("2015-10-01 10:00:00");
-		assertEquals("createDateBegin must be 2015-10-01 10:00:00","2015-10-01 10:00:00", baseModel.getCreateDateBegin());
+		baseModel.setCreateDateBegin("2015-10-04 10:00:00");
+		assertEquals("createDateBegin must be 2015-10-04 10:00:00","2015-10-04 10:00:00", baseModel.getCreateDateBegin());
 	}
 	
 	@Test
 	public void createDateEndTest() {
-		baseModel.setCreateDateEnd("2015-10-01 10:00:00");
-		assertEquals("createDateEnd must be 2015-10-01 10:00:00","2015-10-01 10:00:00", baseModel.getCreateDateEnd());
+		baseModel.setCreateDateEnd("2015-10-05 10:00:00");
+		assertEquals("createDateEnd must be 2015-10-05 10:00:00","2015-10-0 10:00:00", baseModel.getCreateDateEnd());
 	}
 
 	
@@ -59,14 +63,14 @@ public class BaseEntityTest {
 
 	@Test
 	public void setGetUpdateDateTest() {
-		baseModel.setUpdateDate("2015-10-01 11:00:00");
-		assertEquals("UpdateDate must be 2015-10-01 11:00:00","2015-10-01 11:00:00", baseModel.getUpdateDate());
+		baseModel.setUpdateDate("2015-10-02 11:00:00");
+		assertEquals("UpdateDate must be 2015-10-02 11:00:00","2015-10-02 11:00:00", baseModel.getUpdateDate());
 	}
 	
 	@Test
 	public void updateDatebeginTest() {
-		baseModel.setUpdateDatebegin("2015-10-01 11:00:00");
-		assertEquals("updateDatebegin must be 2015-10-01 11:00:00","2015-10-01 11:00:00", baseModel.getUpdateDatebegin());
+		baseModel.setUpdateDatebegin("2015-10-03 11:00:00");
+		assertEquals("updateDatebegin must be 2015-10-03 11:00:00","2015-10-03 11:00:00", baseModel.getUpdateDatebegin());
 	}
 	
 	@Test
@@ -119,7 +123,7 @@ public class BaseEntityTest {
 	
 	@Test
 	public void toStringTest() {
-		System.out.println(baseModel);
+	  logger.debug("baseMode.toString info {} ",baseModel);
 	}
 
 }

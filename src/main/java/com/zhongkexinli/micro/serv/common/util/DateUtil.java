@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public  class DateUtil {
-
+  
   private DateUtil () {
     // null 
   }
@@ -206,7 +206,7 @@ public  class DateUtil {
    *          millsecond value
    * @return Timestamp
    */
-  public static Timestamp getTimestamp(String milliSecs) throws NumberFormatException {
+  public static Timestamp getTimestamp(String milliSecs) {
     return new Timestamp(Long.parseLong(milliSecs));
   }
 
@@ -904,7 +904,8 @@ public  class DateUtil {
           date = format.parse(str);
       } catch (ParseException e) {
           e.printStackTrace();
-      }
+          logger.error("getDateYYYYMMddHHMMSS",e);
+      } 
 
       return date;
   }

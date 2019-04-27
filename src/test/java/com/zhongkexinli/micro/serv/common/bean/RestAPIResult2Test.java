@@ -8,14 +8,14 @@ import org.junit.Test;
 public class RestAPIResult2Test {
 
 	@Test
-	public void RestAPIResultTest4() {
+	public void restAPIResultTest4() {
 	  RestAPIResult2 restAPIResult = new RestAPIResult2("okay");
 		assertTrue(restAPIResult.getRespCode()==0);
 		assertEquals("okay",restAPIResult.getRespMsg());
 	}
 	
 	 @Test
-	  public void RestAPIResultTest5() {
+	  public void restAPIResultTest5() {
 	    new RestAPIResult2().respCode(0)
 	                        .respMsg("aa {0}", "bb")
 	                        .respData("222");
@@ -23,7 +23,7 @@ public class RestAPIResult2Test {
 	 
 	 
 	 @Test
-	  public void RestAPIResultTest6() {
+	  public void restAPIResultTest6() {
 	    RestAPIResult2 restAPIResult = new RestAPIResult2("okay");
 	    assertTrue(restAPIResult.getRespCode()==0);
 	    assertEquals("okay",restAPIResult.getRespMsg());
@@ -35,7 +35,7 @@ public class RestAPIResult2Test {
 	  }
 	 
 	 @Test
-	  public void RestAPIResultTest7() {
+	  public void restAPIResultTest7() {
 	    RestAPIResult2 restAPIResult = new RestAPIResult2("okay");
 	    assertTrue(restAPIResult.getRespCode()==0);
 	    assertEquals("okay",restAPIResult.getRespMsg());
@@ -47,7 +47,7 @@ public class RestAPIResult2Test {
 	  }
 	 
 	 @Test
-   public void RestAPIResultTest8() {
+   public void restAPIResultTest8() {
      RestAPIResult2 restAPIResult = new RestAPIResult2("okay");
      assertTrue(restAPIResult.getRespCode()==0);
      assertEquals("okay",restAPIResult.getRespMsg());

@@ -5,23 +5,23 @@ import org.junit.Test;
 public class LoginUserPasswordErrorExceptionTest {
 
 	@Test(expected = LoginUserPasswordErrorException.class)
-	public void loginUserPasswordErrorExceptionTest() throws Exception{
+	public void loginUserPasswordErrorExceptionTest(){
 		throw new LoginUserPasswordErrorException();
 	}
 
 	@Test(expected = LoginUserPasswordErrorException.class)
-	public void iloginUserPasswordErrorExceptionMsgTest() throws Exception{
+	public void iloginUserPasswordErrorExceptionMsgTest() {
 		throw new LoginUserPasswordErrorException("LoginUserPasswordErrorException");
 	}
 
 	@Test(expected = LoginUserPasswordErrorException.class)
-	public void loginUserPasswordErrorExceptionThrowTest()  throws Exception{
+	public void loginUserPasswordErrorExceptionThrowTest() {
 		Throwable cause = new Throwable();
 		throw new LoginUserPasswordErrorException(cause);
 	}
 
 	@Test(expected = LoginUserPasswordErrorException.class)
-	public void loginUserPasswordErrorExceptionThrowMsgTest() throws Exception{
+	public void loginUserPasswordErrorExceptionThrowMsgTest() {
 		Throwable cause = new Throwable();
 		throw new LoginUserPasswordErrorException("LoginUserPasswordErrorException",cause);
 	}

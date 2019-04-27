@@ -44,11 +44,11 @@ public class MapAndObjectTest {
 		MapAndObject m = new MapAndObject(map,baseEntity);
 		assertNull(m.get("createByUnameA"));
 		
-		map.put("createBy", 1);
-		assertEquals(1 ,m.get("createBy"));
+		map.put("createByA", 1);
+		assertEquals(1 ,m.get("createByA"));
 		
 		baseEntity.setCreateBy(null);
-	  assertEquals(1 ,m.get("createBy"));
+	  assertEquals(1 ,m.get("createByA"));
 	  
 		assertNull(m.get("9527name"));
 		assertNull(m.get("notexistmethod"));

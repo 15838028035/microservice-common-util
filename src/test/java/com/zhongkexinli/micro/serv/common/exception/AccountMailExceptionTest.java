@@ -5,23 +5,23 @@ import org.junit.Test;
 public class AccountMailExceptionTest {
 
 	@Test(expected = AccountMailException.class)
-	public void accountMailExceptionTest() throws Exception{
+	public void accountMailExceptionTest() {
 		throw new AccountMailException();
 	}
 
 	@Test(expected = AccountMailException.class)
-	public void accountMailExceptionExceptionTest() throws Exception{
+	public void accountMailExceptionExceptionTest() {
 		throw new AccountMailException("AccountMailException");
 	}
 
 	@Test(expected = AccountMailException.class)
-	public void accountMailExceptionExceptionThrowTest()  throws Exception{
+	public void accountMailExceptionExceptionThrowTest()  {
 		Throwable cause = new Throwable();
 		throw new AccountMailException(cause);
 	}
 
 	@Test(expected = AccountMailException.class)
-	public void accountMailExceptionExceptionMsgTest() throws Exception{
+	public void accountMailExceptionExceptionMsgTest() {
 		Throwable cause = new Throwable();
 		throw new AccountMailException("AccountMailException",cause);
 	}

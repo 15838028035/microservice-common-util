@@ -5,23 +5,23 @@ import org.junit.Test;
 public class CacheExceptionTest {
 
 	@Test(expected = CacheException.class)
-	public void cacheExceptionTest() throws Exception{
+	public void cacheExceptionTest() {
 		throw new CacheException();
 	}
 
 	@Test(expected = CacheException.class)
-	public void CacheExceptionTest() throws Exception{
+	public void cacheExceptionConTest() {
 		throw new CacheException("CacheException");
 	}
 
 	@Test(expected = CacheException.class)
-	public void CacheExceptionThrowTest()  throws Exception{
+	public void cacheExceptionThrowTest() {
 		Throwable cause = new Throwable();
 		throw new CacheException(cause);
 	}
 
 	@Test(expected = CacheException.class)
-	public void CacheExceptionMsgTest() throws Exception{
+	public void cacheExceptionMsgTest() {
 		Throwable cause = new Throwable();
 		throw new CacheException("CacheException",cause);
 	}

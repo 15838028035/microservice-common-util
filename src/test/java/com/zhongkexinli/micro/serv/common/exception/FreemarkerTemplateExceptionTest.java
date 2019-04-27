@@ -4,23 +4,23 @@ import org.junit.Test;
 
 public class FreemarkerTemplateExceptionTest {
 	@Test(expected = FreemarkerTemplateException.class)
-	public void freemarkerTemplateExceptionTest() throws Exception{
+	public void freemarkerTemplateExceptionTest() {
 		throw new FreemarkerTemplateException();
 	}
 
 	@Test(expected = FreemarkerTemplateException.class)
-	public void freemarkerTemplateExceptionExceptionTest() throws Exception{
+	public void freemarkerTemplateExceptionExceptionTest() {
 		throw new FreemarkerTemplateException("FreemarkerTemplateException");
 	}
 
 	@Test(expected = FreemarkerTemplateException.class)
-	public void freemarkerTemplateExceptionThrowTest()  throws Exception{
+	public void freemarkerTemplateExceptionThrowTest()  {
 		Throwable cause = new Throwable();
 		throw new FreemarkerTemplateException(cause);
 	}
 
 	@Test(expected = FreemarkerTemplateException.class)
-	public void freemarkerTemplateExceptionMsgTest() throws Exception{
+	public void freemarkerTemplateExceptionMsgTest() {
 		Throwable cause = new Throwable();
 		throw new FreemarkerTemplateException("FreemarkerTemplateException",cause);
 	}

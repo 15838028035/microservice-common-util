@@ -10,18 +10,18 @@ public class EcnodeDecodeExceptionTest {
   }
 
   @Test(expected = EcnodeDecodeException.class)
-  public void ecnodeDecodeExceptionTest2() throws Exception{
+  public void ecnodeDecodeExceptionTest2() throws EcnodeDecodeException{
     throw new EcnodeDecodeException("ecnodeDecodeException");
   }
 
   @Test(expected = EcnodeDecodeException.class)
-  public void ecnodeDecodeExceptionThrowTest()  throws Exception{
+  public void ecnodeDecodeExceptionThrowTest()  throws EcnodeDecodeException{
     Throwable cause = new Throwable();
     throw new EcnodeDecodeException(cause);
   }
 
   @Test(expected = EcnodeDecodeException.class)
-  public void ecnodeDecodeExceptionThrowMsgTest() throws Exception{
+  public void ecnodeDecodeExceptionThrowMsgTest() throws EcnodeDecodeException{
     Throwable cause = new Throwable();
     throw new EcnodeDecodeException("ecnodeDecodeException",cause);
   }

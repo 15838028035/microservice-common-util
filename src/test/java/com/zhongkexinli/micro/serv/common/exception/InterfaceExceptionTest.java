@@ -5,23 +5,23 @@ import org.junit.Test;
 public class InterfaceExceptionTest {
 
 	@Test(expected = InterfaceException.class)
-	public void interfaceExceptionTest() throws Exception{
+	public void interfaceExceptionTest() {
 		throw new InterfaceException();
 	}
 
 	@Test(expected = InterfaceException.class)
-	public void interfaceExceptionMsgTest() throws Exception{
+	public void interfaceExceptionMsgTest() {
 		throw new InterfaceException("InterfaceException");
 	}
 
 	@Test(expected = InterfaceException.class)
-	public void interfaceExceptionThrowTest()  throws Exception{
+	public void interfaceExceptionThrowTest()  {
 		Throwable cause = new Throwable();
 		throw new InterfaceException(cause);
 	}
 
 	@Test(expected = InterfaceException.class)
-	public void interfaceExceptionThrowMsgTest() throws Exception{
+	public void interfaceExceptionThrowMsgTest(){
 		Throwable cause = new Throwable();
 		throw new InterfaceException("InterfaceException",cause);
 	}

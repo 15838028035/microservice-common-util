@@ -5,23 +5,23 @@ import org.junit.Test;
 public class LoginUserNotExistsExceptionTest {
 
 	@Test(expected = LoginUserNotExistsException.class)
-	public void loginUserNotExistsExceptionTest() throws Exception{
+	public void loginUserNotExistsExceptionTest() {
 		throw new LoginUserNotExistsException();
 	}
 
 	@Test(expected = LoginUserNotExistsException.class)
-	public void loginUserNotExistsExceptionnMsgTest() throws Exception{
+	public void loginUserNotExistsExceptionnMsgTest() {
 		throw new LoginUserNotExistsException("LoginUserNotExistsException");
 	}
 
 	@Test(expected = LoginUserNotExistsException.class)
-	public void loginUserNotExistsExceptionThrowTest()  throws Exception{
+	public void loginUserNotExistsExceptionThrowTest()  {
 		Throwable cause = new Throwable();
 		throw new LoginUserNotExistsException(cause);
 	}
 
 	@Test(expected = LoginUserNotExistsException.class)
-	public void loginUserNotExistsExceptionThrowMsgTest() throws Exception{
+	public void loginUserNotExistsExceptionThrowMsgTest() {
 		Throwable cause = new Throwable();
 		throw new LoginUserNotExistsException("LoginUserNotExistsException",cause);
 	}

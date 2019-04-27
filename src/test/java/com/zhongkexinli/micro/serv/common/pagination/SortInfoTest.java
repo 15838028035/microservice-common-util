@@ -1,6 +1,7 @@
 package com.zhongkexinli.micro.serv.common.pagination;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -12,7 +13,7 @@ public class SortInfoTest {
 
 	@Test
 	public void sortInfoTest() {
-		SortInfo sortInfo = new SortInfo();
+		new SortInfo();
 	}
 
 	@Test
@@ -41,9 +42,9 @@ public class SortInfoTest {
 		 List<SortInfo> sortInfList = SortInfo.parseSortColumns("sortColumn1,sortColumn2,sortColumn3");
 		 
 		 assertTrue(sortInfList.size()==3);
-		 assertEquals("sortColumn1",((SortInfo)sortInfList.get(0)).getColumnName());
-		 assertEquals("sortColumn2",((SortInfo)sortInfList.get(1)).getColumnName());
-		 assertEquals("sortColumn3",((SortInfo)sortInfList.get(2)).getColumnName());
+		 assertEquals("sortColumn1",(sortInfList.get(0)).getColumnName());
+		 assertEquals("sortColumn2",(sortInfList.get(1)).getColumnName());
+		 assertEquals("sortColumn3",(sortInfList.get(2)).getColumnName());
 	}
 	
 	@Test
@@ -51,13 +52,13 @@ public class SortInfoTest {
 		 List<SortInfo> sortInfList = SortInfo.parseSortColumns("sortColumn1 \\s+ desc,sortColumn2 \\s+ asc,sortColumn3");
 		 
 		 assertTrue(sortInfList.size()==3);
-		 assertEquals("sortColumn1",((SortInfo)sortInfList.get(0)).getColumnName());
-		 assertEquals("sortColumn2",((SortInfo)sortInfList.get(1)).getColumnName());
-		 assertEquals("sortColumn3",((SortInfo)sortInfList.get(2)).getColumnName());
+		 assertEquals("sortColumn1",(sortInfList.get(0)).getColumnName());
+		 assertEquals("sortColumn2",(sortInfList.get(1)).getColumnName());
+		 assertEquals("sortColumn3",(sortInfList.get(2)).getColumnName());
 
-		 assertEquals(null,((SortInfo)sortInfList.get(0)).getSortOrder());
-		 assertEquals(null,((SortInfo)sortInfList.get(1)).getSortOrder());
-		 assertNull(((SortInfo)sortInfList.get(2)).getSortOrder());
+		 assertEquals(null,(sortInfList.get(0)).getSortOrder());
+		 assertEquals(null,(sortInfList.get(1)).getSortOrder());
+		 assertNull((sortInfList.get(2)).getSortOrder());
 	}
 	
 	@Test
@@ -65,17 +66,17 @@ public class SortInfoTest {
 		 List<SortInfo> sortInfList = SortInfo.parseSortColumns("sortColumn1");
 		 
 		 assertTrue(sortInfList.size()==1);
-		 assertEquals("sortColumn1",((SortInfo)sortInfList.get(0)).getColumnName());
+		 assertEquals("sortColumn1",(sortInfList.get(0)).getColumnName());
 
-		 assertEquals(null,((SortInfo)sortInfList.get(0)).getSortOrder());
-		 assertNull(((SortInfo)sortInfList.get(0)).getSortOrder());
+		 assertEquals(null,(sortInfList.get(0)).getSortOrder());
+		 assertNull((sortInfList.get(0)).getSortOrder());
 	}
 	
 	
 	@Test
 	public void parseSortColumnsNullTest() {
 		 List<SortInfo> sortInfList = SortInfo.parseSortColumns(null);
-		 assertTrue(sortInfList.size()==0);
+		 assertFalse(sortInfList.isEmpty());
 	}
 
 	@Test
