@@ -59,7 +59,7 @@ public class FileUtilTest {
   }
 
   @Test
-  public void writeTest() throws Exception {
+  public void writeTest()  {
     String filePath = "d://fileTest/1.txt";
     File file = null;
     try {
@@ -83,7 +83,7 @@ public class FileUtilTest {
   }
 
   @Test
-  public void writeExceptionTest() throws Exception {
+  public void writeExceptionTest() {
     String filePath = "filePathNot found";
     FileUtil.write(filePath, "test1");
   }
@@ -102,7 +102,7 @@ public class FileUtilTest {
 
   @Test
   public void deleteTest() {
-    String filepath = "d://fileTest";
+    String filepath = "d:\\fileTest";
     FileUtil.createFolder(filepath);
     assertTrue(FileUtil.exist(filepath));
     FileUtil.delete(filepath);
@@ -118,7 +118,7 @@ public class FileUtilTest {
 
   @Test
   public void existTest() {
-    String filepath = "d://fileTest";
+    String filepath = "d:\\fileTest";
     FileUtil.createFolder(filepath);
     assertTrue(FileUtil.exist(filepath));
     FileUtil.delete(filepath);
@@ -127,7 +127,7 @@ public class FileUtilTest {
 
   @Test
   public void createFolderTest() {
-    String filepath = "d://fileTest";
+    String filepath = "d:\\fileTest";
     FileUtil.createFolder(filepath);
     assertTrue(FileUtil.exist(filepath));
     FileUtil.delete(filepath);
