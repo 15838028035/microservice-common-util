@@ -14,10 +14,9 @@ import io.swagger.annotations.ApiModelProperty;
  *  REST API接口统一响应接口实体
  * @author admin
  *
- * @param <T> 实体PO
  */
 @ApiModel(value = "REST API接口统一响应接口实体")
-public class RestAPIResult2<T> implements Serializable {
+public class RestAPIResult2 implements Serializable {
 
  /**
  * serialVersionUID:
@@ -72,30 +71,15 @@ public class RestAPIResult2<T> implements Serializable {
         this.respMsg = respMsg;
     }
 
-	public void success(T object){
-		this.respCode = CommonConstants.SUCCESS;
-		this.respMsg = CommonConstants.SUCCESS_MSG;
-	  this.respData = object;
-	}
-	
-	public void error(){
-		this.respCode = CommonConstants.ERROR;
-		this.respMsg = CommonConstants.FAIL;
-	}
-	public void error(String message){
-		this.respCode = CommonConstants.ERROR;
-		this.respMsg = message;
-	}
-
-	/**
- * 	链式调用
- * @param respCode
- * @return
- */
-  public RestAPIResult2 respCode(int respCode){
-    this.respCode = respCode;
-    return this;
-  }
+  	/**
+   * 	链式调用
+   * @param respCode
+   * @return
+   */
+    public RestAPIResult2 respCode(int respCode){
+      this.respCode = respCode;
+      return this;
+    }
     
     /**
      *  链式调用
