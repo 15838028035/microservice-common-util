@@ -19,7 +19,7 @@
     </license>
    </licenses>
    
-    <scm>
+   <scm>
     <connection>scm:git:https://github.com/15838028035/microservice-common-util.git</connection>
     <developerConnection>scm:git:git@github.com:15838028035/microservice-common-util.git</developerConnection>
     <url>https://github.com/15838028035/microservice-common-util</url>
