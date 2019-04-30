@@ -1,7 +1,6 @@
 package com.zhongkexinli.micro.serv.common.pagination;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -76,7 +75,7 @@ public class SortInfoTest {
 	@Test
 	public void parseSortColumnsNullTest() {
 		 List<SortInfo> sortInfList = SortInfo.parseSortColumns(null);
-		 assertFalse(sortInfList.isEmpty());
+		 assertTrue(sortInfList.isEmpty());
 	}
 
 	@Test

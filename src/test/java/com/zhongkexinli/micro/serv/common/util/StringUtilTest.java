@@ -390,7 +390,7 @@ public class StringUtilTest {
     assertEquals("abc", StringUtil.getStringByArray(StringUtil.stringToArray(testStrABC2, ",")));
 
     assertEquals("", StringUtil.getStringByArray(null));
-    assertEquals(",a,b,c,", StringUtil.getStringByArray(StringUtil.stringToArray(testStrABC2, ";")));
+    assertEquals(",a,b,c", StringUtil.getStringByArray(StringUtil.stringToArray(testStrABC2, ";")));
   }
 
   @Test

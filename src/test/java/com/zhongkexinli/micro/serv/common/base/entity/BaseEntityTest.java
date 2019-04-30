@@ -45,7 +45,7 @@ public class BaseEntityTest {
 	@Test
 	public void createDateEndTest() {
 		baseModel.setCreateDateEnd("2015-10-05 10:00:00");
-		assertEquals("createDateEnd must be 2015-10-05 10:00:00","2015-10-0 10:00:00", baseModel.getCreateDateEnd());
+		assertEquals("createDateEnd must be 2015-10-05 10:00:00","2015-10-05 10:00:00", baseModel.getCreateDateEnd());
 	}
 
 	
