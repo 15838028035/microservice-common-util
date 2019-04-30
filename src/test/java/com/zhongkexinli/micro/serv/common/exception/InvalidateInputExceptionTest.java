@@ -6,18 +6,18 @@ public class InvalidateInputExceptionTest {
 
 	@Test(expected = InvalidateInputException .class)
 	public void invalidateInputExceptionTest() {
-		throw new InvalidateInputException ();
+		throw new InvalidateInputException();
 	}
 
 	@Test(expected = InvalidateInputException .class)
 	public void invalidateInputExceptionMsgTest() {
-		throw new InvalidateInputException ("InvalidateInputException");
+		throw new InvalidateInputException("InvalidateInputException");
 	}
 
 	@Test(expected = InvalidateInputException .class)
 	public void invalidateInputExceptionThrowTest()  {
 		Throwable cause = new Throwable();
-		throw new InvalidateInputException (cause);
+		throw new InvalidateInputException(cause);
 	}
 
 	@Test(expected = InvalidateInputException .class)

@@ -7,8 +7,6 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -556,16 +554,6 @@ public class StringUtilTest {
     assertTrue(StringUtil.randomInt(20) > 0);
     assertTrue(StringUtil.randomInt(100) > 0);
     assertTrue(StringUtil.randomInt(300) > 0);
-  }
-
-  @Test
-  public void randomOrderListTest() {
-
-    List<String> stringList = new ArrayList();
-    stringList.add("a");
-    stringList.add("b");
-
-    assertTrue(StringUtil.randomOrder(stringList).size() == 2);
   }
 
   @Test

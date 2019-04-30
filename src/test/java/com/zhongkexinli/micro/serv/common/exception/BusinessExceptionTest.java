@@ -20,9 +20,9 @@ public class BusinessExceptionTest {
 		throw new BusinessException(cause);
 	}
 
-	@Test(expected = BusinessException.class)
-	public void businessExceptionThrowMsgTest() {
-		Throwable cause = new Throwable();
-		throw new BusinessException("BusinessException",cause);
-	}
+  @Test(expected = BusinessException.class)
+  public void businessExceptionThrowMsgTest() {
+  	Throwable cause = new Throwable();
+  	throw new BusinessException("BusinessException",cause);
+  }
 }
