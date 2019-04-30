@@ -3,7 +3,7 @@ language: java
 jdk:
   - oraclejdk8
 install:
- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -e
+ mvn install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true -B -V -e
 
 after_success:
  mvn   clean org.jacoco:jacoco-maven-plugin:prepare-agent  -P sonarTest  sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=15838028035-github -Dsonar.projectKey=15838028035_microservice-common-util   -Dsonar.login=$SONAR_CLOUD_TOKEN deploy -X
