@@ -311,13 +311,6 @@ public class StringUtilTest {
   }
 
   @Test
-  public void getRandomStringTest() {
-    assertTrue(StringUtil.getRandomString(4).length() > 0);
-    assertTrue(StringUtil.getRandomString(5).length() > 0);
-    assertTrue(StringUtil.getRandomString(6).length() > 0);
-  }
-
-  @Test
   public void splitStringTest() {
     String splitString = "abcdefgh";
     assertFalse(StringUtil.splitString(splitString, 2).isEmpty());
