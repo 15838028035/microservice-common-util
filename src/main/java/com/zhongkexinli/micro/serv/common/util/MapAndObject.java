@@ -1,6 +1,5 @@
 package com.zhongkexinli.micro.serv.common.util;
 
-import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
@@ -146,11 +145,7 @@ public class MapAndObject implements Map {
     }
 
     private static Method getReadMethod(Object bean, String propertyName) {
-      PropertyDescriptor pd = BeanUtils.getPropertyDescriptor(bean.getClass(), propertyName);
-      if (pd == null) {
-        return null;
-      }
-      return pd.getReadMethod();
+      return BeanUtils.getPropertyDescriptor(bean.getClass(), propertyName).getReadMethod();
     }
   }
 }

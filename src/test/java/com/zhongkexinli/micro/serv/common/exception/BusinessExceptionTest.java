@@ -5,23 +5,23 @@ import org.junit.Test;
 public class BusinessExceptionTest {
 	
 	@Test(expected = BusinessException.class)
-	public void businessExceptionTest() throws Exception{
+	public void businessExceptionTest() {
 		throw new BusinessException();
 	}
 
 	@Test(expected = BusinessException.class)
-	public void businessExceptionMsgTest() throws Exception{
+	public void businessExceptionMsgTest() {
 		throw new BusinessException("BusinessException");
 	}
 
 	@Test(expected = BusinessException.class)
-	public void businessExceptionThrowTest()  throws Exception{
+	public void businessExceptionThrowTest()  {
 		Throwable cause = new Throwable();
 		throw new BusinessException(cause);
 	}
 
 	@Test(expected = BusinessException.class)
-	public void businessExceptionThrowMsgTest() throws Exception{
+	public void businessExceptionThrowMsgTest() {
 		Throwable cause = new Throwable();
 		throw new BusinessException("BusinessException",cause);
 	}

@@ -199,21 +199,6 @@ public abstract class StringUtil {
   }
 
   /**
-   * 产生随机数字.
-   * 
-   * @return String String
-   */
-  public static String dateRandom() {
-    Date dt = new Date();
-    long time = dt.getTime();
-    String timeStr = String.valueOf(time);
-    Random random = new Random();
-    random.setSeed(999L);
-    String randomStr = String.valueOf(Math.abs(random.nextInt()));
-    return timeStr + randomStr;
-  }
-
-  /**
    * 根据字符长度，每行大小获去有多少行.
    * 
    * @param length
@@ -1155,7 +1140,7 @@ public abstract class StringUtil {
    * @param o 对象
    * @return 显示实体类的属性和方法
    */
-  public static String props(Object o) {
+  public static String printAllMethodAndAttrInfo(Object o) {
     Class cls = o.getClass();
     String  className = cls.getName();
     StringBuilder sb = new StringBuilder(64);

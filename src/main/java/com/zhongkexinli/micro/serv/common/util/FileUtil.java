@@ -5,13 +5,13 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -31,6 +31,8 @@ public  class FileUtil {
   public static final int DEFAULT_CHUNK_SIZE = 1024;
   public static final int BUFFERSIZE = 4096;
   
+  public static final String  FILE_ECNDOING = "UTF-8";
+  
   private static Log logger = LogFactory.getLog(FileUtil.class);
 
   /**
@@ -46,9 +48,7 @@ public  class FileUtil {
     int potPos = filePath.lastIndexOf('/') + 1;
     String folderPath = filePath.substring(0, potPos);
     createFolder(folderPath);
-    FileOutputStream outputStream = null;
-    try {
-      outputStream = new FileOutputStream(filePath);
+    try (FileOutputStream outputStream = new FileOutputStream(filePath);) {
       byte[] by = new byte[1024];
       int c;
       while ((c = in.read(by)) != -1) {
@@ -56,22 +56,6 @@ public  class FileUtil {
       }
     } catch (IOException e) {
       logger.error(e);
-    }finally {
-      if(outputStream!=null) {
-        try {
-        	outputStream.flush();
-          outputStream.close();
-        } catch (IOException e) {
-          logger.error(e);
-        }
-      }
-      if(in!=null) {
-        try {
-          in.close();
-        } catch (IOException e) {
-          logger.error(e);
-        }
-      }
     }
   }
 
@@ -98,37 +82,11 @@ public  class FileUtil {
    * @param fileContent 文件内容 
    */
   public static void write(String filePath, String fileContent) {
-    FileOutputStream fo = null;
-    OutputStreamWriter out = null;
-    try {
-      fo = new FileOutputStream(filePath);
-       out = new OutputStreamWriter(fo,"UTF-8");
-
+    try (FileOutputStream  fo = new FileOutputStream(filePath);
+        OutputStreamWriter out = new OutputStreamWriter(fo,FILE_ECNDOING); ){
       out.write(fileContent);
-
-      out.close();
-    } catch (FileNotFoundException ex) {
-      logger.equals(ex);
-    } catch (IOException ex) {
-      logger.equals(ex);
     } catch (Exception ex) {
-      logger.equals(ex);
-    }finally {
-      if(fo!=null) {
-        try{
-        fo.close();
-        }catch(Exception e){
-          logger.equals(e);
-        }
-      }
-      
-      if(out!=null) {
-        try{
-          out.close();
-        }catch(Exception e){
-          logger.equals(e);
-        }
-      }
+      logger.error("write exception", ex);
     }
   }
 
@@ -140,42 +98,20 @@ public  class FileUtil {
    */
   public static String read(String filePath, String code) {
     if (code == null || code.equals("")) {
-      code = "UTF-8";
+      code = FILE_ECNDOING;
     }
     StringBuilder fileContent = new StringBuilder();
     File file = new File(filePath);
-    InputStreamReader read = null;
-    BufferedReader reader = null;
     
-    try {
-       read = new InputStreamReader(new FileInputStream(file), code);
-       reader = new BufferedReader(read);
+    try ( InputStreamReader read = new InputStreamReader(new FileInputStream(file), code);
+        BufferedReader reader = new BufferedReader(read);){
       String line;
       while ((line = reader.readLine()) != null) {
         fileContent.append(line + "\n");
       }
-      read.close();
-      read = null;
-      reader.close();
-      read = null;
     } catch (Exception ex) {
       fileContent = new StringBuilder("");
       logger.error(ex);
-    }finally {
-      if(read!=null) {
-        try{  
-          read.close();
-        }catch(Exception e) {
-          logger.error(e);
-        }
-      }
-      if(reader!=null) {
-        try{  
-          reader.close();
-        }catch(Exception e) {
-          logger.error(e);
-        }
-      }
     }
     return fileContent.toString();
   }
@@ -185,19 +121,16 @@ public  class FileUtil {
    * 
    * @param filePath 文件路径
    */
-  public static void delete(String filePath) {
+  public static boolean delete(String filePath) {
     try {
       File file = new File(filePath);
-      if (file.exists()) {
-        if (file.isDirectory()) {
-        	//不做处理
-        } else {
-          file.delete();
-        }
+      if (file.exists() && file.isFile()) {
+         return file.delete();
       }
     } catch (Exception ex) {
       logger.error(ex);
     }
+    return true;
   }
 
   /**
@@ -261,24 +194,21 @@ public  class FileUtil {
   public static String readStreamToString(InputStream stream) {
     StringBuilder fileContent = new StringBuilder();
 
-    try {
-      InputStreamReader read = new InputStreamReader(stream, "utf-8");
-      BufferedReader reader = new BufferedReader(read);
+    try ( InputStreamReader read = new InputStreamReader(stream, FILE_ECNDOING);
+        BufferedReader reader = new BufferedReader(read);) {
       String line;
       while ((line = reader.readLine()) != null) {
         fileContent.append(line + "\n");
       }
-      read.close();
-      read = null;
     } catch (Exception ex) {
       fileContent = new StringBuilder();
     }
     return fileContent.toString();
   }
 
-  public static byte[] readStreamToByte(InputStream stream) throws Exception {
+  public static byte[] readStreamToByte(InputStream stream) throws UnsupportedEncodingException {
     String fileContent = readStreamToString(stream);
-    return fileContent.getBytes("UTF-8");
+    return fileContent.getBytes(FILE_ECNDOING);
   }
 
   /**
@@ -288,7 +218,7 @@ public  class FileUtil {
    */
   public static InputStream getStreamFromString(String text) {
     try {
-      byte[] bytes = text.getBytes("UTF-8");
+      byte[] bytes = text.getBytes(FILE_ECNDOING);
       return new ByteArrayInputStream(bytes);
     } catch (Exception e) {
       throw new AssertionError(e);

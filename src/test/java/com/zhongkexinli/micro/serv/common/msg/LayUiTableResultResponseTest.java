@@ -13,12 +13,10 @@ import com.zhongkexinli.micro.serv.common.base.entity.BaseEntity;
 public class LayUiTableResultResponseTest {
 
 	@Test
-	public void LayUiTableResultResponseTest1() {
+	public void layUiTableResultResponseTest1() {
 		List<BaseEntity> dataList = new ArrayList<>();
 		BaseEntity baseEntity = new BaseEntity();
 		for(int i=0;i<100;i++) {
-			
-			baseEntity = new BaseEntity();
 			baseEntity.setCreateBy(i);
 			dataList.add(baseEntity);
 			
@@ -34,12 +32,10 @@ public class LayUiTableResultResponseTest {
 	}
 	
 	@Test
-	public void LayUiTableResultResponseTest2() {
+	public void layUiTableResultResponseTest2() {
 		List<BaseEntity> dataList = new ArrayList<>();
 		BaseEntity baseEntity = new BaseEntity();
 		for(int i=0;i<100;i++) {
-			
-			baseEntity = new BaseEntity();
 			baseEntity.setCreateBy(i);
 			dataList.add(baseEntity);
 			
@@ -55,12 +51,10 @@ public class LayUiTableResultResponseTest {
 	}
 	
 	@Test
-	public void LayUiTableResultResponseTest3() {
+	public void layUiTableResultResponseTest3() {
 		List<BaseEntity> dataList = new ArrayList<>();
 		BaseEntity baseEntity = new BaseEntity();
 		for(int i=0;i<100;i++) {
-			
-			baseEntity = new BaseEntity();
 			baseEntity.setCreateBy(i);
 			dataList.add(baseEntity);
 			

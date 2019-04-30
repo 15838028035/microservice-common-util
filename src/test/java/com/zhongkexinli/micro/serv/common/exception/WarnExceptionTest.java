@@ -5,23 +5,23 @@ import org.junit.Test;
 public class WarnExceptionTest {
 
 	@Test(expected = WarnException.class)
-	public void warnExceptionTest() throws Exception{
+	public void warnExceptionTest() {
 		throw new WarnException();
 	}
 
 	@Test(expected = WarnException.class)
-	public void WarnExceptiongTest() throws Exception{
+	public void warnExceptiongTest() {
 		throw new WarnException("WarnException");
 	}
 
 	@Test(expected = WarnException.class)
-	public void WarnExceptionThrowTest()  throws Exception{
+	public void warnExceptionThrowTest()  {
 		Throwable cause = new Throwable();
 		throw new WarnException(cause);
 	}
 
 	@Test(expected = WarnException.class)
-	public void WarnExceptionThrowMsgTest() throws Exception{
+	public void warnExceptionThrowMsgTest(){
 		Throwable cause = new Throwable();
 		throw new WarnException("WarnException",cause);
 	}

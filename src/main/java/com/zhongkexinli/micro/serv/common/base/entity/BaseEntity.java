@@ -122,7 +122,7 @@ public class BaseEntity implements Serializable {
    * 从写toString方法
    */
   public String toString() {
-    return StringUtil.props(this);
+    return StringUtil.printAllMethodAndAttrInfo(this);
   }
 
   public Integer getCreateBy() {

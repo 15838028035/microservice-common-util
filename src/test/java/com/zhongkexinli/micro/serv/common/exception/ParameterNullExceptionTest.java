@@ -5,23 +5,23 @@ import org.junit.Test;
 public class ParameterNullExceptionTest {
 
 	@Test(expected = ParameterNullException.class)
-	public void parameterNullExceptionTest() throws Exception{
+	public void parameterNullExceptionTest() {
 		throw new ParameterNullException();
 	}
 
 	@Test(expected = ParameterNullException.class)
-	public void parameterNullExceptionMsgTest() throws Exception{
+	public void parameterNullExceptionMsgTest() {
 		throw new ParameterNullException("ParameterNullException");
 	}
 
 	@Test(expected = ParameterNullException.class)
-	public void parameterNullExceptionThrowTest()  throws Exception{
+	public void parameterNullExceptionThrowTest()  {
 		Throwable cause = new Throwable();
 		throw new ParameterNullException(cause);
 	}
 
 	@Test(expected = ParameterNullException.class)
-	public void parameterNullExceptionThrowMsgTest() throws Exception{
+	public void parameterNullExceptionThrowMsgTest() {
 		Throwable cause = new Throwable();
 		throw new ParameterNullException("ParameterNullException",cause);
 	}

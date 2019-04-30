@@ -12,19 +12,19 @@ public class PageToolTest {
 
   @Before
   public void setUp() {
-    PageTool pageTool = new PageTool();
+     new PageTool();
   }
 
   @Test
   public void pageToJsonLayuiTest() {
-    List<TestClass1> TestClass1 = new ArrayList<>();
+    List<TestClass1> testClass1 = new ArrayList<>();
 
     Page page = new Page(20);
     page.setPageNumber(10);
     page.setPageSize(100);
     page.setPageNumber(1);
     page.setTotalCount(100);
-    page.setResult(TestClass1);
+    page.setResult(testClass1);
     
 
     String result = PageTool.pageToJsonLayui(page);
