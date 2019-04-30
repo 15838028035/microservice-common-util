@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 =======================
+1.0.2 (2019-04-30)
+------------------
+ - 重构代码,删除com.zhongkexinli.micro.serv.common.bean.RestAPIResult2中泛型参数T
+ ------------------
 1.0.1 (2019-04-26)
 ------------------
  - sonar上bug,坏味道修復
