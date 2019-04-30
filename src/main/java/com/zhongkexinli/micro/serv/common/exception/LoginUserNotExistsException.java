@@ -9,18 +9,18 @@ package com.zhongkexinli.micro.serv.common.exception;
 public class LoginUserNotExistsException extends CoreBaseRunTimeException {
 
     public LoginUserNotExistsException() {
-      super();
+        super();
     }
-  
+
     public LoginUserNotExistsException(String message) {
-      super(message);
+        super(message);
     }
-  
+
     public LoginUserNotExistsException(String message, Throwable rootCause) {
-      super(message, rootCause);
+        super(message, rootCause);
     }
-  
+
     public LoginUserNotExistsException(Throwable rootCause) {
-      super(rootCause);
+        super(rootCause);
     }
 }

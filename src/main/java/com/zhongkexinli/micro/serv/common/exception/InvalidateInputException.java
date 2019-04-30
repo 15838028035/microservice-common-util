@@ -9,18 +9,18 @@ package com.zhongkexinli.micro.serv.common.exception;
 public class InvalidateInputException extends CoreBaseRunTimeException {
 
     public InvalidateInputException() {
-      super();
+        super();
     }
-  
+
     public InvalidateInputException(String message) {
-      super(message);
+        super(message);
     }
-  
+
     public InvalidateInputException(String message, Throwable rootCause) {
-      super(message, rootCause);
+        super(message, rootCause);
     }
-  
+
     public InvalidateInputException(Throwable rootCause) {
-      super(rootCause);
+        super(rootCause);
     }
 }

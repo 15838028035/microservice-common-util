@@ -2,26 +2,26 @@ package com.zhongkexinli.micro.serv.common.exception;
 
 /**
  * 
- * 告警异常
+ * 加密异常
  *
  */
 @SuppressWarnings("serial")
 public class EcnodeDecodeException extends Exception {
 
     public EcnodeDecodeException() {
-      super();
+        super();
     }
-  
+
     public EcnodeDecodeException(String message) {
-      super(message);
+        super(message);
     }
-  
+
     public EcnodeDecodeException(Throwable cause) {
-      super(cause);
+        super(cause);
     }
-  
+
     public EcnodeDecodeException(String message, Throwable cause) {
-      super(message, cause);
+        super(message, cause);
     }
 
 }

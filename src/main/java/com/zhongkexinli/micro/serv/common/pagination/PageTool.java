@@ -14,12 +14,12 @@ import com.zhongkexinli.micro.serv.common.util.StringUtil;
 public class PageTool {
     public static final String JSONPAGE = "page";
     public static final String JSONROWS = "rows";
-  
+
     /**
      * 转换
      * 
      * @param str
-     *          字符串
+     *            字符串
      * @return 字符串
      */
     public static String convert(String str) {
@@ -27,10 +27,10 @@ public class PageTool {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-    
+
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-    
+
             if ((c >= 'A') && (c <= 'Z')) {
                 if (i == 0) {
                     sb.append(Character.toLowerCase(c));
@@ -41,13 +41,15 @@ public class PageTool {
                 sb.append(c);
             }
         }
-    
+
         return sb.toString();
     }
-    
+
     /**
      * layui分页
-     * @param page 分页对象
+     * 
+     * @param page
+     *            分页对象
      * @return 分页字符串信息
      */
     public static String pageToJsonLayui(Page page) {
@@ -60,19 +62,19 @@ public class PageTool {
         mapResult.put("rows", page.getResult());
         return Page.toJsonString(mapResult);
     }
-    
+
     public static String toJsonString(Object object) {
         return Page.toJsonString(object);
     }
-  
+
     public String toJsonString(Page page, List list) {
         return page.toJsonString(list);
     }
-  
+
     public static String getJsonpage() {
         return JSONPAGE;
     }
-  
+
     public static String getJsonrows() {
         return JSONROWS;
     }

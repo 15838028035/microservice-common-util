@@ -31,28 +31,28 @@ import com.zhongkexinli.micro.serv.common.constant.CommonConstants;
 public abstract class StringUtil {
 
     private static Logger logger = LoggerFactory.getLogger(StringUtil.class);
-    
+
     private StringUtil() {
-      //空构造
+        // 空构造
     }
-    
+
     public static final String UPPERCASE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String LOWERCASE_CHARS = "abcdefghijklmnopqrstuvwxyz";
     public static final String NUMBER_CHARS = "0123456789";
-  
+
     public static boolean hasLength(CharSequence str) {
         return (str != null) && (str.length() > 0);
     }
-  
+
     public static boolean hasLength(String str) {
         return hasLength(str);
     }
-  
+
     /**
      * 是否包含文本
      * 
      * @param str
-     *          字符
+     *            字符
      * @return 是否包含文本
      */
     public static boolean hasText(CharSequence str) {
@@ -67,20 +67,20 @@ public abstract class StringUtil {
         }
         return false;
     }
-  
+
     public static boolean hasText(String str) {
         return hasText(str);
     }
-  
+
     /**
      * 字符串截取
      * 
      * @param str
-     *          截取字符串
+     *            截取字符串
      * @param index
-     *          截取开始位置
+     *            截取开始位置
      * @param substring
-     *          截取结束位置
+     *            截取结束位置
      * @return 字符串截取结果
      */
     public static boolean substringMatch(CharSequence str, int index, CharSequence substring) {
@@ -92,43 +92,43 @@ public abstract class StringUtil {
         }
         return true;
     }
-  
+
     /**
      * 
      * 方法描述：分钟转换为小时
      * 
      * @param minute
-     *          分钟
+     *            分钟
      * @return 分钟转换为小时
      */
     public static String minute2Hour(String minute) {
         BigDecimal min = new BigDecimal(minute);
         return StringUtil.getRound(min, BigDecimal.valueOf(60), 2);
     }
-  
+
     /**
      * 
      * 方法描述：四舍五入计算，scale为保留小数位数
      * 
      * @param dividend
-     *          除数
+     *            除数
      * @param divisor
-     *          被除数
+     *            被除数
      * @param scale
-     *          保留小数位数
+     *            保留小数位数
      * @return 四舍五入计算
      */
     public static String getRound(BigDecimal dividend, BigDecimal divisor, int scale) {
         return dividend.divide(divisor, scale, BigDecimal.ROUND_HALF_UP).toString();
     }
-  
+
     /**
      * 字符串转换成SQL日期
      * 
      * @param sDateStr
-     *          转换字符串
+     *            转换字符串
      * @param sFormatStr
-     *          日期格式
+     *            日期格式
      * @return 字符串转换成SQL日期
      */
     public static java.sql.Date strTosqlDate(String sDateStr, String sFormatStr) {
@@ -143,24 +143,24 @@ public abstract class StringUtil {
             return null;
         }
         return new java.sql.Date(rl.getTime());
-  
+
     }
-  
+
     /**
      * 字符串补0.
      * 
      * @param sourceStr
-     *          补齐的字符串
+     *            补齐的字符串
      * 
      * @param strLen
-     *          长度
+     *            长度
      * 
      * @return String 字符串补0
      */
     public static String zeroStrEx(String sourceStr, int strLen) {
         String s = sourceStr.trim();
         StringBuilder sb = new StringBuilder();
-        
+
         if (s.length() > strLen) {
             return sourceStr;
         } else {
@@ -172,13 +172,13 @@ public abstract class StringUtil {
             return sb.toString();
         }
     }
-  
+
     /**
      * 
      * 方法描述：截取字符串前面的0
      * 
      * @param str
-     *          截取字符串
+     *            截取字符串
      * @return 截取字符串前面的0
      */
     public static String subStringFrontZero(String str) {
@@ -197,14 +197,14 @@ public abstract class StringUtil {
         }
         return str;
     }
-  
+
     /**
      * 根据字符长度，每行大小获去有多少行.
      * 
      * @param length
-     *          字符长度
+     *            字符长度
      * @param size
-     *          每行大小
+     *            每行大小
      * @return int 行数
      */
     public static int getRow(int length, int size) {
@@ -216,30 +216,30 @@ public abstract class StringUtil {
             return shang;
         }
     }
-  
+
     /**
      * 去除空格
      * 
      * @param str
-     *          字符串
+     *            字符串
      * @return 去除空格
      */
     public static String trimBlank(String str) {
         return str == null ? "" : str.trim();
     }
-  
+
     public static String toString(Object o) {
         return o == null ? "" : o.toString();
     }
-  
+
     /**
      * 将字符串List转化为字符串，以分隔符间隔.
      * 
      * @param list
-     *          需要处理的List.
+     *            需要处理的List.
      * 
      * @param separator
-     *          分隔符.
+     *            分隔符.
      * 
      * @return 转化后的字符串
      */
@@ -251,133 +251,133 @@ public abstract class StringUtil {
         stringBuilder.deleteCharAt(0);
         return stringBuilder.toString();
     }
-    
+
     /**
      * 判断字符串非空
      */
     public static boolean isBlank(String str) {
         return !isNotBlank(str);
     }
-  
+
     /**
      * 判断字符串数组空
      */
     public static boolean isBlank(String[] str) {
         return str == null || str.length == 0;
     }
-  
+
     /**
      * 判断字符串非空
      */
     public static boolean isNotBlank(String str) {
         return str != null && !str.trim().equals("");
     }
-  
+
     /**
      * 判断字符串非空
      */
     public static boolean isNotBlank(String[] str) {
         return !(str == null || str.length == 0);
     }
-  
+
     /**
      * 判断对象是否为空
      * 
      * @param value
-     *          字符串
+     *            字符串
      * @return 为空时返回true,否则返回false
      */
     public static boolean isNullObject(Object value) {
         return (value == null);
     }
-  
+
     /**
      * 判断对象是否为空
      * 
      * @param value
-     *          字符串
+     *            字符串
      * @return 为空时返回true,否则返回false
      */
     public static boolean isNotNullObject(Object value) {
         return (value != null);
     }
-  
+
     /**
      * 判断字符串是否为空
      * 
      * @param value
-     *          字符串
+     *            字符串
      * @return 为空时返回true,否则返回false
      */
     public static boolean isNull(String value) {
         return (value == null || value.trim().equals(""));
     }
-  
+
     /**
      * 判断字符串是否非空
      * 
      * @param value
-     *          字符串
+     *            字符串
      * @return 非空返回true,否则返回false
      */
     public static boolean isNotNull(String value) {
         return (value != null && !value.trim().equals(""));
     }
-  
+
     /**
      * 区分大小写判断两个字符串是否相等
      * 
      * @param value
-     *          原字符串
+     *            原字符串
      * @param compareValue
-     *          被比较字符串
+     *            被比较字符串
      * @return 相等返回true,否则返回false
      */
     public static boolean isEqual(String value, String compareValue) {
         return (value != null && value.equals(compareValue));
     }
-  
+
     /**
      * 不区分大小写判断两个字符串是否相等
      * 
      * @param value
-     *          原字符串
+     *            原字符串
      * @param compareValue
-     *          被比较字符串
+     *            被比较字符串
      * @return 相等返回true,否则返回false
      */
     public static boolean isEqualsIgnoreCase(String value, String compareValue) {
         return (value != null && value.equalsIgnoreCase(compareValue));
     }
-  
+
     /**
      * 判断字符串是否等于Y，不区分大小写
      * 
      * @param value
-     *          被比较字符串
+     *            被比较字符串
      * @return 等于y，返回true,否则false
      */
     public static boolean isEqualsY(String value) {
         return isEqualsIgnoreCase(value, "y");
     }
-  
+
     /**
      * 判断字符串是否等于true，不区分大小写
      * 
      * @param value
-     *          被比较字符串
+     *            被比较字符串
      * @return 等于true，返回true,否则false
      */
     public static boolean isEqualsTrue(String value) {
         return isEqualsIgnoreCase(value, "true");
     }
-  
+
     /**
      * 
      * 方法描述：判断是否是int类型
      * 
      * @param str
-     *          字符串
+     *            字符串
      * @return boolean 是否
      */
     public static boolean isInt(String str) {
@@ -389,12 +389,12 @@ public abstract class StringUtil {
             return false;
         }
     }
-  
+
     /**
      * 判断是否是邮箱
      * 
      * @param email
-     *          邮箱号码
+     *            邮箱号码
      * @return boolean 是否
      */
     public static boolean verifyEmail(String email) {
@@ -410,14 +410,14 @@ public abstract class StringUtil {
         }
         return tag;
     }
-  
+
     /**
      * 判断是否是日期
      * 
      * @param s
-     *          日期字符串
+     *            日期字符串
      * @param format
-     *          日期格式
+     *            日期格式
      * @return boolean 是否
      */
     public static boolean isDate(String s, String format) {
@@ -429,12 +429,12 @@ public abstract class StringUtil {
         }
         return true;
     }
-  
+
     /**
      * 判断是否是数字
      * 
      * @param s
-     *          字符串
+     *            字符串
      * @return boolean 是否
      */
     public static boolean isNumber(String s) {
@@ -449,12 +449,12 @@ public abstract class StringUtil {
         }
         return true;
     }
-  
+
     /**
      * 验证身份证号的格式
      * 
      * @param idCardNo
-     *          身份证号码
+     *            身份证号码
      * @return boolean 是否
      */
     public static boolean verifyIdCardNo(String idCardNo) {
@@ -466,12 +466,12 @@ public abstract class StringUtil {
             return pattern.matcher(idCardNo).matches();
         }
     }
-  
+
     /**
      * 检验手机号格式是否正确
      * 
      * @param mobile
-     *          手机号码
+     *            手机号码
      * @return boolean 是否
      */
     public static boolean verifyMobile(String mobile) {
@@ -490,12 +490,12 @@ public abstract class StringUtil {
             return tag;
         }
     }
-  
+
     /**
      * 小写转换大写
      * 
      * @param string
-     *          字符串
+     *            字符串
      * @return 小写转换大写
      */
     public static String toUpper(String string) {
@@ -504,7 +504,7 @@ public abstract class StringUtil {
         }
         return string;
     }
-  
+
     /**
      * 获取uuid类型的字符串
      * 
@@ -513,7 +513,7 @@ public abstract class StringUtil {
     public static String getUuidKey() {
         return java.util.UUID.randomUUID().toString().replace("-", "");
     }
-  
+
     /**
      * 随机获取UUID字符串(无中划线)
      *
@@ -522,14 +522,14 @@ public abstract class StringUtil {
     public static String getUuid() {
         String uuid = UUID.randomUUID().toString();
         return uuid.substring(0, 8) + uuid.substring(9, 13) + uuid.substring(14, 18) + uuid.substring(19, 23)
-            + uuid.substring(24);
+                + uuid.substring(24);
     }
-  
+
     /**
      * 随机获取字符串
      * 
      * @param length
-     *          随机字符串长度
+     *            随机字符串长度
      * 
      * @return 随机字符串
      */
@@ -537,9 +537,8 @@ public abstract class StringUtil {
         if (length <= 0) {
             return "";
         }
-        char[] randomChar = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'q', 'w', 'e', 'r', 
-            't', 'y', 'u', 'i', 'o',
-            'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
+        char[] randomChar = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
+                'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
         Random random = new Random();
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < length; i++) {
@@ -551,14 +550,14 @@ public abstract class StringUtil {
         }
         return stringBuilder.toString();
     }
-  
+
     /**
      * 根据指定长度 分隔字符串
      * 
      * @param str
-     *          需要处理的字符串
+     *            需要处理的字符串
      * @param length
-     *          分隔长度
+     *            分隔长度
      * 
      * @return 字符串集合
      */
@@ -574,34 +573,32 @@ public abstract class StringUtil {
         }
         return list;
     }
-  
-    
-  
+
     /**
      * 转换成list数组
      * 
      * @param str
-     *          字符串
+     *            字符串
      * @return 转换成list数组
      */
     public static List<String> splitStringToStringList(String str) {
         str = trimBlank(str);
         String[] strArray = str.split(",");
-    
+
         List<String> strList = new ArrayList<>();
         for (String strObj : strArray) {
             strList.add(strObj);
         }
         return strList;
     }
-  
+
     /**
      * 将数组键转为为字符串,以分隔符分割开来,分割后的字符串不加单引号
      * 
      * @param array
-     *          数组
+     *            数组
      * @param splitStr
-     *          分割字符串
+     *            分割字符串
      * @return 将数组键转为为字符串,以分隔符分割开来,分割后的字符串不加单引号
      */
     public static String convertArrayToSplitString(Object[] array, String splitStr) {
@@ -614,14 +611,14 @@ public abstract class StringUtil {
         }
         return stringBuilder.toString();
     }
-  
+
     /**
      * 将数组键转为为字符串,以分隔符分割开来,分割后的字符串加单引号
      * 
      * @param array
-     *          数组
+     *            数组
      * @param splitStr
-     *          分割字符串
+     *            分割字符串
      * @return 将数组键转为为字符串,以分隔符分割开来,分割后的字符串加单引号
      */
     public static String convertArrayToSplitString2(Object[] array, String splitStr) {
@@ -630,12 +627,12 @@ public abstract class StringUtil {
             if (i > 0) {
                 stringBuilder.append(splitStr);
             }
-            
+
             stringBuilder.append("'" + array[i].toString() + "'");
         }
         return stringBuilder.toString();
     }
-  
+
     /**
      * 将字符串分割为字符串数组
      * 
@@ -646,15 +643,15 @@ public abstract class StringUtil {
      * ",")[1]); assertEquals("c",StringUtil.stringToArray(",a,b,c", ",")[2]);
      * 
      * @param str
-     *          字符串
+     *            字符串
      * @param separators
-     *          分割符
+     *            分割符
      * @return 将字符串分割为字符串数组
      */
     public static final String[] stringToArray(String str, String separators) {
         StringTokenizer tokenizer;
         String[] array = null;
-       
+
         if (str == null) {
             return array;
         }
@@ -663,7 +660,7 @@ public abstract class StringUtil {
         }
         tokenizer = new StringTokenizer(str, separators);
         int count = tokenizer.countTokens();
-        if (count  <= 0) {
+        if (count <= 0) {
             return array;
         }
         array = new String[count];
@@ -674,12 +671,12 @@ public abstract class StringUtil {
         }
         return array;
     }
-  
+
     /**
      * 获得字符串数组的字符形式
      * 
      * @param values
-     *          字符串数组
+     *            字符串数组
      * @return 获得字符串数组的字符形式
      */
     public static String getStringByArray(String[] values) {
@@ -691,35 +688,35 @@ public abstract class StringUtil {
         }
         return valueStr.toString();
     }
-  
+
     /**
      * 将字符串转换为 int.
      * 
      * @param input
-     *          输入的字串
+     *            输入的字串
      * 
      * @param defaultInt
-     *          默认值
+     *            默认值
      * 
      * @return 结果数字
      */
     public static int parseInt(Object input, int defaultInt) {
-  
+
         try {
             if (StringUtil.isNotNullObject(input)) {
                 return Integer.parseInt(input.toString());
             }
         } catch (Exception e) {
-            logger.error("parseInt",e);
+            logger.error("parseInt", e);
         }
         return defaultInt;
     }
-  
+
     /**
      * 将字符串转换为 float.
      * 
      * @param input
-     *          输入的字串
+     *            输入的字串
      * 
      * @return 结果数字
      */
@@ -729,16 +726,16 @@ public abstract class StringUtil {
                 return Float.parseFloat(input.toString());
             }
         } catch (Exception ex) {
-            logger.error("parseFloat",ex);
+            logger.error("parseFloat", ex);
         }
         return defaultFloat;
     }
-  
+
     /**
      * 转换由表单读取的数据的内码(从 ISO8859 转换到 UTF-8).
      * 
      * @param input
-     *          输入的字符串
+     *            输入的字符串
      * @return 转换结果, 如果有错误发生, 则返回原来的值
      * 
      */
@@ -747,32 +744,32 @@ public abstract class StringUtil {
             byte[] bytes = input.getBytes("ISO8859-1");
             return new String(bytes, CommonConstants.ENCODING_UTF_8);
         } catch (Exception ex) {
-            logger.error("toChi",ex);
+            logger.error("toChi", ex);
         }
         return input;
     }
-  
+
     /**
      * 转换由表单读取的数据的内码到 ISO(从 UTF-8 转换到ISO8859-1).
      * 
      * @param input
-     *          输入的字符串
+     *            输入的字符串
      * @return 转换结果, 如果有错误发生, 则返回原来的值
      * 
      */
     public static String toIso(String input) {
         return changeEncoding(input, CommonConstants.ENCODING_UTF_8, "ISO8859-1");
     }
-  
+
     /**
      * 转换字符串的内码.
      * 
      * @param input
-     *          输入的字符串
+     *            输入的字符串
      * @param sourceEncoding
-     *          源字符集名称
+     *            源字符集名称
      * @param targetEncoding
-     *          目标字符集名称
+     *            目标字符集名称
      * 
      * @return 转换结果, 如果有错误发生, 则返回原来的值
      * 
@@ -781,49 +778,49 @@ public abstract class StringUtil {
         if (input == null) {
             return input;
         }
-    
+
         try {
             byte[] bytes = input.getBytes(sourceEncoding);
             return new String(bytes, targetEncoding);
         } catch (Exception ex) {
-            logger.error("changeEncoding",ex);
+            logger.error("changeEncoding", ex);
         }
         return input;
     }
-  
+
     /**
      * 将字符串 source 中的 oldStr 替换为 newStr, 并以大小写敏感方式进行查找
      * 
      * 
      * @param source
-     *          需要替换的源字符串
+     *            需要替换的源字符串
      * @param oldStr
-     *          需要被替换的老字符串
+     *            需要被替换的老字符串
      * @param newStr
-     *          替换为的新字符串
+     *            替换为的新字符串
      */
     public static String replace(String source, String oldStr, String newStr) {
         return replace(source, oldStr, newStr, true);
     }
-  
+
     /**
      * 将字符串 source 中的 oldStr 替换为 newStr, matchCase 为是否设置大小写敏感查找
      * 
      * @param source
-     *          需要替换的源字符串
+     *            需要替换的源字符串
      * @param oldStr
-     *          需要被替换的老字符串
+     *            需要被替换的老字符串
      * @param newStr
-     *          替换为的新字符串
+     *            替换为的新字符串
      * @param matchCase
-     *          是否需要按照大小写敏感方式查找
+     *            是否需要按照大小写敏感方式查找
      */
     public static String replace(String source, String oldStr, String newStr, boolean matchCase) {
         if (source == null) {
             return null;
         }
         // 首先检查旧字符串是否存在, 不存在就不进行替换
-    
+
         if (source.toLowerCase().indexOf(oldStr.toLowerCase()) == -1) {
             return source;
         }
@@ -859,12 +856,12 @@ public abstract class StringUtil {
         }
         return source;
     }
-  
+
     /**
      * 得到文件的扩展名.
      * 
      * @param fileName
-     *          需要处理的文件的名字.
+     *            需要处理的文件的名字.
      * @return the extension portion of the file's name.
      */
     public static String getExtension(String fileName) {
@@ -876,22 +873,22 @@ public abstract class StringUtil {
         }
         return "";
     }
-  
+
     /**
      * 得到文件的前缀名.
      * 
      * @param fileName
-     *          需要处理的文件的名字.
+     *            需要处理的文件的名字.
      * @return the prefix portion of the file's name.
      */
     public static String getPrefix(String fileName) {
         if (fileName != null) {
             fileName = fileName.replace('\\', '/');
-      
+
             if (fileName.lastIndexOf('/') > 0) {
                 fileName = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.length());
             }
-      
+
             int i = fileName.lastIndexOf('.');
             if (i > 0 && i < fileName.length() - 1) {
                 return fileName.substring(0, i);
@@ -899,20 +896,20 @@ public abstract class StringUtil {
         }
         return "";
     }
-  
+
     /**
      * 得到文件的短路径, 不保护目录.
      * 
      * @param fileName
-     *          需要处理的文件的名字.
+     *            需要处理的文件的名字.
      * @return the short version of the file's name.
      */
     public static String getShortFileName(String fileName) {
         if (fileName != null) {
             String oldFileName = fileName;
-      
+
             fileName = fileName.replace('\\', '/');
-      
+
             // Handle dir
             if (fileName.endsWith("/")) {
                 int idx = fileName.indexOf('/');
@@ -921,35 +918,35 @@ public abstract class StringUtil {
                 } else {
                     return oldFileName.substring(idx + 1, fileName.length() - 1);
                 }
-      
+
             }
             if (fileName.lastIndexOf('/') > 0) {
                 fileName = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.length());
             }
-      
+
             return fileName;
         }
         return "";
     }
-  
+
     /**
      * 
      * @功能描述：将list中的字符串组合成以str为分隔符的形式，例如xxx,fsd,erwr
      * @param list
-     *          字符串集合
+     *            字符串集合
      * 
      * @param str
-     *          要分隔的符号
+     *            要分隔的符号
      * @return xxx,fsd,erwr形式的字符串
      */
     public static String getStrSplitWithChar(List<String> list, String str) {
         StringBuilder result = new StringBuilder();
-        
+
         if (list == null) {
             return "";
         }
         for (int i = 0; i < list.size(); i++) {
-            result.append( list.get(i) + str);
+            result.append(list.get(i) + str);
         }
         if (result.toString().endsWith(str)) {
             int pos = result.lastIndexOf(str);
@@ -959,7 +956,7 @@ public abstract class StringUtil {
         }
         return result.toString();
     }
-  
+
     /**
      * 将list元素转换成“col1,col2”形式
      * 
@@ -976,7 +973,7 @@ public abstract class StringUtil {
         }
         return sb.toString();
     }
-  
+
     /**
      * 将list元素转换成“col1,col2”形式，剔除空串的情况
      * 
@@ -996,11 +993,12 @@ public abstract class StringUtil {
         }
         return sb.toString();
     }
-  
+
     /**
      * 功能描述：清除字符串中所有的空格
      * 
-     * @param srcStr 字符串
+     * @param srcStr
+     *            字符串
      * @return 清除字符串中所有的空格
      */
     public static String clearSpace(String srcStr) {
@@ -1009,13 +1007,14 @@ public abstract class StringUtil {
         }
         Pattern p = Pattern.compile("\\s*|\t|\r|\n");
         Matcher m = p.matcher(srcStr);
-        return  m.replaceAll("");
+        return m.replaceAll("");
     }
-  
+
     /**
      * 功能描述：清楚回车换行
      * 
-     * @param srcStr 字符串
+     * @param srcStr
+     *            字符串
      * @return 清楚回车换行
      */
     public static String clearWrap(String srcStr) {
@@ -1024,33 +1023,36 @@ public abstract class StringUtil {
         }
         Pattern p = Pattern.compile("\\t|\r|\n");
         Matcher m = p.matcher(srcStr);
-        return  m.replaceAll("");
+        return m.replaceAll("");
     }
-  
+
     public static String replaceHtmlEdit(String inputStr) {
         return clearSpace(inputStr.replace("\"", "\\\""));
     }
-  
+
     /**
      * 判断字符串是否为浮点型
      * 
-     * @param  str 要判断的字符串
+     * @param str
+     *            要判断的字符串
      * 
      * @return true 浮点型,false 非浮点型
      */
     public static boolean isDecimal(String str) {
-        if (str == null || "".equals(str))  {
+        if (str == null || "".equals(str)) {
             return false;
         }
         Pattern pattern = Pattern.compile("[0-9]*(\\.?)[0-9]*");
         return pattern.matcher(str).matches();
     }
-  
+
     /**
      * 查找字符串数组中是否有匹配值
      * 
-     * @param  array 字符串数组
-     * @param  str 要匹配的值
+     * @param array
+     *            字符串数组
+     * @param str
+     *            要匹配的值
      * @return 是否存在匹配值
      * 
      */
@@ -1063,10 +1065,12 @@ public abstract class StringUtil {
         }
         return isMatch;
     }
-  
+
     /**
      * 生成随机整数
-     * @param n 位数
+     * 
+     * @param n
+     *            位数
      * @return 生成随机整数
      */
     public static int randomInt(int n) {
@@ -1074,14 +1078,14 @@ public abstract class StringUtil {
         random = random.setScale(0, BigDecimal.ROUND_HALF_UP);
         return random.intValue();
     }
-  
+
     /**
      * 根据给定的字符串种子，产生随机n位字符串
      * 
      * @param seed
-     *          种子
+     *            种子
      * @param n
-     *          产生的字符串长度
+     *            产生的字符串长度
      * @return 根据给定的字符串种子，产生随机n位字符串
      */
     public static String generateRandomChars(String seed, int n) {
@@ -1093,48 +1097,50 @@ public abstract class StringUtil {
         }
         return radomChars.toString();
     }
-  
+
     /**
      * 对指定字符串随机重新排序
      * 
-     * @param oldStr 字符串
+     * @param oldStr
+     *            字符串
      * @return 对指定字符串随机重新排序
      */
     public static String randomOrder(String oldStr) {
         StringBuilder newStr = new StringBuilder();
-    
+
         StringBuilder sb = new StringBuilder(oldStr);
-    
+
         for (int j = 0; j < oldStr.length(); j++) {
             String theChar = generateRandomChars(sb.toString(), 1);
             sb.deleteCharAt(sb.indexOf(theChar));
             newStr.append(theChar);
         }
-    
+
         return newStr.toString();
     }
-  
+
     public static String generateRandomLowercase(int n) {
         return generateRandomChars(LOWERCASE_CHARS, n);
     }
-  
+
     public static String generateRandomUppercase(int n) {
         return generateRandomChars(UPPERCASE_CHARS, n);
     }
-  
+
     public static String generateRandomNumber(int n) {
         return generateRandomChars(NUMBER_CHARS, n);
     }
-  
+
     /**
      * 显示实体类的属性和方法
      * 
-     * @param o 对象
+     * @param o
+     *            对象
      * @return 显示实体类的属性和方法
      */
     public static String printAllMethodAndAttrInfo(Object o) {
         Class cls = o.getClass();
-        String  className = cls.getName();
+        String className = cls.getName();
         StringBuilder sb = new StringBuilder(64);
         sb.append("**** " + className + " attribute list begin **\r\n");
         while (cls != null) {
@@ -1153,35 +1159,38 @@ public abstract class StringUtil {
                     }
                 }
             } catch (Exception ex) {
-                logger.error("props",ex);
+                logger.error("props", ex);
             }
             cls = cls.getSuperclass();
         }
         sb.append("**** " + className + " attribute list end **\r\n");
         return sb.toString();
     }
-  
+
     /**
      * 字节转化成字符串
-     * @param b 字节
-     * @return  字节转化成字符串
+     * 
+     * @param b
+     *            字节
+     * @return 字节转化成字符串
      */
-    public static String byteToString(byte []b) {
+    public static String byteToString(byte[] b) {
         if (b == null || b.length == 0) {
             return "";
         }
         try {
-            return  new String(b, "UTF-8");
+            return new String(b, "UTF-8");
         } catch (Exception e) {
             logger.error("byteToString", e);
         }
         return "";
     }
-  
+
     /**
      * 对象转数组
      * 
-     * @param obj 对象
+     * @param obj
+     *            对象
      * @return 对象转数组
      */
     public static byte[] object2Byte(Object obj) {
@@ -1195,16 +1204,17 @@ public abstract class StringUtil {
             oos.close();
             bos.close();
         } catch (IOException ex) {
-            logger.error("object2Byte",ex);
+            logger.error("object2Byte", ex);
         }
         return bytes;
     }
-  
+
     /**
      * 数组转对象
      * 
-     * @param bytes 字节
-     * @return  数组转对象
+     * @param bytes
+     *            字节
+     * @return 数组转对象
      */
     public static Object byte2Object(byte[] bytes) {
         Object obj = null;
@@ -1215,30 +1225,30 @@ public abstract class StringUtil {
             ois.close();
             bis.close();
         } catch (IOException | ClassNotFoundException ex) {
-            logger.error("byte2Object",ex);
-        }   
+            logger.error("byte2Object", ex);
+        }
         return obj;
     }
-    
+
     /**
      * 将字符串 source 中的 oldStr 替换为 newStr, 并以大小写敏感方式进行查找
      * 
      * 
      * @param source
-     *          需要替换的源字符串
-     * @param strArray []
-     *          需要被替换的老字符串数组
+     *            需要替换的源字符串
+     * @param strArray
+     *            [] 需要被替换的老字符串数组
      * @param newStr
-     *          替换为的新字符串
+     *            替换为的新字符串
      */
-    public static String replaceStr(String source, String []strArray, String newStr) {
+    public static String replaceStr(String source, String[] strArray, String newStr) {
         StringBuilder result = new StringBuilder();
-        for(String str:strArray) {
-            if(source.indexOf(str)!=-1) {
+        for (String str : strArray) {
+            if (source.indexOf(str) != -1) {
                 result.append(source.replaceFirst(str, newStr));
             }
         }
         return result.toString();
     }
-  
+
 }

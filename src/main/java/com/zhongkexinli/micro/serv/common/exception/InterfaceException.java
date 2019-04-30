@@ -9,18 +9,18 @@ package com.zhongkexinli.micro.serv.common.exception;
 public class InterfaceException extends CoreBaseRunTimeException {
 
     public InterfaceException() {
-      super();
+        super();
     }
-  
+
     public InterfaceException(String e) {
-      super(e);
+        super(e);
     }
-  
+
     public InterfaceException(Throwable cause) {
-      super(cause);
+        super(cause);
     }
-  
+
     public InterfaceException(String message, Throwable cause) {
-      super(message, cause);
+        super(message, cause);
     }
 }

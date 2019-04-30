@@ -1,5 +1,9 @@
 package com.zhongkexinli.micro.serv.common.exception;
 
-public class TestException extends Exception{
+/**
+ * 测试异常类
+ *
+ */
+public class TestException extends Exception {
 
 }

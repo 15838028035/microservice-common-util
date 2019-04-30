@@ -7,46 +7,46 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- *layuiX树 
+ * layuiX树
  *
  */
 @ApiModel(value = "layuiXtree对象实体")
 public class LayuiXtree {
 
-  @ApiModelProperty(value = "显示的值")
-  private String title;
+    @ApiModelProperty(value = "显示的值")
+    private String title;
 
-  @ApiModelProperty(value = "隐藏的值")
-  private String value;
+    @ApiModelProperty(value = "隐藏的值")
+    private String value;
 
-  @ApiModelProperty(value = "子节点列表")
-  private List<LayuiXtree> data = new ArrayList<>();
-  
-  public String getTitle() {
-    return title;
-  }
+    @ApiModelProperty(value = "子节点列表")
+    private List<LayuiXtree> data = new ArrayList<>();
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
+    public String getTitle() {
+        return title;
+    }
 
-  public String getValue() {
-    return value;
-  }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-  public void setValue(String value) {
-    this.value = value;
-  }
+    public String getValue() {
+        return value;
+    }
 
-  public List<LayuiXtree> getData() {
-    return data;
-  }
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-  public void setData(List<LayuiXtree> data) {
-    this.data = data;
-  }
-  
-  public void add(LayuiXtree layuiXtree) {
-    data.add(layuiXtree);
-  }
+    public List<LayuiXtree> getData() {
+        return data;
+    }
+
+    public void setData(List<LayuiXtree> data) {
+        this.data = data;
+    }
+
+    public void add(LayuiXtree layuiXtree) {
+        data.add(layuiXtree);
+    }
 }

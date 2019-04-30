@@ -9,18 +9,18 @@ package com.zhongkexinli.micro.serv.common.exception;
 public class LoginUserPasswordErrorException extends CoreBaseRunTimeException {
 
     public LoginUserPasswordErrorException() {
-      super();
+        super();
     }
-  
+
     public LoginUserPasswordErrorException(String message) {
-      super(message);
+        super(message);
     }
-  
+
     public LoginUserPasswordErrorException(String message, Throwable rootCause) {
-      super(message, rootCause);
+        super(message, rootCause);
     }
-  
+
     public LoginUserPasswordErrorException(Throwable rootCause) {
-      super(rootCause);
+        super(rootCause);
     }
 }
