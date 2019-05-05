@@ -19,7 +19,6 @@ import io.swagger.annotations.ApiModelProperty;
  *
  */
 @ApiModel(value = "REST API接口统一响应接口实体")
-@SuppressWarnings("serial")
 public class RestApiResultBuilder  {
 
     @ApiModelProperty(value = "respCode : 返回代码，1表示成功，其它的都有对应问题")
