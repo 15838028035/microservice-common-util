@@ -27,9 +27,6 @@ public class RestApiResultBuilder  {
     @ApiModelProperty(value = "respMsg : 如果code!=1,错误信息")
   private String respMsg = "成功！";
 
-    @ApiModelProperty(value = "数据编码")
-  private String dataCode;
-
     @ApiModelProperty(value = "返回数据")
   private transient Object respData;
     
