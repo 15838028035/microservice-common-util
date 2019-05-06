@@ -33,7 +33,7 @@ public class RestApiResult2 implements Serializable {
     private String token;// token
 
     @ApiModelProperty(value = "返回数据")
-    private transient Object respData;
+    private  Object respData;
 
     @ApiModelProperty(value = "判断是否跳登录")
     private String loginFlag;
