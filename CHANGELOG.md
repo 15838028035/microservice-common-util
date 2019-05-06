@@ -1,9 +1,10 @@
 microservice-common-util 发版日志
 =======================
 
-1.0.3 (2019-04-30)
+1.0.3-BETA (2019-05-06)
 ------------------
  - 代码风格优化，严格按照checkstyle.xml进行检验
+ - 新增com.zhongkexinli.micro.serv.common.bean.RestApiResultBuilder,使用建造者模式构建RestApiResult对象
  ------------------
 1.0.2 (2019-04-30)
 ------------------
