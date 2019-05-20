@@ -9,19 +9,19 @@ package com.zhongkexinli.micro.serv.common.exception;
 public class AccountMailException extends CoreBaseRunTimeException {
 
     public AccountMailException() {
-      super();
+        super();
     }
-  
+
     public AccountMailException(String message) {
-      super(message);
+        super(message);
     }
-  
+
     public AccountMailException(Throwable cause) {
-      super(cause);
+        super(cause);
     }
-  
+
     public AccountMailException(String message, Throwable cause) {
-      super(message, cause);
+        super(message, cause);
     }
 
 }

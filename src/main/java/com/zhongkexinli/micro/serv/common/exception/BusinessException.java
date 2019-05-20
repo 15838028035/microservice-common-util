@@ -9,18 +9,18 @@ package com.zhongkexinli.micro.serv.common.exception;
 public class BusinessException extends CoreBaseRunTimeException {
 
     public BusinessException() {
-      super();
+        super();
     }
-  
+
     public BusinessException(String message) {
-      super(message);
+        super(message);
     }
-  
+
     public BusinessException(Throwable cause) {
-      super(cause);
+        super(cause);
     }
-  
+
     public BusinessException(String message, Throwable cause) {
-      super(message, cause);
+        super(message, cause);
     }
 }

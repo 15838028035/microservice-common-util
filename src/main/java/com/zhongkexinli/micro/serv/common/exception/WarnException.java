@@ -9,19 +9,19 @@ package com.zhongkexinli.micro.serv.common.exception;
 public class WarnException extends CoreBaseRunTimeException {
 
     public WarnException() {
-      super();
+        super();
     }
-  
+
     public WarnException(String message) {
-      super(message);
+        super(message);
     }
-  
+
     public WarnException(Throwable cause) {
-      super(cause);
+        super(cause);
     }
-  
+
     public WarnException(String message, Throwable cause) {
-      super(message, cause);
+        super(message, cause);
     }
 
 }

@@ -7,7 +7,7 @@
   <groupId>cn.com.thinkit.cloud</groupId>
   <artifactId>microservice-common-util</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.0.3-BETA</version>
   <name>microservice-common-util Java SDK</name>
   <description>常用工具类:字符串、日期、文件、加密、异常、分页等工具类</description>
   <url>http://www.thinkit.com.cn/</url>
@@ -19,7 +19,7 @@
     </license>
    </licenses>
    
-    <scm>
+   <scm>
     <connection>scm:git:https://github.com/15838028035/microservice-common-util.git</connection>
     <developerConnection>scm:git:git@github.com:15838028035/microservice-common-util.git</developerConnection>
     <url>https://github.com/15838028035/microservice-common-util</url>

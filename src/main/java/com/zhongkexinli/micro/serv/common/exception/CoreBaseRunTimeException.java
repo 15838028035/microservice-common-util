@@ -9,19 +9,19 @@ package com.zhongkexinli.micro.serv.common.exception;
 public class CoreBaseRunTimeException extends RuntimeException {
 
     public CoreBaseRunTimeException() {
-      super();
+        super();
     }
-  
+
     public CoreBaseRunTimeException(String message, Throwable cause) {
-      super(message, cause);
+        super(message, cause);
     }
-  
+
     public CoreBaseRunTimeException(String message) {
-      super(message);
+        super(message);
     }
-  
+
     public CoreBaseRunTimeException(Throwable cause) {
-      super(cause);
+        super(cause);
     }
 
 }

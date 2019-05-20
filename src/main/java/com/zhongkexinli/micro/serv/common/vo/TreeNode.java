@@ -2,48 +2,49 @@ package com.zhongkexinli.micro.serv.common.vo;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
- *通用树 
+ * 通用树
  *
  */
 public class TreeNode {
     /**
      * ID
      */
-  protected int id;
-    
+    protected int id;
+
     /**
      * 父ID
      */
-  protected int parentId;
+    protected int parentId;
 
-  public List<TreeNode> getChildren() {
-    return children;
-  }
+    public List<TreeNode> getChildren() {
+        return children;
+    }
 
-  public void setChildren(List<TreeNode> children) {
-    this.children = children;
-  }
+    public void setChildren(List<TreeNode> children) {
+        this.children = children;
+    }
 
-  List<TreeNode> children = new ArrayList<>();
+    List<TreeNode> children = new ArrayList<>();
 
-  public int getId() {
-    return id;
-  }
+    public int getId() {
+        return id;
+    }
 
-  public void setId(int id) {
-    this.id = id;
-  }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-  public int getParentId() {
-    return parentId;
-  }
+    public int getParentId() {
+        return parentId;
+    }
 
-  public void setParentId(int parentId) {
-    this.parentId = parentId;
-  }
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
+    }
 
-  public void add(TreeNode node) {
-    children.add(node);
-  }
+    public void add(TreeNode node) {
+        children.add(node);
+    }
 }

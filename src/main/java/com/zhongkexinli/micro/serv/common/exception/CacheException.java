@@ -8,18 +8,18 @@ package com.zhongkexinli.micro.serv.common.exception;
 public class CacheException extends CoreBaseRunTimeException {
 
     public CacheException() {
-      super();
+        super();
     }
-  
+
     public CacheException(String message) {
-      super(message);
+        super(message);
     }
-  
+
     public CacheException(Throwable cause) {
-      super(cause);
+        super(cause);
     }
-  
+
     public CacheException(String message, Throwable cause) {
-      super(message, cause);
+        super(message, cause);
     }
 }

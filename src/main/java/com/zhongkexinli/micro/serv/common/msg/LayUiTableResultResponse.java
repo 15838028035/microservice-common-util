@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
  * 
  * layui分页相应信息
  *
- *            PO对象
+ * PO对象
  */
 @ApiModel(value = "layui分页相应信息")
 public class LayUiTableResultResponse {
@@ -22,11 +22,14 @@ public class LayUiTableResultResponse {
     private Long count;
     @ApiModelProperty(value = "列表数据 ")
     private List data = new ArrayList();
-  
+
     /**
-     *构造函数
-     * @param count 总数
-     * @param data 分页数据
+     * 构造函数
+     * 
+     * @param count
+     *            总数
+     * @param data
+     *            分页数据
      */
     public LayUiTableResultResponse(Long count, List data) {
         this.code = "0";
@@ -34,13 +37,18 @@ public class LayUiTableResultResponse {
         this.count = count;
         this.data = data;
     }
-  
+
     /**
      * 分页构造
-     * @param code 提示编码
-     * @param msg 提示消息
-     * @param count 分页数量
-     * @param data 分页数据
+     * 
+     * @param code
+     *            提示编码
+     * @param msg
+     *            提示消息
+     * @param count
+     *            分页数量
+     * @param data
+     *            分页数据
      */
     public LayUiTableResultResponse(String code, String msg, Long count, List data) {
         super();
@@ -49,35 +57,35 @@ public class LayUiTableResultResponse {
         this.count = count;
         this.data = data;
     }
-  
+
     public String getCode() {
         return code;
     }
-  
+
     public void setCode(String code) {
         this.code = code;
     }
-  
+
     public String getMsg() {
         return msg;
     }
-  
+
     public void setMsg(String msg) {
         this.msg = msg;
     }
-  
+
     public Long getCount() {
         return count;
     }
-  
+
     public void setCount(Long count) {
         this.count = count;
     }
-  
+
     public List getData() {
         return data;
     }
-  
+
     public void setData(List data) {
         this.data = data;
     }

@@ -1,14 +1,14 @@
 package com.zhongkexinli.micro.serv.common.constant;
 
 /**
- *公共常量类
+ * 公共常量类
  */
 public final class CommonConstants {
 
     private CommonConstants() {
-     //单例
+        // 单例
     }
-    
+
     public static final String RESOURCE_TYPE_MENU = "menu";
     public static final String RESOURCE_TYPE_BTN = "button";
     // 用户token异常
@@ -23,15 +23,15 @@ public final class CommonConstants {
     public static final String CONTEXT_KEY_USER_TOKEN = "currentUserToken";
     public static final String JWT_KEY_USER_ID = "userId";
     public static final String JWT_KEY_NAME = "name";
-    
+
     public static final String ENCODING_UTF_8 = "UTF-8";
-    
+
     public static final Integer ERROR = 0;
-    
+
     public static final String FAIL = "0";
-    
+
     public static final Integer SUCCESS = 1;
-    
+
     public static final String SUCCESS_MSG = "成功";
-    
+
 }
