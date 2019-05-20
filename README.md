@@ -1,5 +1,7 @@
-[![Screenshot](https://github.com/15838028035/microservice-common-util/tree/master/src/main/resources/banner.txt "Screenshot")](https://github.com/15838028035/microservice-common-util/tree/master/src/main/resources/banner.txt)
 
+<p align="center">
+<img src="(https://github.com/15838028035/microservice-common-util/tree/master/src/main/resources/banner.svg" alt="microservice-common-util" align="middle" width="50%" height="50%" />
+<p>
 
 [![Build Status](https://travis-ci.org/15838028035/microservice-common-util.svg?branch=master)](https://travis-ci.org/15838028035/microservice-common-util)
 
