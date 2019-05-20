@@ -47,6 +47,35 @@
 ## 模块介绍：
 | microservice-common-util            | 公共工具类 |
 
+## Api demo
+
+com.zhongkexinli.micro.serv.common.bean.RestApiResultBuilder
+
+``` java
+ RestApiResult2 restApiResult = new RestApiResultBuilder()
+             .respCode(1)
+             .respData("dataA")
+             .respMsg("okay")
+             .build();
+```
+
+com.zhongkexinli.micro.serv.common.bean.RestApiResult
+
+``` java
+ RestApiResult2 restApiResult = new RestApiResult2()
+             .respCode(1)
+             .respData("dataA")
+             .respMsg("okay");
+```
+
+com.zhongkexinli.micro.serv.common.pagination.Query
+
+``` java
+ new Query.putFilter("keyA","valueA")
+      .putFilter("keyB","valueB");
+        
+```
+
 # 代码贡献
  1. fork代码
  2. 建立分支
