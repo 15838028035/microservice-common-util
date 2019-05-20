@@ -1,3 +1,6 @@
+[![Screenshot](https://github.com/15838028035/microservice-common-util/tree/master/src/main/resources/banner.txt "Screenshot")](https://github.com/15838028035/microservice-common-util/tree/master/src/main/resources/banner.txt)
+
+
 [![Build Status](https://travis-ci.org/15838028035/microservice-common-util.svg?branch=master)](https://travis-ci.org/15838028035/microservice-common-util)
 
 [![Maven Central](https://img.shields.io/maven-central/v/cn.com.thinkit.cloud/microservice-common-util.svg)](https://mvnrepository.com/artifact/cn.com.thinkit.cloud/microservice-common-util)
