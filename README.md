@@ -1,3 +1,8 @@
+
+<p align="center">
+<img src="https://github.com/15838028035/microservice-common-util/blob/master/src/main/resources/banner.svg" alt="microservice-common-util" align="middle" width="50%" height="50%" />
+<p>
+
 [![Build Status](https://travis-ci.org/15838028035/microservice-common-util.svg?branch=master)](https://travis-ci.org/15838028035/microservice-common-util)
 
 [![Maven Central](https://img.shields.io/maven-central/v/cn.com.thinkit.cloud/microservice-common-util.svg)](https://mvnrepository.com/artifact/cn.com.thinkit.cloud/microservice-common-util)
@@ -41,6 +46,35 @@
 
 ## 模块介绍：
 | microservice-common-util            | 公共工具类 |
+
+## Api demo
+
+com.zhongkexinli.micro.serv.common.bean.RestApiResultBuilder
+
+``` java
+ RestApiResult2 restApiResult = new RestApiResultBuilder()
+             .respCode(1)
+             .respData("dataA")
+             .respMsg("okay")
+             .build();
+```
+
+com.zhongkexinli.micro.serv.common.bean.RestApiResult
+
+``` java
+ RestApiResult2 restApiResult = new RestApiResult2()
+             .respCode(1)
+             .respData("dataA")
+             .respMsg("okay");
+```
+
+com.zhongkexinli.micro.serv.common.pagination.Query
+
+``` java
+ new Query.putFilter("keyA","valueA")
+      .putFilter("keyB","valueB");
+        
+```
 
 # 代码贡献
  1. fork代码
