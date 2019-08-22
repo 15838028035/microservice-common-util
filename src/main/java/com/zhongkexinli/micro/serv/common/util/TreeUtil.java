@@ -26,9 +26,7 @@ public class TreeUtil {
     public static <T extends TreeNode> List<T> bulid(List<T> treeNodes, Object root) {
 
         List<T> trees = new ArrayList<>();
-
-        for (T treeNode : treeNodes) {
-
+        treeNodes.forEach(treeNode ->{
             if (root.equals(treeNode.getParentId())) {
                 trees.add(treeNode);
             }
@@ -41,7 +39,8 @@ public class TreeUtil {
                     treeNode.add(it);
                 }
             }
-        }
+            
+        });
         return trees;
     }
 
@@ -56,11 +55,12 @@ public class TreeUtil {
      */
     public static <T extends TreeNode> List<T> buildByRecursive(List<T> treeNodes, Object root) {
         List<T> trees = new ArrayList<>();
-        for (T treeNode : treeNodes) {
+        treeNodes.forEach(treeNode ->{
             if (root.equals(treeNode.getParentId())) {
                 trees.add(findChildren(treeNode, treeNodes));
             }
-        }
+        });
+        
         return trees;
     }
 
@@ -72,14 +72,14 @@ public class TreeUtil {
      * @return 树形列表
      */
     public static <T extends TreeNode> T findChildren(T treeNode, List<T> treeNodes) {
-        for (T it : treeNodes) {
-            if (treeNode.getId() == it.getParentId()) {
+        treeNodes.forEach(TreeNode ->{
+            if (treeNode.getId() == TreeNode.getParentId()) {
                 if (treeNode.getChildren() == null) {
                     treeNode.setChildren(new ArrayList<>());
                 }
-                treeNode.add(findChildren(it, treeNodes));
+                treeNode.add(findChildren(TreeNode, treeNodes));
             }
-        }
+        });
         return treeNode;
     }
 
