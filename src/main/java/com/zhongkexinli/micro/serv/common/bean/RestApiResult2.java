@@ -44,6 +44,14 @@ public class RestApiResult2 implements Serializable {
     public RestApiResult2() {
         // 空构造
     }
+    
+    /**
+     * 新增链式构造
+     * @return
+     */
+    public static RestApiResultBuilder builder() {
+        return new RestApiResultBuilder();
+    }
 
     public RestApiResult2(String errorMsg) {
         this.respMsg = errorMsg;
