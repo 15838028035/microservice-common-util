@@ -52,7 +52,7 @@
 com.zhongkexinli.micro.serv.common.bean.RestApiResultBuilder
 
 ``` java
- RestApiResult2 restApiResult = new RestApiResultBuilder()
+ RestApiResult2 restApiResult = RestApiResultBuilder.builder()
              .respCode(1)
              .respData("dataA")
              .respMsg("okay")

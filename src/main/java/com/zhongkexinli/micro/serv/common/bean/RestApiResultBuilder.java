@@ -45,6 +45,13 @@ public class RestApiResultBuilder  {
     public RestApiResultBuilder(){
       //空构造
     }
+    
+    /**
+     * 新增链式构造
+     */
+    public static RestApiResultBuilder builder() {
+        return new RestApiResultBuilder();
+    }
   
    /**
    * 链式调用
