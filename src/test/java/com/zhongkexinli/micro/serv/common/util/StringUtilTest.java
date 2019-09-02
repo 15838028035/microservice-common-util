@@ -551,10 +551,10 @@ public class StringUtilTest {
 
     @Test
     public void randomTest() {
-        assertTrue(StringUtil.randomInt(10) > 0);
-        assertTrue(StringUtil.randomInt(20) > 0);
-        assertTrue(StringUtil.randomInt(100) > 0);
-        assertTrue(StringUtil.randomInt(300) > 0);
+        assertTrue(StringUtil.randomInt(10) >= 0);
+        assertTrue(StringUtil.randomInt(20) >= 0);
+        assertTrue(StringUtil.randomInt(100) >= 0);
+        assertTrue(StringUtil.randomInt(300) >= 0);
     }
 
     @Test
