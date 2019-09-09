@@ -72,12 +72,12 @@ public class TreeUtil {
      * @return 树形列表
      */
     public static <T extends TreeNode> T findChildren(T treeNode, List<T> treeNodes) {
-        treeNodes.forEach(TreeNode ->{
-            if (treeNode.getId() == TreeNode.getParentId()) {
+        treeNodes.forEach(treeNodeObj ->{
+            if (treeNode.getId() == treeNodeObj.getParentId()) {
                 if (treeNode.getChildren() == null) {
                     treeNode.setChildren(new ArrayList<>());
                 }
-                treeNode.add(findChildren(TreeNode, treeNodes));
+                treeNode.add(findChildren(treeNodeObj, treeNodes));
             }
         });
         return treeNode;
