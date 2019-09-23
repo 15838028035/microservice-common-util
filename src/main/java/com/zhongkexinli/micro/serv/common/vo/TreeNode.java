@@ -17,6 +17,11 @@ public class TreeNode {
      * 父ID
      */
     protected int parentId;
+    
+    /**
+     * 子节点列表
+     */
+    private List<TreeNode> children = new ArrayList<>();
 
     public List<TreeNode> getChildren() {
         return children;
@@ -25,8 +30,6 @@ public class TreeNode {
     public void setChildren(List<TreeNode> children) {
         this.children = children;
     }
-
-    List<TreeNode> children = new ArrayList<>();
 
     public int getId() {
         return id;
