@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * PO对象
  */
 @ApiModel(value = "layui分页相应信息")
-public class LayUiTableResultResponse {
+public class LayUiTableResultResponse<T> {
     @ApiModelProperty(value = "编码")
     private String code;
     @ApiModelProperty(value = "消息")
@@ -21,7 +21,7 @@ public class LayUiTableResultResponse {
     @ApiModelProperty(value = "总数")
     private Long count;
     @ApiModelProperty(value = "列表数据 ")
-    private List data = new ArrayList();
+    private List<T> data = new ArrayList();
 
     /**
      * 构造函数
@@ -31,7 +31,7 @@ public class LayUiTableResultResponse {
      * @param data
      *            分页数据
      */
-    public LayUiTableResultResponse(Long count, List data) {
+    public LayUiTableResultResponse(Long count, List<T> data) {
         this.code = "0";
         this.msg = "";
         this.count = count;
