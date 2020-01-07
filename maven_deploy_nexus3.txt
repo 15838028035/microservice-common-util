@@ -1,0 +1,12 @@
+
+
+maven项目发布到maven中央仓库
+
+1、请下载gpg4win
+2、生成key
+gpg --gen-key
+3、 发送公钥到key-server
+gpg  --send-keys [用户ID]  --keyserver hkp://subkeys.pgp.net 
+
+4、发布项目到nexus
+mvn clean deploy -Dmaven.test.skip=true -Dgpg.passphrase=${gpg_passphrase} -P release -Duser.timezone=GMT+08 -X
