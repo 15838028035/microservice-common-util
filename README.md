@@ -17,7 +17,7 @@
     <dependency>
             <groupId>cn.com.thinkit.cloud</groupId>
             <artifactId>microservice-common-util</artifactId>
-             <version>1.0.6</version>
+             <version>1.0.7</version>
     </dependency> 
   ```
 ### 版本说明
@@ -52,7 +52,7 @@
 com.zhongkexinli.micro.serv.common.bean.RestApiResultBuilder
 
 ``` java
- RestApiResult2 restApiResult = RestApiResultBuilder.builder()
+ RestApiResult2<T> restApiResult = RestApiResultBuilder.builder()
              .respCode(1)
              .respData("dataA")
              .respMsg("okay")
@@ -62,7 +62,7 @@ com.zhongkexinli.micro.serv.common.bean.RestApiResultBuilder
 com.zhongkexinli.micro.serv.common.bean.RestApiResult
 
 ``` java
- RestApiResult2 restApiResult = new RestApiResult2()
+ RestApiResult2<T> restApiResult = new RestApiResult2()
              .respCode(1)
              .respData("dataA")
              .respMsg("okay");
