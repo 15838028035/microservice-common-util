@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiModelProperty;
  *
  */
 @ApiModel(value = "REST API接口统一响应接口实体")
-public class RestApiResultBuilder  {
+public class RestApiResultBuilder<T>  {
 
     @ApiModelProperty(value = "respCode : 返回代码，1表示成功，其它的都有对应问题")
   private int respCode = 1;
@@ -31,7 +31,7 @@ public class RestApiResultBuilder  {
   private String dataCode;
 
     @ApiModelProperty(value = "返回数据")
-  private transient Object respData;
+  private transient T respData;
     
     @ApiModelProperty(value = "返回消息")
     private String msg;
@@ -68,7 +68,7 @@ public class RestApiResultBuilder  {
      * @param respData 返回数据
      * @return 实体对象 RestAPIResult2
      */
-      public RestApiResultBuilder respData(Object respData) {
+      public RestApiResultBuilder respData(T respData) {
           this.respData = respData;
           return this;
       }

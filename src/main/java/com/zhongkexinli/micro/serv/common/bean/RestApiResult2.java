@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(value = "REST API接口统一响应接口实体")
 @SuppressWarnings("serial")
-public class RestApiResult2 implements Serializable {
+public class RestApiResult2<T> implements Serializable {
 
     @ApiModelProperty(value = "respCode : 返回代码，1表示成功，其它的都有对应问题")
     private int respCode = 1;
@@ -33,7 +33,7 @@ public class RestApiResult2 implements Serializable {
     private String token;// token
 
     @ApiModelProperty(value = "返回数据")
-    private  Object respData;
+    private  T respData;
 
     @ApiModelProperty(value = "判断是否跳登录")
     private String loginFlag;
@@ -125,7 +125,7 @@ public class RestApiResult2 implements Serializable {
      *            返回数据
      * @return 实体对象 RestAPIResult2
      */
-    public RestApiResult2 respData(Object respData) {
+    public RestApiResult2 respData(T respData) {
         this.respData = respData;
         return this;
     }
@@ -146,11 +146,11 @@ public class RestApiResult2 implements Serializable {
         this.token = token;
     }
 
-    public Object getRespData() {
+    public T getRespData() {
         return respData;
     }
 
-    public void setRespData(Object respData) {
+    public void setRespData(T respData) {
         this.respData = respData;
     }
 
