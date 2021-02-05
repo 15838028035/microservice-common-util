@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.0.9 （2021-02-05)
+  -  添加通用报表构建者com.zhongkexinli.micro.serv.common.msg.CommonReportDataResponseBuilder
+------------------
+
 1.0.7 （2020-03-27)
   - RestApiResult添加泛型支持
   - 优化升级Bootstrap-swagger-ui依赖版本
