@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.0.9 （2021-02-19)
+  -  优化com.zhongkexinli.micro.serv.common.bean.RestApiResultBuilder,添加traceId属性，用来记录跟踪请求的id
+------------------
+
 1.0.9 （2021-02-05)
   -  添加通用报表构建者com.zhongkexinli.micro.serv.common.msg.CommonReportDataResponseBuilder
 ------------------

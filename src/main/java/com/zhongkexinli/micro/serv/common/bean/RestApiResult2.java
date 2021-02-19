@@ -37,6 +37,9 @@ public class RestApiResult2<T> implements Serializable {
 
     @ApiModelProperty(value = "判断是否跳登录")
     private String loginFlag;
+    
+    @ApiModelProperty(value = "请求跟踪Id")
+    private String traceId;
 
     /**
      * 空构造
@@ -129,6 +132,18 @@ public class RestApiResult2<T> implements Serializable {
         this.respData = respData;
         return this;
     }
+    
+    /**
+     * 链式调用
+     * 
+     * @param traceId
+     *            返回数据
+     * @return 实体对象 RestAPIResult2
+     */
+    public RestApiResult2 traceId(String traceId) {
+        this.traceId = traceId;
+        return this;
+    }
 
     public String getDataCode() {
         return dataCode;
@@ -160,6 +175,14 @@ public class RestApiResult2<T> implements Serializable {
 
     public void setLoginFlag(String loginFlag) {
         this.loginFlag = loginFlag;
+    }
+
+    public String getTraceId() {
+        return traceId;
+    }
+
+    public void setTraceId(String traceId) {
+        this.traceId = traceId;
     }
 
 }

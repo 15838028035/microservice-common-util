@@ -38,6 +38,9 @@ public class RestApiResultBuilder<T>  {
     
     @ApiModelProperty(value = "返回参数")
     private Object  arguments;
+    
+    @ApiModelProperty(value = "请求跟踪Id")
+    private String traceId;
   
     /**
      * 空构造
@@ -95,13 +98,24 @@ public class RestApiResultBuilder<T>  {
           return respMsg(msg,"");
       }
       
+      /**
+       * 链式调用
+       * 
+       * @param traceId
+       *            返回数据
+       * @return 实体对象 RestApiResultBuilder
+       */
+      public RestApiResultBuilder traceId(String traceId) {
+          this.traceId = traceId;
+          return this;
+      }
+      
     
     public RestApiResult2 build() {
-      RestApiResult2 restApiResult2 = new RestApiResult2();
-      restApiResult2.respCode(respCode)
-                  .respData(respData)
-                  .respMsg(msg, arguments);
-      return restApiResult2;
+      return new RestApiResult2().respCode(respCode)
+              .respData(respData)
+              .respMsg(msg, arguments)
+              .traceId(traceId);
     }
 
 
