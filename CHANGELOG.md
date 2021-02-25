@@ -1,6 +1,9 @@
 microservice-common-util 发版日志
 
-1.0.9 （2021-02-19)
+1.1.1 （2021-02-25)
+  -  新增com.zhongkexinli.micro.serv.common.util.ForEachUtils工具类
+------------------  
+1.1.0 （2021-02-19)
   -  优化com.zhongkexinli.micro.serv.common.bean.RestApiResultBuilder,添加traceId属性，用来记录跟踪请求的id
 ------------------
 
