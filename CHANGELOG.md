@@ -1,5 +1,7 @@
 microservice-common-util 发版日志
-
+1.1.2 （2021-03-04)
+  - 优化删除多余的com.zhongkexinli.micro.serv.common.pagination工具类
+------------------ 
 1.1.1 （2021-02-25)
   -  新增com.zhongkexinli.micro.serv.common.util.ForEachUtils工具类
 ------------------  
