@@ -1,6 +1,7 @@
 package com.zhongkexinli.micro.serv.common.util;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ public class TreeUtilTest {
         root.setParentId(0);
 
         List<TreeNode> buildTreeNodeList = TreeUtil.bulid(treeNodes, root);
-        assertTrue(buildTreeNodeList != null);
+        assertNotNull(buildTreeNodeList);
     }
 
     @Test
@@ -58,7 +59,7 @@ public class TreeUtilTest {
         root.setParentId(0);
 
         List<TreeNode> buildTreeNodeList = TreeUtil.buildByRecursive(treeNodes, root);
-        assertTrue(buildTreeNodeList != null);
+        assertNotNull(buildTreeNodeList);
     }
 
     @Test
@@ -77,9 +78,9 @@ public class TreeUtilTest {
         treeNodes.add(treeNode2);
 
         TreeNode findTreeNode = TreeUtil.findChildren(treeNode1, treeNodes);
-        assertTrue(findTreeNode != null);
-        assertTrue(findTreeNode.getId() == 1);
-        assertTrue(findTreeNode.getParentId() == 0);
+        assertNotNull(findTreeNode);
+        assertEquals(1,findTreeNode.getId());
+        assertEquals(0,findTreeNode.getParentId());
     }
 
 }

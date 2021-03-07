@@ -15,7 +15,7 @@ public class BaseResponseTest {
         BaseResponse baseResponse = new BaseResponse();
         baseResponse.setStatus(200);
         baseResponse.setMessage("okay");
-        assertTrue(baseResponse.getStatus() == 200);
+        assertEquals(200, baseResponse.getStatus());
         assertEquals("okay", baseResponse.getMessage());
     }
 

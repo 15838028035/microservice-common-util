@@ -14,7 +14,7 @@ public class RestApiResult2Test {
     @Test
     public void restApiResultTest4() {
         RestApiResult2 restApiResult = new RestApiResult2("okay");
-        assertTrue(restApiResult.getRespCode() == 0);
+        assertEquals(1, restApiResult.getRespCode());
         assertEquals("okay", restApiResult.getRespMsg());
     }
 
@@ -26,7 +26,7 @@ public class RestApiResult2Test {
     @Test
     public void restApiResultTest6() {
         RestApiResult2 restApiResult = new RestApiResult2("okay");
-        assertTrue(restApiResult.getRespCode() == 0);
+        assertEquals(1, restApiResult.getRespCode());
         assertEquals("okay", restApiResult.getRespMsg());
 
         restApiResult.respMsg("错误了,{}", "真的错了");
@@ -37,7 +37,7 @@ public class RestApiResult2Test {
     @Test
     public void restApiResultTest7() {
         RestApiResult2 restApiResult = new RestApiResult2("okay");
-        assertTrue(restApiResult.getRespCode() == 0);
+        assertEquals(1, restApiResult.getRespCode());
         assertEquals("okay", restApiResult.getRespMsg());
 
         restApiResult.respMsg("错误了,{}A {}B {} C", "1", "2", "3");
@@ -48,7 +48,7 @@ public class RestApiResult2Test {
     @Test
     public void restApiResultTest8() {
         RestApiResult2 restApiResult = new RestApiResult2("okay");
-        assertTrue(restApiResult.getRespCode() == 0);
+        assertEquals(1, restApiResult.getRespCode());
         assertEquals("okay", restApiResult.getRespMsg());
 
         restApiResult.respMsg("错误了,{0}", "1");

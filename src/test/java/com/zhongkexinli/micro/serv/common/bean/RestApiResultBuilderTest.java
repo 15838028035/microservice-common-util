@@ -1,7 +1,6 @@
 package com.zhongkexinli.micro.serv.common.bean;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -13,7 +12,7 @@ public class RestApiResultBuilderTest {
              .respData("cc")
              .respMsg("okay")
              .build();
-      assertTrue(restApiResult.getRespCode() == 1);
+    assertEquals(1,restApiResult.getRespCode());
       assertEquals("okay",restApiResult.getRespMsg());
       System.out.println(restApiResult.toString());
   }

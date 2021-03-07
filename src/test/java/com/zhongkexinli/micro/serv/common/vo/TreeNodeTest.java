@@ -1,6 +1,6 @@
 package com.zhongkexinli.micro.serv.common.vo;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class TreeNodeTest {
 
         treeNode.setChildren(children);
 
-        assertTrue(treeNode.getChildren().size() == 2);
+        assertEquals(2,treeNode.getChildren().size());
     }
 
 }

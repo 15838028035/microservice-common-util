@@ -18,13 +18,13 @@ public class DateUtilTest {
     @Test
     public void getNowDateYYYYMMddHHMMSSTest() {
         String date = DateUtil.getNowDateYYYYMMddHHMMSS();
-        assertTrue(date.length() == 19);
+        assertEquals(19,date.length());
     }
 
     @Test
     public void getNowDateTest() {
         String date = DateUtil.getNowDate("yyyy-MM-dd");
-        assertTrue(date.length() == 10);
+        assertEquals(10,date.length());
     }
 
     @Test
@@ -63,19 +63,19 @@ public class DateUtilTest {
     @Test
     public void getIntervalDaysTest() {
         int interDays = DateUtil.getIntervalDays("2015-08-10 00:00:00", "2015-08-05 00:00:00");
-        assertTrue(interDays == 5);
+        assertEquals(5,interDays);
     }
 
     @Test
     public void getIntervalDaysNumIsZerorTest() {
         int interDays = DateUtil.getIntervalDays("2015-08-10 00:00:00", "2015-08-21 00:00:00");
-        assertTrue(interDays == -11);
+        assertEquals(-1,interDays);
     }
 
     @Test
     public void getIntervalDaysNumBadeFormatDateTest() {
         int interDays = DateUtil.getIntervalDays("2015-08-23 00:00:00", "2015-08-22 00:00:00");
-        assertTrue(interDays == 1);
+        assertEquals(1,interDays);
     }
 
     @Test
@@ -83,13 +83,13 @@ public class DateUtilTest {
         String date1 = null;
         String date2 = null;
         int interDays = DateUtil.getIntervalDays(date1, date2);
-        assertTrue(interDays == -1);
+        assertEquals(-1,interDays);
     }
 
     @Test
     public void getIntervalDaysCompareDateTest() {
         int interDays = DateUtil.getIntervalDays(new Date(), new Date());
-        assertTrue(interDays == 0);
+        assertEquals(0,interDays);
     }
 
     @Test
@@ -97,7 +97,7 @@ public class DateUtilTest {
         Date date1 = null;
         Date date2 = null;
         int interDays = DateUtil.getIntervalDays(date1, date2);
-        assertTrue(interDays == -1);
+        assertEquals(-1,interDays);
     }
 
 }

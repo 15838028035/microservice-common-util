@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -29,8 +30,6 @@ public class FileUtil {
 
     public static final int DEFAULT_CHUNK_SIZE = 1024;
     public static final int BUFFERSIZE = 4096;
-
-    public static final String FILE_ECNDOING = "UTF-8";
 
     private static Log logger = LogFactory.getLog(FileUtil.class);
 
@@ -88,7 +87,7 @@ public class FileUtil {
      */
     public static void write(String filePath, String fileContent) {
         try (FileOutputStream fo = new FileOutputStream(filePath);
-                OutputStreamWriter out = new OutputStreamWriter(fo, FILE_ECNDOING);) {
+                OutputStreamWriter out = new OutputStreamWriter(fo, StandardCharsets.UTF_8);) {
             out.write(fileContent);
         } catch (Exception ex) {
             logger.error("write exception", ex);
@@ -103,13 +102,10 @@ public class FileUtil {
      * @return 文件内容
      */
     public static String read(String filePath, String code) {
-        if (code == null || code.equals("")) {
-            code = FILE_ECNDOING;
-        }
         StringBuilder fileContent = new StringBuilder();
         File file = new File(filePath);
 
-        try (InputStreamReader read = new InputStreamReader(new FileInputStream(file), code);
+        try (InputStreamReader read = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
                 BufferedReader reader = new BufferedReader(read);) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -208,7 +204,7 @@ public class FileUtil {
     public static String readStreamToString(InputStream stream) {
         StringBuilder fileContent = new StringBuilder();
 
-        try (InputStreamReader read = new InputStreamReader(stream, FILE_ECNDOING);
+        try (InputStreamReader read = new InputStreamReader(stream, StandardCharsets.UTF_8);
                 BufferedReader reader = new BufferedReader(read);) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -222,7 +218,7 @@ public class FileUtil {
 
     public static byte[] readStreamToByte(InputStream stream) throws UnsupportedEncodingException {
         String fileContent = readStreamToString(stream);
-        return fileContent.getBytes(FILE_ECNDOING);
+        return fileContent.getBytes(StandardCharsets.UTF_8);
     }
 
     /**
@@ -234,7 +230,7 @@ public class FileUtil {
      */
     public static InputStream getStreamFromString(String text) {
         try {
-            byte[] bytes = text.getBytes(FILE_ECNDOING);
+            byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
             return new ByteArrayInputStream(bytes);
         } catch (Exception e) {
             throw new AssertionError(e);

@@ -53,7 +53,7 @@ public class RestApiResult2<T> implements Serializable {
      * @return
      */
     public static RestApiResultBuilder builder() {
-        return new RestApiResultBuilder();
+        return new RestApiResultBuilder<>();
     }
 
     public RestApiResult2(String errorMsg) {

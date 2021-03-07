@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
  * PO对象
  */
 @ApiModel(value = "*通用报表数据接口")
+@SuppressWarnings("all")
 public class CommonReportDataResponse {
     @ApiModelProperty(value = "编码")
     private String code;

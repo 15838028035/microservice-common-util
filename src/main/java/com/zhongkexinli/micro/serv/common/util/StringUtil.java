@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -741,8 +742,8 @@ public abstract class StringUtil {
      */
     public static String toChi(String input) {
         try {
-            byte[] bytes = input.getBytes("ISO8859-1");
-            return new String(bytes, CommonConstants.ENCODING_UTF_8);
+            byte[] bytes = input.getBytes(StandardCharsets.ISO_8859_1);
+            return new String(bytes, StandardCharsets.UTF_8);
         } catch (Exception ex) {
             logger.error("toChi", ex);
         }
@@ -1179,7 +1180,7 @@ public abstract class StringUtil {
             return "";
         }
         try {
-            return new String(b, "UTF-8");
+            return new String(b, StandardCharsets.UTF_8);
         } catch (Exception e) {
             logger.error("byteToString", e);
         }

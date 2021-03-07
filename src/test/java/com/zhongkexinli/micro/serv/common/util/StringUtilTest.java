@@ -68,9 +68,9 @@ public class StringUtilTest {
 
     @Test
     public void getRowTest() {
-        assertTrue(StringUtil.getRow(10, 5) == 2);
-        assertTrue(StringUtil.getRow(10, 10) == 1);
-        assertTrue(StringUtil.getRow(10, 3) == 4);
+    	assertEquals(2,StringUtil.getRow(10, 5) );
+    	assertEquals(1,StringUtil.getRow(10, 10) );
+    	assertEquals(4,StringUtil.getRow(10, 3));
     }
 
     @Test
@@ -317,9 +317,9 @@ public class StringUtilTest {
     @Test
     public void splitStringToStringListTest() {
         String testStr = "a,b,c";
-        assertTrue(StringUtil.splitStringToStringList(null).size() == 1);
-        assertTrue(StringUtil.splitStringToStringList("a").size() == 1);
-        assertTrue(StringUtil.splitStringToStringList("a,b").size() == 2);
+        assertEquals(1,StringUtil.splitStringToStringList(null).size());
+        assertEquals(1,StringUtil.splitStringToStringList("a").size());
+        assertEquals(2,StringUtil.splitStringToStringList("a,b").size() );
 
         assertEquals("a", StringUtil.splitStringToStringList(testStr).get(0));
         assertEquals("b", StringUtil.splitStringToStringList(testStr).get(1));
@@ -399,11 +399,9 @@ public class StringUtilTest {
 
     @Test
     public void parseFloatTest() {
-        assertTrue(Float.parseFloat("1") == StringUtil.parseFloat("1", 3.0f));
-        assertTrue(Float.parseFloat("3.0") == StringUtil.parseFloat("1a", 3.0f));
-        assertTrue(Float.parseFloat("1.0") == StringUtil.parseFloat(" 1 ", 3.0f));
-
-        assertTrue(3.0 == StringUtil.parseFloat(null, 3.0f));
+        assertEquals(1f,StringUtil.parseFloat("1", 3.0f));
+        assertEquals(3.0f, StringUtil.parseFloat("1a", 3.0f));
+        assertEquals(3.0, StringUtil.parseFloat(null, 3.0f));
     }
 
     @Test
@@ -521,32 +519,33 @@ public class StringUtilTest {
 
     @Test
     public void generateRandomLowercaseTest() {
-        assertTrue(StringUtil.generateRandomLowercase(5).length() == 5);
-        assertTrue(StringUtil.generateRandomLowercase(6).length() == 6);
-        assertTrue(StringUtil.generateRandomLowercase(7).length() == 7);
-        assertTrue(StringUtil.generateRandomLowercase(8).length() == 8);
-        assertTrue(StringUtil.generateRandomLowercase(9).length() == 9);
-        assertTrue(StringUtil.generateRandomLowercase(10).length() == 10);
+        assertEquals(5, StringUtil.generateRandomLowercase(5).length());
+        assertEquals(6, StringUtil.generateRandomLowercase(6).length());
+        assertEquals(7, StringUtil.generateRandomLowercase(7).length());
+        assertEquals(8, StringUtil.generateRandomLowercase(8).length());
+        assertEquals(9, StringUtil.generateRandomLowercase(9).length());
+        assertEquals(10, StringUtil.generateRandomLowercase(10).length());
     }
 
     @Test
     public void generateRandomUppercaseTest() {
-        assertTrue(StringUtil.generateRandomUppercase(5).length() == 5);
-        assertTrue(StringUtil.generateRandomUppercase(6).length() == 6);
-        assertTrue(StringUtil.generateRandomUppercase(7).length() == 7);
-        assertTrue(StringUtil.generateRandomUppercase(8).length() == 8);
-        assertTrue(StringUtil.generateRandomUppercase(9).length() == 9);
-        assertTrue(StringUtil.generateRandomUppercase(10).length() == 10);
+        assertEquals(5, StringUtil.generateRandomUppercase(5).length());
+        assertEquals(6, StringUtil.generateRandomUppercase(6).length());
+        assertEquals(7, StringUtil.generateRandomUppercase(7).length());
+        assertEquals(8, StringUtil.generateRandomUppercase(8).length());
+        assertEquals(9, StringUtil.generateRandomUppercase(9).length());
+        assertEquals(10, StringUtil.generateRandomUppercase(10).length());
     }
 
     @Test
     public void generateRandomNumberTest() {
-        assertTrue(StringUtil.generateRandomNumber(5).length() == 5);
-        assertTrue(StringUtil.generateRandomNumber(6).length() == 6);
-        assertTrue(StringUtil.generateRandomNumber(7).length() == 7);
-        assertTrue(StringUtil.generateRandomNumber(8).length() == 8);
-        assertTrue(StringUtil.generateRandomNumber(9).length() == 9);
-        assertTrue(StringUtil.generateRandomNumber(10).length() == 10);
+        assertEquals(5, StringUtil.generateRandomNumber(5).length());
+        assertEquals(6, StringUtil.generateRandomNumber(6).length());
+        assertEquals(7, StringUtil.generateRandomNumber(7).length());
+        assertEquals(8, StringUtil.generateRandomNumber(8).length());
+        assertEquals(9, StringUtil.generateRandomNumber(9).length());
+        assertEquals(10, StringUtil.generateRandomNumber(10).length());
+
     }
 
     @Test
@@ -559,20 +558,20 @@ public class StringUtilTest {
 
     @Test
     public void generateRandomCharsTest() {
-        assertTrue(StringUtil.generateRandomChars("abcdefgc", 3).length() == 3);
-        assertTrue(StringUtil.generateRandomChars("abcdefgd", 4).length() == 4);
-        assertTrue(StringUtil.generateRandomChars("abcdefge", 5).length() == 5);
-        assertTrue(StringUtil.generateRandomChars("abcdefgf", 6).length() == 6);
+        assertEquals(3, StringUtil.generateRandomChars("abcdefgc", 3).length());
+        assertEquals(4, StringUtil.generateRandomChars("abcdefgd", 4).length());
+        assertEquals(5, StringUtil.generateRandomChars("abcdefge", 5).length());
+        assertEquals(6, StringUtil.generateRandomChars("abcdefgf", 6).length());
     }
 
     @Test
     public void randomOrderTest() {
-        assertTrue(StringUtil.randomOrder("abcdefa").length() == 7);
-        assertTrue(StringUtil.randomOrder("abcdfeb").length() == 7);
-        assertTrue(StringUtil.randomOrder("abcefdc").length() == 7);
-        assertTrue(StringUtil.randomOrder("abcedfd").length() == 7);
-        assertTrue(StringUtil.randomOrder("bacdefe").length() == 7);
-        assertTrue(StringUtil.randomOrder("badceff").length() == 7);
+        assertEquals(7, StringUtil.randomOrder("abcdefa").length());
+        assertEquals(7, StringUtil.randomOrder("abcdfeb").length());
+        assertEquals(7, StringUtil.randomOrder("abcefdc").length());
+        assertEquals(7, StringUtil.randomOrder("abcedfd").length());
+        assertEquals(7, StringUtil.randomOrder("bacdefe").length());
+        assertEquals(7, StringUtil.randomOrder("badceff").length());
     }
 
     @Test

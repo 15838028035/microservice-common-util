@@ -1,7 +1,7 @@
 package com.zhongkexinli.micro.serv.common.msg;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +31,11 @@ public class LayUiTableResultResponseTest {
 
         LayUiTableResultResponse layUiTableResultResponse = new LayUiTableResultResponse(100L, dataList);
 
-        assertTrue(layUiTableResultResponse != null);
+        assertNotNull(layUiTableResultResponse);
         assertEquals("0", layUiTableResultResponse.getCode());
         assertEquals("", layUiTableResultResponse.getMsg());
-        assertTrue(layUiTableResultResponse.getCount() == 100L);
-        assertTrue(layUiTableResultResponse.getData().size() == 100L);
+        assertEquals(100,layUiTableResultResponse.getCount().intValue());
+        assertEquals(100,layUiTableResultResponse.getData().size());
     }
 
     @Test
@@ -50,11 +50,11 @@ public class LayUiTableResultResponseTest {
 
         LayUiTableResultResponse layUiTableResultResponse = new LayUiTableResultResponse("0", "okay", 100L, dataList);
 
-        assertTrue(layUiTableResultResponse != null);
+        assertNotNull(layUiTableResultResponse);
         assertEquals("0", layUiTableResultResponse.getCode());
         assertEquals("okay", layUiTableResultResponse.getMsg());
-        assertTrue(layUiTableResultResponse.getCount() == 100L);
-        assertTrue(layUiTableResultResponse.getData().size() == 100L);
+        assertEquals(100,layUiTableResultResponse.getCount().intValue());
+        assertEquals(100,layUiTableResultResponse.getData().size());
     }
 
     @Test
@@ -74,11 +74,11 @@ public class LayUiTableResultResponseTest {
         layUiTableResultResponse.setCount(200L);
         layUiTableResultResponse.setData(dataList);
 
-        assertTrue(layUiTableResultResponse != null);
+        assertNotNull(layUiTableResultResponse);
         assertEquals("1", layUiTableResultResponse.getCode());
         assertEquals("okayMsg", layUiTableResultResponse.getMsg());
-        assertTrue(layUiTableResultResponse.getCount() == 200L);
-        assertTrue(layUiTableResultResponse.getData().size() == 100L);
+        assertEquals(200,layUiTableResultResponse.getCount().intValue());
+        assertEquals(100,layUiTableResultResponse.getData().size());
     }
 
 }

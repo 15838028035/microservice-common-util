@@ -13,7 +13,7 @@ public class CommonReportDataResponseBuilderTest {
         CommonReportDataResponse commonReportDataResponse =  new CommonReportDataResponseBuilder().code("1").msg("查询成功").count(100L).headers(Arrays.asList("header1","header2")).builder();
         Assert.assertEquals("1",commonReportDataResponse.getCode());
         Assert.assertEquals("查询成功",commonReportDataResponse.getMsg());
-        Assert.assertTrue(commonReportDataResponse.getHeaders().size()==2);
+        Assert.assertEquals(2,commonReportDataResponse.getHeaders().size());
     }
 
 }
