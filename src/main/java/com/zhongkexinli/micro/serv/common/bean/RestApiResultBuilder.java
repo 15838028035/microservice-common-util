@@ -61,7 +61,7 @@ public class RestApiResultBuilder<T>  {
    * @param respCode 相应码
    * @return 实体对象 RestAPIResult2
    */
-    public RestApiResultBuilder respCode(int respCode) {
+    public RestApiResultBuilder<T> respCode(int respCode) {
         this.respCode = respCode;
         return this;
     }
@@ -71,7 +71,7 @@ public class RestApiResultBuilder<T>  {
      * @param respData 返回数据
      * @return 实体对象 RestAPIResult2
      */
-      public RestApiResultBuilder respData(T respData) {
+      public RestApiResultBuilder<T> respData(T respData) {
           this.respData = respData;
           return this;
       }
@@ -82,7 +82,7 @@ public class RestApiResultBuilder<T>  {
        * @param arguments 参数列表，多个参数以,分割，支持数组
        * @return 实体对象 RestAPIResult2
        */
-      public RestApiResultBuilder respMsg(String msg,Object... arguments) {
+      public RestApiResultBuilder<T> respMsg(String msg,Object... arguments) {
           this.msg = msg;
           this.arguments = arguments;
           return this;
@@ -94,7 +94,7 @@ public class RestApiResultBuilder<T>  {
        * @param arguments 参数列表，多个参数以,分割，支持数组
        * @return 实体对象 RestAPIResult2
        */
-      public RestApiResultBuilder respMsg(String msg) {
+      public RestApiResultBuilder<T> respMsg(String msg) {
           return respMsg(msg,"");
       }
       
@@ -105,13 +105,13 @@ public class RestApiResultBuilder<T>  {
        *            返回数据
        * @return 实体对象 RestApiResultBuilder
        */
-      public RestApiResultBuilder traceId(String traceId) {
+      public RestApiResultBuilder<T> traceId(String traceId) {
           this.traceId = traceId;
           return this;
       }
       
     
-    public RestApiResult2 build() {
+    public RestApiResult2<T> build() {
       return new RestApiResult2().respCode(respCode)
               .respData(respData)
               .respMsg(msg, arguments)

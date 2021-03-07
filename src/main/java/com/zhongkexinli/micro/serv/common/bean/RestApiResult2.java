@@ -84,7 +84,7 @@ public class RestApiResult2<T> implements Serializable {
      *            相应码
      * @return 实体对象 RestAPIResult2
      */
-    public RestApiResult2 respCode(int respCode) {
+    public RestApiResult2<T> respCode(int respCode) {
         this.respCode = respCode;
         return this;
     }
@@ -98,7 +98,7 @@ public class RestApiResult2<T> implements Serializable {
      *            参数列表，多个参数以,分割，支持数组
      * @return 实体对象 RestAPIResult2
      */
-    public RestApiResult2 respMsg(String msg, Object... arguments) {
+    public RestApiResult2<T> respMsg(String msg, Object... arguments) {
         String formattedMessage;
         if (arguments != null) {
             formattedMessage = MessageFormatter.arrayFormat(msg, arguments).getMessage();
@@ -117,7 +117,7 @@ public class RestApiResult2<T> implements Serializable {
      *            请求消息
      * @return 实体对象 RestAPIResult2
      */
-    public RestApiResult2 respMsg(String msg) {
+    public RestApiResult2<T> respMsg(String msg) {
         return respMsg(msg, null);
     }
 
@@ -128,7 +128,7 @@ public class RestApiResult2<T> implements Serializable {
      *            返回数据
      * @return 实体对象 RestAPIResult2
      */
-    public RestApiResult2 respData(T respData) {
+    public RestApiResult2<T> respData(T respData) {
         this.respData = respData;
         return this;
     }
@@ -140,7 +140,7 @@ public class RestApiResult2<T> implements Serializable {
      *            返回数据
      * @return 实体对象 RestAPIResult2
      */
-    public RestApiResult2 traceId(String traceId) {
+    public RestApiResult2<T> traceId(String traceId) {
         this.traceId = traceId;
         return this;
     }
