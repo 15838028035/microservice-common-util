@@ -14,6 +14,7 @@ import org.springframework.beans.BeanUtils;
  * 自定义封装map
  *
  */
+@SuppressWarnings("all")
 public class MapAndObject implements Map {
 
     private static Log logger = LogFactory.getLog(MapAndObject.class);

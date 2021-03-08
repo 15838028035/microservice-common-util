@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * PO对象
  */
 @ApiModel(value = "layui分页相应信息")
+@SuppressWarnings("all")
 public class LayUiTableResultResponse<T> {
     @ApiModelProperty(value = "编码")
     private String code;

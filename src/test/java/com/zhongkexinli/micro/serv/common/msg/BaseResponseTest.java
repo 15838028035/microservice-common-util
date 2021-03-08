@@ -1,7 +1,6 @@
 package com.zhongkexinli.micro.serv.common.msg;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -22,7 +21,7 @@ public class BaseResponseTest {
     @Test
     public void baseResponseTest2() {
         BaseResponse baseResponse = new BaseResponse(200, "okay");
-        assertTrue(baseResponse.getStatus() == 200);
+        assertEquals(200,   baseResponse.getStatus());
         assertEquals("okay", baseResponse.getMessage());
     }
 
