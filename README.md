@@ -17,7 +17,7 @@
     <dependency>
             <groupId>cn.com.thinkit.cloud</groupId>
             <artifactId>microservice-common-util</artifactId>
-             <version>1.1.2-RELEASE</version>
+             <version>1.1.3-RELEASE</version>
     </dependency> 
   ```
 ### 版本说明

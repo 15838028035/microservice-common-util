@@ -1,4 +1,8 @@
 microservice-common-util 发版日志
+------------------ 
+1.1.3 （2021-03-09)
+  - 优化处理大量的sonar告警和bug
+------------------   
 1.1.2 （2021-03-04)
   - 优化删除多余的com.zhongkexinli.micro.serv.common.pagination工具类
 ------------------ 
