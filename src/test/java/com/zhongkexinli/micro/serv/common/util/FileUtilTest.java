@@ -76,7 +76,7 @@ public class FileUtilTest {
 
         FileUtil.write(filePath, "test1");
 
-        String content = FileUtil.read(filePath, "UTF-8");
+        String content = FileUtil.read(filePath);
 
         assertTrue(content.contains("test1"));
 
@@ -97,7 +97,7 @@ public class FileUtilTest {
     @Test
     public void readExceptionTest() {
         String filePath = "filePathNotFound1";
-        String content = FileUtil.read(filePath, "UTF-8");
+        String content = FileUtil.read(filePath);
         assertEquals("", content);
     }
 
