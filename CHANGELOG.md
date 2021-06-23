@@ -1,4 +1,8 @@
 microservice-common-util 发版日志
+1.1.3 （2021-06-23)
+  - 优化sonar告警
+  - 添加常用工具类com.zhongkexinli.micro.serv.common.util.BigDecimalUtil
+------------------ 
 1.1.2 （2021-03-04)
   - 优化删除多余的com.zhongkexinli.micro.serv.common.pagination工具类
 ------------------ 

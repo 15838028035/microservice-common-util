@@ -9,6 +9,10 @@ import java.util.function.BiConsumer;
  */
 public class ForEachUtils {
     
+    private ForEachUtils() {
+        // 空实现
+    }
+    
     /**
      * 
      * @param <T>

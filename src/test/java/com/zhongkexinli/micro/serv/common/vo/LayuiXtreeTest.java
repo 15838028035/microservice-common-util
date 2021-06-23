@@ -1,7 +1,6 @@
 package com.zhongkexinli.micro.serv.common.vo;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +40,7 @@ public class LayuiXtreeTest {
         data.add(layuiXtree2);
 
         layuiXtree.setData(data);
-        assertTrue(layuiXtree.getData().size() == 2);
+        assertEquals(2,layuiXtree.getData().size());
     }
 
     @Test
@@ -58,7 +57,7 @@ public class LayuiXtreeTest {
 
         layuiXtree.add(layuiXtree1);
         layuiXtree.add(layuiXtree2);
-        assertTrue(layuiXtree.getData().size() == 2);
+        assertEquals(2,layuiXtree.getData().size());
     }
 
 }

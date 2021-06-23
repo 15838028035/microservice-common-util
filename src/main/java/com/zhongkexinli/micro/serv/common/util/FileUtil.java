@@ -101,7 +101,7 @@ public class FileUtil {
      *            文件路径
      * @return 文件内容
      */
-    public static String read(String filePath, String code) {
+    public static String read(String filePath) {
         StringBuilder fileContent = new StringBuilder();
         File file = new File(filePath);
 

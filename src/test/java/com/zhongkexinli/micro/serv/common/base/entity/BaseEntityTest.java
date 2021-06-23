@@ -1,6 +1,7 @@
 package com.zhongkexinli.micro.serv.common.base.entity;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -128,6 +129,9 @@ public class BaseEntityTest {
 
     @Test
     public void toStringTest() {
+        String msg = baseModel.toString();
+        assertNotNull(msg);
+        
         logger.debug("baseMode.toString info {} ", baseModel);
     }
 

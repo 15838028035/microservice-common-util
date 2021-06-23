@@ -5,6 +5,10 @@ package com.zhongkexinli.micro.serv.common.util;
  *
  */
 public final class FormatUtil {
+    
+    private FormatUtil() {
+        // 空实现
+    }
 
 	/**
 	 * 格式化

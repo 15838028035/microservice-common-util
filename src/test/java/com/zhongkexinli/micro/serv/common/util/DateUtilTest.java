@@ -3,11 +3,12 @@ package com.zhongkexinli.micro.serv.common.util;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
 import org.junit.Test;
+
+import junit.framework.Assert;
 
 /**
  * 日期工具类
@@ -49,15 +50,24 @@ public class DateUtilTest {
         assertNull(DateUtil.formatDate("bad date", "yyyy-MM-dd"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void formatDateDateExceptionTest() {
-        assertNull(DateUtil.formatDate("2015-10-01 10:00:00", "bad format"));
+        try {
+            assertNull(DateUtil.formatDate("2015-10-01 10:00:00", "bad format"));
+        } catch (IllegalArgumentException e) {
+            
+        }
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void formatDateDateWidthBadFormatTest() {
-        Date date = DateUtil.formatDate("2015-10-01 10:00:00", "yyyy-MM-dd gg ff");
-        assertNull(date);
+        try {
+            Date date = DateUtil.formatDate("2015-10-01 10:00:00", "yyyy-MM-dd gg ff");
+            assertNull(date);
+            Assert.fail("Expected an IndexOutOfBoundsException to be thrown");
+        } catch (IllegalArgumentException e) {
+            
+        }
     }
 
     @Test

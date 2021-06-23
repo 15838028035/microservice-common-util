@@ -35,16 +35,20 @@ public class StringUtilTest {
         assertEquals("2.00", StringUtil.minute2Hour("120"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void strTosqlDateTest() {
-        assertNull(StringUtil.strTosqlDate(null, DateUtil.DATE_FORMAT_STYLE3));
-        assertNull(StringUtil.strTosqlDate("", DateUtil.DATE_FORMAT_STYLE3));
+        try {
+            assertNull(StringUtil.strTosqlDate(null, DateUtil.DATE_FORMAT_STYLE3));
+            assertNull(StringUtil.strTosqlDate("", DateUtil.DATE_FORMAT_STYLE3));
 
-        assertNotNull(StringUtil.strTosqlDate("2016-06-11", DateUtil.DATE_FORMAT_STYLE3));
-        assertNotNull(StringUtil.strTosqlDate("2016-06-11 10:00:00", DateUtil.DATE_FORMAT_STYLE5));
+            assertNotNull(StringUtil.strTosqlDate("2016-06-11", DateUtil.DATE_FORMAT_STYLE3));
+            assertNotNull(StringUtil.strTosqlDate("2016-06-11 10:00:00", DateUtil.DATE_FORMAT_STYLE5));
 
-        assertNull(StringUtil.strTosqlDate("2016-06-12", "bad format date "));
-        assertNull(StringUtil.strTosqlDate("bad date style", DateUtil.DATE_FORMAT_STYLE3));
+            assertNull(StringUtil.strTosqlDate("2016-06-12", "bad format date "));
+            assertNull(StringUtil.strTosqlDate("bad date style", DateUtil.DATE_FORMAT_STYLE3));
+        } catch (IllegalArgumentException e) {
+            
+        }
     }
 
     @Test
@@ -233,23 +237,32 @@ public class StringUtilTest {
         assertTrue(StringUtil.isDate("2016-06-10 10:00:00", DateUtil.DATE_FORMAT_STYLE5));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void isDateException1Test() {
-        assertFalse(StringUtil.isDate(null, DateUtil.DATE_FORMAT_STYLE3));
-        assertFalse(StringUtil.isDate("", DateUtil.DATE_FORMAT_STYLE3));
-        assertFalse(StringUtil.isDate(" ", DateUtil.DATE_FORMAT_STYLE3));
-        assertFalse(StringUtil.isDate("bad date", DateUtil.DATE_FORMAT_STYLE3));
+        try {
+            assertFalse(StringUtil.isDate(null, DateUtil.DATE_FORMAT_STYLE3));
+            assertFalse(StringUtil.isDate("", DateUtil.DATE_FORMAT_STYLE3));
+            assertFalse(StringUtil.isDate(" ", DateUtil.DATE_FORMAT_STYLE3));
+            assertFalse(StringUtil.isDate("bad date", DateUtil.DATE_FORMAT_STYLE3));
 
-        assertTrue(StringUtil.isDate("2016-06-12", "bad format"));
+            assertTrue(StringUtil.isDate("2016-06-12", "bad format"));
+        } catch (NullPointerException e) {
+            
+        }
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void isDateException2Test() {
-        assertFalse(StringUtil.isDate("", DateUtil.DATE_FORMAT_STYLE3));
-        assertFalse(StringUtil.isDate(" ", DateUtil.DATE_FORMAT_STYLE3));
-        assertFalse(StringUtil.isDate("bad date", DateUtil.DATE_FORMAT_STYLE3));
+        try {
+            assertFalse(StringUtil.isDate("", DateUtil.DATE_FORMAT_STYLE3));
+            assertFalse(StringUtil.isDate(" ", DateUtil.DATE_FORMAT_STYLE3));
+            assertFalse(StringUtil.isDate("bad date", DateUtil.DATE_FORMAT_STYLE3));
 
-        assertTrue(StringUtil.isDate("2016-06-13", "bad format"));
+            assertTrue(StringUtil.isDate("2016-06-13", "bad format"));
+        } catch (IllegalArgumentException e) {
+            
+        }
+        
     }
 
     @Test

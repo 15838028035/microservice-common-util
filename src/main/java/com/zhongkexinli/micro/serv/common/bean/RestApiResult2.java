@@ -118,7 +118,7 @@ public class RestApiResult2<T> implements Serializable {
      * @return 实体对象 RestAPIResult2
      */
     public RestApiResult2<T> respMsg(String msg) {
-        return respMsg(msg, null);
+        return respMsg(msg, (Object)null);
     }
 
     /**

@@ -22,7 +22,7 @@ public class BaseResponseTest {
     @Test
     public void baseResponseTest2() {
         BaseResponse baseResponse = new BaseResponse(200, "okay");
-        assertTrue(baseResponse.getStatus() == 200);
+        assertEquals(200,baseResponse.getStatus());
         assertEquals("okay", baseResponse.getMessage());
     }
 

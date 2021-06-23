@@ -21,7 +21,7 @@ public class LayUiTableResultResponse<T> {
     @ApiModelProperty(value = "总数")
     private Long count;
     @ApiModelProperty(value = "列表数据 ")
-    private List<T> data = new ArrayList();
+    private List<T> data = new ArrayList<>();
 
     /**
      * 构造函数
@@ -50,7 +50,7 @@ public class LayUiTableResultResponse<T> {
      * @param data
      *            分页数据
      */
-    public LayUiTableResultResponse(String code, String msg, Long count, List data) {
+    public LayUiTableResultResponse(String code, String msg, Long count, List<T> data) {
         super();
         this.code = code;
         this.msg = msg;
@@ -82,11 +82,11 @@ public class LayUiTableResultResponse<T> {
         this.count = count;
     }
 
-    public List getData() {
+    public List<T> getData() {
         return data;
     }
 
-    public void setData(List data) {
+    public void setData(List<T> data) {
         this.data = data;
     }
 
