@@ -1,7 +1,10 @@
 microservice-common-util 发版日志
+1.1.5 （2022-01-12)
+  - 新增常用工具类com.zhongkexinli.micro.serv.common.util.HttpUtil
+ ------------------  
 1.1.4 （2022-01-12)
   - 常用工具类com.zhongkexinli.micro.serv.common.util.FileUtil新增方法
-  
+ ------------------  
 1.1.3 （2021-06-23)
   - 优化sonar告警
   - 添加常用工具类com.zhongkexinli.micro.serv.common.util.BigDecimalUtil
