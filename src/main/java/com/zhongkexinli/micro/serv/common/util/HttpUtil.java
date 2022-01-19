@@ -16,14 +16,14 @@ import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  */
 public class HttpUtil {
     
-    private static Log logger = LogFactory.getLog(HttpUtil.class);
+    private static Logger logger = LoggerFactory.getLogger(HttpUtil.class);
     
     public static final String CHARSET_DEFAULT = "UTF-8";
     
