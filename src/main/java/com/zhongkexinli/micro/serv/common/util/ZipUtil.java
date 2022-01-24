@@ -1,10 +1,10 @@
 package com.zhongkexinli.micro.serv.common.util;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -37,7 +37,7 @@ public class ZipUtil {
             File sourceFile = new File(srcDir);
             compress(sourceFile, zos, sourceFile.getName(), keepDirStructure);
             long end = System.currentTimeMillis();
-            logger.info("压缩完成，耗时：{}  ms", (end - start));
+            logger.info("压缩完成，耗时：{}  ms, 合计约:{} 秒", (end - start), (end - start)/1000);
         } catch (Exception e) {
             throw new RuntimeException("zip error from ZipUtils", e);
         } finally {
@@ -50,47 +50,7 @@ public class ZipUtil {
             }
         }
     }
-
-
-    /**
-     * 压缩成ZIP 方法2
-     * @param srcFiles 需要压缩的文件列表
-     * @param out      压缩文件输出流
-     * @throws RuntimeException 压缩失败会抛出运行时异常
-     */
-
-    private static void toZip(List<File> srcFiles, OutputStream out) throws RuntimeException {
-        long start = System.currentTimeMillis();
-        ZipOutputStream zos = null;
-        try {
-            zos = new ZipOutputStream(out);
-            for (File srcFile : srcFiles) {
-                byte[] buf = new byte[BUFFER_SIZE];
-                zos.putNextEntry(new ZipEntry(srcFile.getName()));
-                int len;
-                FileInputStream in = new FileInputStream(srcFile);
-                while ((len = in.read(buf)) != -1) {
-                    zos.write(buf, 0, len);
-                }
-                zos.closeEntry();
-                in.close();
-            }
-            long end = System.currentTimeMillis();
-            
-            logger.info("压缩完成，耗时：{}  ms", (end - start));
-        } catch (Exception e) {
-            throw new RuntimeException("zip error from ZipUtils", e);
-        } finally {
-            if (zos != null) {
-                try {
-                    zos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
+ 
     /**
      * 递归压缩方法
      * @param sourceFile       源文件
@@ -107,7 +67,7 @@ public class ZipUtil {
             zos.putNextEntry(new ZipEntry(name));
             // copy文件到zip输出流中
             int len;
-            FileInputStream in = new FileInputStream(sourceFile);
+            BufferedInputStream in = new BufferedInputStream(new FileInputStream(sourceFile));
             while ((len = in.read(buf)) != -1) {
                 zos.write(buf, 0, len);
             }
@@ -118,13 +78,14 @@ public class ZipUtil {
             File[] listFiles = sourceFile.listFiles();
             if (listFiles == null || listFiles.length == 0) {
                 // 需要保留原来的文件结构时,需要对空文件夹进行处理
-                if (KeepDirStructure) {
+                if (KeepDirStructure) { 
                     // 空文件夹的处理
                     zos.putNextEntry(new ZipEntry(name + "/"));
                     // 没有文件，不需要文件的copy
                     zos.closeEntry();
                 }
             } else {
+                
                 for (File file : listFiles) {
                     // 判断是否需要保留原来的文件结构
                     if (KeepDirStructure) {

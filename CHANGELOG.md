@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.1.8 （2022-01-24)
+  - 优化常用工具类com.zhongkexinli.micro.serv.common.util.ZipUtil
+ ------------------ 
+ 
 1.1.7 （2022-01-19)
   - 新增常用工具类com.zhongkexinli.micro.serv.common.thread.ThreadPoolMonitor
   - 新增常用工具类com.zhongkexinli.micro.serv.common.thread.ThreadPoolMDCFilter
