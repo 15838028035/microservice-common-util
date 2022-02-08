@@ -15,9 +15,11 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 /**
  */
@@ -52,6 +54,18 @@ public class HttpUtil {
             con.setConnectTimeout(10000);
             con.setReadTimeout(30000);
             con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            
+            String traceId = MDC.get("traceId");
+            
+            if(traceId!=null) {
+                 con.setRequestProperty("traceId", traceId);
+                 logger.info("设置http请求的traceId:{}",traceId);
+            }else {
+                 traceId = UUID.randomUUID().toString();
+                 con.setRequestProperty("traceId", traceId);
+                 logger.info("设置http请求的traceId:{}",traceId);
+            }
+            
             if(null != postParams) {
                 con.setDoOutput(true);
                 byte[] resCode = postParams.getBytes(CHARSET_DEFAULT);
@@ -113,6 +127,18 @@ public class HttpUtil {
             con.setConnectTimeout(10000);
             con.setReadTimeout(30000);
             con.setRequestProperty("Content-Type", contentType);
+            
+            String traceId = MDC.get("traceId");
+            
+            if(traceId!=null) {
+                 con.setRequestProperty("traceId", traceId);
+                 logger.info("设置http请求的traceId:{}",traceId);
+            }else {
+                 traceId = UUID.randomUUID().toString();
+                 con.setRequestProperty("traceId", traceId);
+                 logger.info("设置http请求的traceId:{}",traceId);
+            }
+            
             if (null != postParam) {
                 con.setDoOutput(true);
                 byte[] resCode = postParam.getBytes("UTF-8");

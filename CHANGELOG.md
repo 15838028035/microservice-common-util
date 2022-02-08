@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.1.9 （2022-02-08)
+  - 新增常用工具类com.zhongkexinli.micro.serv.common.util.HttpUtil
+ ------------------ 
+ 
 1.1.8 （2022-01-24)
   - 优化常用工具类com.zhongkexinli.micro.serv.common.util.ZipUtil
  ------------------ 
