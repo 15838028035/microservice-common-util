@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.2.0 （2022-02-17)
+  - 修复工具类com.zhongkexinli.micro.serv.common.thread.ThreadPoolMonitor线程名称信息
+ ------------------ 
+ 
 1.1.9 （2022-02-08)
   - 新增常用工具类com.zhongkexinli.micro.serv.common.util.HttpUtil
  ------------------ 
