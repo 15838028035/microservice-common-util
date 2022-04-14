@@ -29,6 +29,10 @@ public class HttpUtil {
     
     public static final String CHARSET_DEFAULT = "UTF-8";
     
+    private HttpUtil() {
+        // 空实现
+    }
+    
     public static String post(String url, Map<String, String> postParams) throws Exception {
         return post(url, postParams, CHARSET_DEFAULT);
     }
@@ -100,10 +104,10 @@ public class HttpUtil {
     private static String encodeParameters(Map<String, String> postParams, String charset) throws UnsupportedEncodingException {
         StringBuilder buf = new StringBuilder();
         if(postParams != null && postParams.size() > 0) {
-            Iterator i$ = postParams.entrySet().iterator();
+            Iterator it = postParams.entrySet().iterator();
 
-            while(i$.hasNext()) {
-                Map.Entry tmp = (Map.Entry)i$.next();
+            while(it.hasNext()) {
+                Map.Entry tmp = (Map.Entry)it.next();
                 buf.append(URLEncoder.encode((String)tmp.getKey(), charset)).append("=").append(URLEncoder.encode((String)tmp.getValue(), charset)).append("&");
             }
 
@@ -190,8 +194,7 @@ public class HttpUtil {
      */
     public static String sendJsonHttpPost(String url, String json) throws Exception {
         String charset = "UTF-8";
-        String var7 = send(url, json, "application/json", charset);
-        return var7;
+        return send(url, json, "application/json", charset);
     }
     
     /**
@@ -240,7 +243,6 @@ public class HttpUtil {
         }
         HttpURLConnection conn = null;
         InputStream inStream = null;
-        FileOutputStream fs = null;
         try {
             File file = new File(saveFile);
             File pFile = file.getParentFile();
@@ -261,21 +263,16 @@ public class HttpUtil {
                     logger.info("输入流错误");
                     return false;
                 }
-                try {
-                    fs = new FileOutputStream(saveFile);
-                } catch (FileNotFoundException e) {
-                    logger.info("输出流错误");
-                    return false;
-                }
-
-                byte[] buffer = new byte[2048];
-                int len;
-                try {
+                try (FileOutputStream fs = new FileOutputStream(saveFile);) {
+                    
+                    byte[] buffer = new byte[2048];
+                    int len;
                     while ((len = inStream.read(buffer, 0, 2048)) != -1) {
                         fs.write(buffer, 0, len);
                     }
-                } catch (IOException e) {
-                    logger.info("读写错误");
+                    
+                } catch (FileNotFoundException e) {
+                    logger.info("输出流错误");
                     return false;
                 }
                 return true;
@@ -288,11 +285,6 @@ public class HttpUtil {
             return false;
         } finally {
             try {
-                if (fs != null) {
-                    fs.flush();
-                    fs.close();
-                    logger.info("关闭输入流");
-                }
                 if (inStream != null) {
                     inStream.close();
                     logger.info("关闭输出流");

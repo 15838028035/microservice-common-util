@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.2.1 （2022-04-14)
+  - 修复工具类sonarlint告警
+ ------------------ 
+ 
 1.2.0 （2022-02-17)
   - 修复工具类com.zhongkexinli.micro.serv.common.thread.ThreadPoolMonitor线程名称信息
  ------------------ 

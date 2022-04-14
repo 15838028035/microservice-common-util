@@ -9,6 +9,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -540,16 +542,23 @@ public abstract class StringUtil {
         }
         char[] randomChar = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
                 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
-        Random random = new Random();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            int r = random.nextInt();
-            if (r < 0) {
-                continue;
+        Random random;
+        try {
+            random = SecureRandom.getInstanceStrong();
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < length; i++) {
+                int r = random.nextInt();
+                if (r < 0) {
+                    continue;
+                }
+                stringBuilder.append(randomChar[Math.abs(r) % randomChar.length]);
             }
-            stringBuilder.append(randomChar[Math.abs(r) % randomChar.length]);
-        }
-        return stringBuilder.toString();
+            return stringBuilder.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }  
+       
+        return "";
     }
 
     /**

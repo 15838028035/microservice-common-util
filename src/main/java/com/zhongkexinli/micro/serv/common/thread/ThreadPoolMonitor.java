@@ -59,7 +59,7 @@ public class ThreadPoolMonitor extends ThreadPoolExecutor {
     public static ExecutorService threadPoolMonitor(int nThreads , String poolName) {
         return new ThreadPoolMonitor(nThreads, nThreads,
                                       0L, TimeUnit.MILLISECONDS,
-                                      new LinkedBlockingQueue<Runnable>(), poolName);
+                                      new LinkedBlockingQueue<>(), poolName);
     }
     
 

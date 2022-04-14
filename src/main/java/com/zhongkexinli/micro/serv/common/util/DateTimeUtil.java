@@ -14,6 +14,10 @@ import com.zhongkexinli.micro.serv.common.constant.TimeFormatter;
 
 public class DateTimeUtil {
 
+    private DateTimeUtil() {
+        //空实现
+    }
+    
     /**
      * 获取当前时间时间戳（long）
      * @return
@@ -226,7 +230,7 @@ public class DateTimeUtil {
         return (int)smallDateTime.until(bigDateTime, ChronoUnit.SECONDS);
     }
     
-    public static Date LocalDateToDate(LocalDate localDate) {
+    public static Date localDateToDate(LocalDate localDate) {
         ZoneId zoneId = ZoneId.systemDefault();
         ChronoZonedDateTime<LocalDate> zonedDateTime = localDate.atStartOfDay(zoneId);
         return Date.from(zonedDateTime.toInstant());

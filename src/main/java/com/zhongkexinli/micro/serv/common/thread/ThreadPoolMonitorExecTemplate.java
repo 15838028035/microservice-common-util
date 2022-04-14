@@ -20,7 +20,7 @@ public  abstract class ThreadPoolMonitorExecTemplate<T> {
     
   private   List<T> list;
   
-  public ThreadPoolMonitorExecTemplate(ThreadPoolExecutor threadPoolExecutor,  List<T> list) {
+  protected  ThreadPoolMonitorExecTemplate(ThreadPoolExecutor threadPoolExecutor,  List<T> list) {
       this.threadPoolExecutor = threadPoolExecutor;
       this.list = list;
   }
@@ -29,7 +29,7 @@ public  abstract class ThreadPoolMonitorExecTemplate<T> {
       
       long startTime = System.currentTimeMillis();
       
-      logger.info(getBuinsessName()+"开始执行了");
+      logger.info("{} 开始执行了",getBuinsessName());
       
       CountDownLatch countDownLatch = new CountDownLatch(list.size());
       
@@ -60,10 +60,10 @@ public  abstract class ThreadPoolMonitorExecTemplate<T> {
       
       long endTime = System.currentTimeMillis();
       
-      logger.info(getBuinsessName()+"执行结束了");
+      logger.info("{} 执行结束了",getBuinsessName());
       
-      logger.info(getBuinsessName()+"花费时间"+String.valueOf(endTime - startTime)+ "毫秒，"
-              + "约:"+String.valueOf((endTime - startTime)/1000) +"秒, 约"+String.valueOf((endTime - startTime)/60000)+"分钟"  
+      logger.info(getBuinsessName()+"花费时间"+(endTime - startTime)+ "毫秒，"
+              + "约:"+((endTime - startTime)/1000) +"秒, 约"+(endTime - startTime)/60000+"分钟"  
                );
   }
 

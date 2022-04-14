@@ -104,4 +104,4 @@ public class BigDecimalUtil { // 默认除法运算精度
         BigDecimal one = new BigDecimal("1");
         return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
-};
+}

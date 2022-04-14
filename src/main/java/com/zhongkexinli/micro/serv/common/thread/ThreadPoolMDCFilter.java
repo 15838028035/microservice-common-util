@@ -10,6 +10,10 @@ import org.slf4j.MDC;
  * @Description 多线程MDC塞入
  */
 public class ThreadPoolMDCFilter {
+    
+    private ThreadPoolMDCFilter() {
+        //空实现
+    }
  
     public static void setSleuthTraceId(){
         
