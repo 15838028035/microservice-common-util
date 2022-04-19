@@ -32,6 +32,27 @@ public class FileUtil {
     public static final int BUFFERSIZE = 4096;
 
     private static Log logger = LogFactory.getLog(FileUtil.class);
+    
+    public static String getExtension(String fileName) {
+        int dotIndex = fileName.lastIndexOf('.');
+        return (dotIndex == -1) ? "" : fileName.substring(dotIndex + 1);
+    }
+      
+    /**
+       * Returns the name of the file or directory denoted by this abstract
+       * pathname.  This is just the last name in the pathname's name
+       * sequence.  If the pathname's name sequence is empty, then the empty
+       * string is returned.
+       *
+       * @return  The name of the file or directory denoted by this abstract
+       *          pathname, or the empty string if this pathname's name sequence
+       *          is empty
+       */
+  public static  String getName(String path) {
+      int index = path.lastIndexOf(".");
+      int start = path.lastIndexOf("/");
+      return path.substring(start+1,index + 1);
+  }
 
     /**
      * 创建文件
