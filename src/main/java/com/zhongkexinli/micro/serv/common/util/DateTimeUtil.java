@@ -10,6 +10,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+import org.springframework.util.StringUtils;
+
 import com.zhongkexinli.micro.serv.common.constant.TimeFormatter;
 
 public class DateTimeUtil {
@@ -239,4 +241,23 @@ public class DateTimeUtil {
     public static Date localDateTimeToDate(LocalDateTime localDateTime) {
         return  Date.from( localDateTime.atZone( ZoneId.systemDefault()).toInstant());
   }
+    
+    /*
+     * 字符串拼接转日期
+     * @date: 2020年08月20日 0020 15:51
+     * @param: date
+     * @param: format
+     * @return: java.time.LocalDateTime
+     */
+    public static LocalDateTime toLocalDateTime(String dateTime, String format) {
+        if (StringUtils.isEmpty(dateTime)) {
+            return null;
+        }
+        if (StringUtils.isEmpty(format)) {
+            format = "yyyy-MM-dd HH:mm:ss";
+        }
+
+        DateTimeFormatter df = DateTimeFormatter.ofPattern(format);
+        return  LocalDateTime.parse(dateTime,df);
+    }
 }

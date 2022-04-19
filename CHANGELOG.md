@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.1.2 （2022-04-19)
+  - 优化新增方法com.zhongkexinli.micro.serv.common.util.DateTimeUtil
+ ------------------ 
+ 
 1.2.1 （2022-04-14)
   - 修复工具类sonarlint告警
  ------------------ 
