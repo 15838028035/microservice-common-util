@@ -11,8 +11,6 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 import org.springframework.util.ResourceUtils;
 
-import com.zhongkexinli.micro.serv.common.util.FileUtil;
-
 /**
  * 
  * 文件工具类

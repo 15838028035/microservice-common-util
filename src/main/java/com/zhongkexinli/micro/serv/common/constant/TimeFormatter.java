@@ -6,6 +6,8 @@ public class TimeFormatter {
     }
 
     public static final String DATETIME_FORMATTER = "yyyy-MM-dd HH:mm:ss";
+    
+    public static final String DATETIME_FORMATTER_yyyyMMddHHmmssSSS = "yyyyMMddHHmmssSSS";
 
     public static final String DATE_FORMATTER = "yyyy-MM-dd";
 

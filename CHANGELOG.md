@@ -1,10 +1,14 @@
 microservice-common-util 发版日志
 
-1.1.3 （2022-04-19)
+1.2.4 （2022-04-21)
   - 优化新增方法com.zhongkexinli.micro.serv.common.util.FileUtil
  ------------------ 
  
-1.1.2 （2022-04-19)
+1.2.3 （2022-04-19)
+  - 优化新增方法com.zhongkexinli.micro.serv.common.util.FileUtil
+ ------------------ 
+ 
+1.2.2 （2022-04-19)
   - 优化新增方法com.zhongkexinli.micro.serv.common.util.DateTimeUtil
  ------------------ 
  
