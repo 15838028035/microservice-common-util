@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.2.5 （2022-04-24)
+  - 优化新增方法com.zhongkexinli.micro.serv.common.util.EnumerationAsStreamUtil
+ ------------------ 
+ 
 1.2.4 （2022-04-21)
   - 优化新增方法com.zhongkexinli.micro.serv.common.util.FileUtil
  ------------------ 
