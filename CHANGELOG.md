@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.2.6 （2022-05-07)
+  - 新增多线程操作工具类com.zhongkexinli.micro.serv.common.thread.ThreadBatchOptTemplate
+ ------------------
+ 
 1.2.5 （2022-04-24)
   - 优化新增方法com.zhongkexinli.micro.serv.common.util.EnumerationAsStreamUtil
  ------------------ 
