@@ -75,7 +75,7 @@ public abstract class ThreadBatchOptTemplate<T> {
                 final CountDownLatch latch = new CountDownLatch(last - start);
                 // 获取列表子集
                 List list = batchDataList.subList(start, last);
-                processBatch(latch,batchDataList);
+                processBatch(latch,list);
                 latch.await();
                 
                 logger.info("开始尝试sleep:{}毫秒", sleepTime);
