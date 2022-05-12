@@ -1,7 +1,6 @@
 package com.zhongkexinli.micro.serv.common.thread;
 
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
@@ -17,7 +16,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract  class ThreadBatchOptLimitTemplate<T> {
     
-    private static Logger logger = LoggerFactory.getLogger(ThreadBatchOptLimitTemplate.class);
+    protected static Logger logger = LoggerFactory.getLogger(ThreadBatchOptLimitTemplate.class);
 
     /**
      * 默认1批量处理数量
@@ -83,16 +82,18 @@ public abstract  class ThreadBatchOptLimitTemplate<T> {
         return batchOptCount;
     }
 
-    public void setBatchOptCount(int batchOptCount) {
+    public ThreadBatchOptLimitTemplate<T> setBatchOptCount(int batchOptCount) {
         this.batchOptCount = batchOptCount;
+        return this;
     }
     
     public long getSleepTime() {
         return sleepTime;
     }
 
-    public void setSleepTime(long sleepTime) {
+    public ThreadBatchOptLimitTemplate<T> setSleepTime(long sleepTime) {
         this.sleepTime = sleepTime;
+        return this;
     }
     
     /**
@@ -101,8 +102,7 @@ public abstract  class ThreadBatchOptLimitTemplate<T> {
      */
     public    void processBatch(List<T> batchDataList ) {
         for (Object obj : batchDataList) {
-            // 提交任务
-            executorService.submit(() -> {
+            executorService.execute(() -> {
                 try {
                     
                     //阻塞，获取令牌
@@ -119,8 +119,8 @@ public abstract  class ThreadBatchOptLimitTemplate<T> {
                    
                    doRun((T)obj) ;
                    
-              } catch (InterruptedException e) {
-                  e.printStackTrace();
+              } catch (Exception e) {
+                  logger.error("批量操作出现异常",e);
               }finally {
                  semaphore.release();
             }

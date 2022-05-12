@@ -1,5 +1,12 @@
 microservice-common-util 发版日志
-
+1.3.0 （2022-05-12)
+  - 优化多线程，支持链式调用:com.zhongkexinli.micro.serv.common.thread.ThreadBatchOptTemplate
+  - 优化多线程，支持链式调用:com.zhongkexinli.micro.serv.common.thread.ThreadBatchOptLimitTemplate
+ ------------------
+ 
+1.2.9 （2022-05-11)
+  - 修改bug多线程操作工具类com.zhongkexinli.micro.serv.common.thread.ThreadBatchOptTemplate
+ ------------------
 1.2.9 （2022-05-11)
   - 修改bug多线程操作工具类com.zhongkexinli.micro.serv.common.thread.ThreadBatchOptTemplate
  ------------------

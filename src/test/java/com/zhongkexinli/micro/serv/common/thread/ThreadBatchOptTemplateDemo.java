@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
+import org.junit.Test;
+
 public   class ThreadBatchOptTemplateDemo  extends ThreadBatchOptTemplate<TestA>{
 
         @Override
@@ -15,19 +17,29 @@ public   class ThreadBatchOptTemplateDemo  extends ThreadBatchOptTemplate<TestA>
             }
         }
         
-        public static void main(String args[]) {
-            ThreadBatchOptTemplateDemo threadBatchOptTemplateDemo = new ThreadBatchOptTemplateDemo();
-            threadBatchOptTemplateDemo.setBatchOptCount(20);
-            threadBatchOptTemplateDemo.setSleepTime(3000);
-         
+        @Test
+        public void test1() {
             List<TestA> testAList = new ArrayList<>();
             
-            for(int i=0;i<1000;i++) {
+            for(int i=0;i<5;i++) {
                 TestA testA = new TestA();
                 testA.setName("testA"+i);
                 testAList.add(testA);
             }
-          
-            threadBatchOptTemplateDemo.startBatch(testAList);
+            new ThreadBatchOptTemplateDemo().setBatchOptCount(10).setSleepTime(2000).startBatch(testAList);
         }
+        
+        @Test
+        public void test2() {
+            List<TestA> testAList = new ArrayList<>();
+            
+            for(int i=0;i<10;i++) {
+                TestA testA = new TestA();
+                testA.setName("testA"+i);
+                testAList.add(testA);
+            }
+            
+            new ThreadBatchOptTemplateDemo().setBatchOptCount(5).setSleepTime(2000).startBatch(testAList);
+        }
+        
      }

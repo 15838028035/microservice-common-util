@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class ThreadBatchOptTemplate<T> {
     
-    private static Logger logger = LoggerFactory.getLogger(ThreadBatchOptTemplate.class);
+    protected static Logger logger = LoggerFactory.getLogger(ThreadBatchOptTemplate.class);
 
     /**
      * 默认1批量处理数量
@@ -120,16 +120,18 @@ public abstract class ThreadBatchOptTemplate<T> {
         return batchOptCount;
     }
 
-    public void setBatchOptCount(int batchOptCount) {
+    public ThreadBatchOptTemplate<T> setBatchOptCount(int batchOptCount) {
         this.batchOptCount = batchOptCount;
+        return this;
     }
     
     public long getSleepTime() {
         return sleepTime;
     }
 
-    public void setSleepTime(long sleepTime) {
+    public ThreadBatchOptTemplate<T> setSleepTime(long sleepTime) {
         this.sleepTime = sleepTime;
+        return this;
     }
     
     /**

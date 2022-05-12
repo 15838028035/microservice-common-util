@@ -3,6 +3,9 @@ package com.zhongkexinli.micro.serv.common.thread;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
+import org.junit.Test;
+
 public class ThreadBatchOptLimitTemplateTest extends ThreadBatchOptLimitTemplate<TestA>{
 
 
@@ -11,14 +14,26 @@ public class ThreadBatchOptLimitTemplateTest extends ThreadBatchOptLimitTemplate
         /**
          * 操作处理t 对象，按需处理业务逻辑
          */
-        System.out.println(testA.getName());
+        logger.info("test=={}",testA.getName());
     }
 
-    public static void main(String args[]) {
-        ThreadBatchOptLimitTemplateTest threadBatchOptTemplateDemo = new ThreadBatchOptLimitTemplateTest();
-        threadBatchOptTemplateDemo.setBatchOptCount(1000);
-        threadBatchOptTemplateDemo.setSleepTime(3000);
-     
+    @Test
+    public void test1() throws InterruptedException {
+        List<TestA> testAList = new ArrayList<>();
+        
+        for(int i=0;i<5;i++) {
+            TestA testA = new TestA();
+            testA.setName("testA"+i);
+            testAList.add(testA);
+        }
+        new ThreadBatchOptLimitTemplateTest().setBatchOptCount(10).setSleepTime(2000).startBatch(testAList);
+        
+        Thread.sleep(5000L);
+    }
+    
+    @Test
+    @Ignore
+    public void test2() throws InterruptedException {
         List<TestA> testAList = new ArrayList<>();
         
         for(int i=0;i<10;i++) {
@@ -26,8 +41,10 @@ public class ThreadBatchOptLimitTemplateTest extends ThreadBatchOptLimitTemplate
             testA.setName("testA"+i);
             testAList.add(testA);
         }
-      
-        threadBatchOptTemplateDemo.startBatch(testAList);
+        
+        new ThreadBatchOptLimitTemplateTest().setBatchOptCount(5).setSleepTime(2000).startBatch(testAList);
+        
+        Thread.sleep(5000L);
     }
 
 }
