@@ -9,9 +9,14 @@ import org.slf4j.LoggerFactory;
 public class ThreadPoolMonitorTest {
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
           ExecutorService executorService = ThreadPoolMonitor.threadPoolMonitor(5, "fileCopy"); 
-          executorService.execute(new RunA());
+          
+          for(int i=0;i<10;i++) {
+              executorService.execute(new RunA());
+          }
+          
+          Thread.sleep(5000L);
     }
     
     

@@ -147,17 +147,20 @@ public class ThreadPoolMonitor extends ThreadPoolExecutor {
          
         startTimes.remove(String.valueOf(r.hashCode()));
         
-        // 统计任务耗时、初始线程数、核心线程数、正在执行的任务数量、
-        // 已完成任务数量、任务总数、队列里缓存的任务数量、池中存在的最大线程数、
-        // 最大允许的线程数、线程空闲时间、线程池是否关闭、线程池是否终止
-        logger.info("{}-pool-monitor: " +
-                        "Duration: {} ms, PoolSize: {}, CorePoolSize: {}, Active: {}, " +
-                        "Completed: {}, Task: {}, Queue: {}, LargestPoolSize: {}, " +
-                        "MaximumPoolSize: {},  KeepAliveTime: {}, isShutdown: {}, isTerminated: {}",
-                this.poolName,
-                diff, this.getPoolSize(), this.getCorePoolSize(), this.getActiveCount(),
-                this.getCompletedTaskCount(), this.getTaskCount(), this.getQueue().size(), this.getLargestPoolSize(),
-                this.getMaximumPoolSize(), this.getKeepAliveTime(TimeUnit.MILLISECONDS), this.isShutdown(), this.isTerminated());
+        synchronized (this) {
+            // 统计任务耗时、初始线程数、核心线程数、正在执行的任务数量、
+            // 已完成任务数量、任务总数、队列里缓存的任务数量、池中存在的最大线程数、
+            // 最大允许的线程数、线程空闲时间、线程池是否关闭、线程池是否终止
+            logger.info("{}-pool-monitor: " +
+                            "Duration: {} ms, PoolSize: {}, CorePoolSize: {}, ActiveThreadCount: {}, " +
+                            "Completed: {}, Task: {}, Queue: {}, LargestPoolSize: {}, " +
+                            "MaximumPoolSize: {},  KeepAliveTime: {}, isShutdown: {}, isTerminated: {}",
+                    this.poolName,
+                    diff, this.getPoolSize(), this.getCorePoolSize(), this.getActiveCount(),
+                    this.getCompletedTaskCount(), this.getTaskCount(), this.getQueue().size(), this.getLargestPoolSize(),
+                    this.getMaximumPoolSize(), this.getKeepAliveTime(TimeUnit.MILLISECONDS), this.isShutdown(), this.isTerminated());
+        }
+       
     }
 
     /**

@@ -1,4 +1,9 @@
 microservice-common-util 发版日志
+
+1.3.1 （2022-05-20)
+  - 修复工具类com.zhongkexinli.micro.serv.common.thread.ThreadPoolMonitor打印显示完成的任务数量
+ ------------------ 
+ 
 1.3.0 （2022-05-12)
   - 优化多线程，支持链式调用:com.zhongkexinli.micro.serv.common.thread.ThreadBatchOptTemplate
   - 优化多线程，支持链式调用:com.zhongkexinli.micro.serv.common.thread.ThreadBatchOptLimitTemplate
