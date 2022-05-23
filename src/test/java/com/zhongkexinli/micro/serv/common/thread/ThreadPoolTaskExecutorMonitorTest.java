@@ -8,7 +8,7 @@ public class ThreadPoolTaskExecutorMonitorTest {
 
     @Test
     public void test() throws InterruptedException {
-        ThreadPoolTaskExecutorMonitor executorService = ThreadPoolTaskExecutorMonitor.threadPoolTaskExecutorMonitor(5,5,1000L,1000,"tesa"); 
+        ThreadPoolTaskExecutorMonitor executorService = ThreadPoolTaskExecutorMonitor.threadPoolTaskExecutorMonitor(5,5,1000,1000,"tesa"); 
           
         executorService.initialize();
         

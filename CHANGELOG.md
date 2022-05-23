@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
-1.3.3 （2022-05-20)
+
+1.3.3 （2022-05-23)
+  - 修复定时任务监控工具类com.zhongkexinli.micro.serv.common.thread.ThreadPoolTaskExecutorMonitor
+ ------------------ 
+1.3.2 （2022-05-20)
   - 添加定时任务监控工具类com.zhongkexinli.micro.serv.common.thread.ThreadPoolTaskExecutorMonitor
   - 添加定时任务监控工具类com.zhongkexinli.micro.serv.common.thread.ThreadPoolTaskExecutorExt
  ------------------ 

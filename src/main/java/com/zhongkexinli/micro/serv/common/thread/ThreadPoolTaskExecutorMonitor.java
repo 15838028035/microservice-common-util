@@ -10,7 +10,7 @@ public class ThreadPoolTaskExecutorMonitor extends ThreadPoolTaskExecutorExt  {
 
     private static Logger logger = LoggerFactory.getLogger(ThreadPoolTaskExecutorMonitor.class);
 
-    public static ThreadPoolTaskExecutorMonitor threadPoolTaskExecutorMonitor(int corePoolSize, int maximumPoolSize, long keepAliveTime,int queueCapacity, String poolName) {
+    public static ThreadPoolTaskExecutorMonitor threadPoolTaskExecutorMonitor(int corePoolSize, int maximumPoolSize, int keepAliveTime,int queueCapacity, String poolName) {
         return new ThreadPoolTaskExecutorMonitor(corePoolSize, maximumPoolSize,
                 keepAliveTime, queueCapacity, poolName);
     }
@@ -26,9 +26,10 @@ public class ThreadPoolTaskExecutorMonitor extends ThreadPoolTaskExecutorExt  {
      * @param threadFactory   线程工厂
      * @param poolName        线程池名称
      */
-    public ThreadPoolTaskExecutorMonitor(int corePoolSize, int maximumPoolSize, long keepAliveTime,int queueCapacity, String poolName) {
+    public ThreadPoolTaskExecutorMonitor(int corePoolSize, int maximumPoolSize, int keepAliveTime,int queueCapacity, String poolName) {
         setCorePoolSize(corePoolSize);
         setMaxPoolSize(maximumPoolSize);
+        setKeepAliveSeconds(keepAliveTime);
         setQueueCapacity(queueCapacity);
         setThreadNamePrefix(poolName);
     }
