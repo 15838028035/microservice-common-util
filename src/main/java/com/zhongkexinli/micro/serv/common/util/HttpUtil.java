@@ -52,6 +52,8 @@ public class HttpUtil {
 
         String var7;
         try {
+            logger.info("请求url:{}, 请求方式:POST, 请求类型:{} ,请求编码:{}",url,"application/x-www-form-urlencoded",  charset);
+            
             HttpURLConnection con = (HttpURLConnection)(new URL(url)).openConnection();
             con.setDoInput(true);
             con.setRequestMethod("POST");
@@ -120,11 +122,21 @@ public class HttpUtil {
     /**
      * 发送请求
      */
-    private static String send(String url, String postParam, String contentType, String charset) throws Exception {
+    private static String send(String url, String postParam, String contentType, String charset,  String functionName) throws Exception {
         OutputStream osw = null;
         InputStream ins = null;
         String var7;
         try {
+            
+            if(StringUtil.isBlank(functionName)) {
+
+                logger.info("请求url:{}, 请求方式:POST, 请求类型:{} ,请求编码:{}",url,contentType,  charset);
+            }else {
+                logger.info("请求url:{}, 请求方式:POST, 请求类型:{} ,请求编码:{}, 业务名称:{}",url,contentType,  charset, functionName);
+            }
+            
+            logger.info("请求参数:{}",postParam);
+            
             HttpURLConnection con = (HttpURLConnection) (new URL(url)).openConnection();
             con.setDoInput(true);
             con.setRequestMethod("POST");
@@ -160,6 +172,9 @@ public class HttpUtil {
             }
 
             var7 = readContent(ins, charset);
+            
+            logger.info("返回结果:{}",var7);
+            
         } finally {
             if (osw != null) {
                 osw.close();
@@ -192,9 +207,18 @@ public class HttpUtil {
      * 发送Post请求
      * 数据格式为 json
      */
+    public static String sendJsonHttpPost(String url, String json, String functionName) throws Exception {
+        String charset = "UTF-8";
+        return send(url, json, "application/json", charset,functionName);
+    }
+    
+    /**
+     * 发送Post请求
+     * 数据格式为 json
+     */
     public static String sendJsonHttpPost(String url, String json) throws Exception {
         String charset = "UTF-8";
-        return send(url, json, "application/json", charset);
+        return send(url, json, "application/json", charset, null);
     }
     
     /**

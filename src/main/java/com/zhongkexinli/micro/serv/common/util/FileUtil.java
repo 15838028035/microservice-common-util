@@ -1,5 +1,6 @@
 package com.zhongkexinli.micro.serv.common.util;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -127,6 +128,7 @@ public class FileUtil {
      *            文件路径
      * @return 文件内容
      */
+    @Deprecated
     public static String read(String filePath) {
         StringBuilder fileContent = new StringBuilder();
         File file = new File(filePath);
@@ -142,6 +144,25 @@ public class FileUtil {
             logger.error(ex);
         }
         return fileContent.toString();
+    }
+    
+    public static String readFileUseBuffedInputream(String filePath) {
+    
+        byte[] buff = new byte[4096];
+        StringBuffer sb = new StringBuffer();
+        try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(filePath));) {
+            
+            int len;
+            while ((len = in.read(buff)) != -1) {  
+                 sb.append(new String(buff, 0, len));
+            }
+          
+        } catch (Exception ex) {
+            logger.error("读取文件出现异常",ex);
+        }
+        
+        return sb.toString();
+    
     }
 
     /**

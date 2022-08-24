@@ -1,5 +1,10 @@
 microservice-common-util 发版日志
 
+1.3.4 （2022-08-24)
+ - 优化新增方法com.zhongkexinli.micro.serv.common.util.FileUtil
+ - 优化常用工具类com.zhongkexinli.micro.serv.common.util.HttpUtil, 新增参数输出
+ ------------------ 
+ 
 1.3.3 （2022-05-23)
   - 修复定时任务监控工具类com.zhongkexinli.micro.serv.common.thread.ThreadPoolTaskExecutorMonitor
  ------------------ 
