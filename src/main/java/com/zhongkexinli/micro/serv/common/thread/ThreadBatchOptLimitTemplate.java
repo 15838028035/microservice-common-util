@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.slf4j.Logger;
@@ -37,7 +38,7 @@ public abstract  class ThreadBatchOptLimitTemplate<T> {
     /**
      * 设置最多处理的机器数量, 默认按照最多10个进行设置
      */
-   private   Semaphore semaphore = new Semaphore(getBatchOptCount());
+   private  final  Semaphore semaphore = new Semaphore(getBatchOptCount());
    
    public static AtomicInteger currentNo = new AtomicInteger(0);
    
@@ -114,11 +115,13 @@ public abstract  class ThreadBatchOptLimitTemplate<T> {
                        currentNo = new AtomicInteger(0);
                        
                        logger.info("开始尝试sleep:{}毫秒", sleepTime);
-                       Thread.currentThread().sleep(sleepTime);
+                       TimeUnit.MILLISECONDS.sleep(sleepTime);
                    }
                    
                    doRun((T)obj) ;
-                   
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    logger.error("批量操作出现异常",e);
               } catch (Exception e) {
                   logger.error("批量操作出现异常",e);
               }finally {

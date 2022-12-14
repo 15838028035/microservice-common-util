@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -79,7 +80,7 @@ public abstract class ThreadBatchOptTemplate<T> {
                 latch.await();
                 
                 logger.info("开始尝试sleep:{}毫秒", sleepTime);
-                Thread.sleep(sleepTime);
+                TimeUnit.MILLISECONDS.sleep(sleepTime);
             }
             
             LocalDateTime finishDate = LocalDateTime.now();
