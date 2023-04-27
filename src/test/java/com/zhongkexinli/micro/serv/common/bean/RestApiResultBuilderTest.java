@@ -11,10 +11,11 @@ public class RestApiResultBuilderTest {
              .respCode(1)
              .respData("cc")
              .respMsg("okay")
+             .dataCode("11")
              .build();
     assertEquals(1,restApiResult.getRespCode());
       assertEquals("okay",restApiResult.getRespMsg());
-      System.out.println(restApiResult.toString());
+      assertEquals("11",restApiResult.getDataCode());
   }
 
 }

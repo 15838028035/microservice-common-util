@@ -104,13 +104,16 @@ public class RestApiResultBuilder<T>  {
           return this;
       }
       
+      public RestApiResultBuilder<T> dataCode(String dataCode) {
+          this.dataCode = dataCode;
+          return this;
+      }
     
     public RestApiResult2<T> build() {
       return new RestApiResult2().respCode(respCode)
               .respData(respData)
               .respMsg(msg, arguments)
-              .traceId(traceId);
+              .traceId(traceId)
+              .dataCode(dataCode);
     }
-
-
 }

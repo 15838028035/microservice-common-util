@@ -42,18 +42,33 @@ public abstract class ThreadBatchOptTemplate<T> {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) executorService);
         
     	int queueSize = tpe.getQueue().size();
-    	logger.info("当前排队线程数：{}" , queueSize);
+    	// logger.info("当前排队线程数：{}" , queueSize);
  
         int activeCount = tpe.getActiveCount();
-        logger.info("当前活动线程数：{}" , activeCount);
+      //  logger.info("当前活动线程数：{}" , activeCount);
  
         long completedTaskCount = tpe.getCompletedTaskCount();
-        logger.info("执行完成线程数：{}" , completedTaskCount);
+      //  logger.info("执行完成线程数：{}" , completedTaskCount);
  
         long taskCount = tpe.getTaskCount();
-        logger.info("总线程数：{}" , taskCount);
+    //    logger.info("总线程数：{}" , taskCount);
         
         return  taskCount == completedTaskCount;
+    }
+    
+    /**
+     * 定时监控线程池是否执行完毕
+     */
+    public static void monitor() {
+        while (!ThreadBatchOptLimitTemplate.isExecuteEnd()) {
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                logger.error("线程Sleep出现异常", e);
+            }
+
+        }
     }
 
     /**

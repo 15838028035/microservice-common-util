@@ -145,6 +145,11 @@ public class RestApiResult2<T> implements Serializable {
         return this;
     }
 
+    public RestApiResult2<T> dataCode(String dataCode) {
+        this.dataCode = dataCode;
+        return this;
+    }
+    
     public String getDataCode() {
         return dataCode;
     }

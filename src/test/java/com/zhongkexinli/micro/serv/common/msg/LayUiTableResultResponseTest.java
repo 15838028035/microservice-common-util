@@ -20,6 +20,7 @@ import com.zhongkexinli.micro.serv.common.base.entity.BaseEntity;
 public class LayUiTableResultResponseTest {
 
     @Test
+    @SuppressWarnings("all")
     public void layUiTableResultResponseTest1() {
         List<BaseEntity> dataList = new ArrayList<>();
         BaseEntity baseEntity = new BaseEntity();
