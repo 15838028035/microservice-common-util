@@ -1,5 +1,8 @@
 microservice-common-util 发版日志
 
+1.3.8 （2023-05-18)
+ - 优化新增锁工具类com.zhongkexinli.micro.serv.common.lock.KeyedLock
+ ------------------
 1.3.7 （2023-04-27)
  - 优化新增方法com.zhongkexinli.micro.serv.common.bean.RestApiResult2
  - 优化新增方法com.zhongkexinli.micro.serv.common.bean.RestApiResultBuilder

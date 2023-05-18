@@ -9,7 +9,9 @@ public class ThreadPoolMonitorTest3 {
     @Test
     public void test() {
           ExecutorService executorService = ThreadPoolMonitor.threadPoolMonitor(5, "fileCopy"); 
-           executorService.execute(new RunA());
+          for(int i=0;i<10;i++) {
+              executorService.execute(new RunA());
+          }
     }
     
     
