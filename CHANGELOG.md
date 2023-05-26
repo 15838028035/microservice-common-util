@@ -1,5 +1,8 @@
 microservice-common-util 发版日志
 
+1.3.9 （2023-05-26)
+ - 优化新增com.zhongkexinli.micro.serv.common.config.swagger
+ ------------------
 1.3.8 （2023-05-18)
  - 优化新增锁工具类com.zhongkexinli.micro.serv.common.lock.KeyedLock
  ------------------

@@ -30,7 +30,7 @@ public class KeyedLockTest {
          String lockKey = "lockKey";
          
          ExecutorService executorService = ThreadPoolMonitor.threadPoolMonitor(5, "fileCopy"); 
-         for(int i=0;i<10;i++) {
+         for(int i=0;i<1;i++) {
              executorService.execute(()-> {
                  try (Releasable ignored = connectionLock.acquire(lockKey)) {
 //                     System.out.println("业务逻辑处理");

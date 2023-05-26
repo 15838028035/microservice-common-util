@@ -10,8 +10,4 @@ public class ThreadPoolMonitorTest4 {
               executorService.execute(new RunA());
           }
     }
-    
-    
-    
-
 }

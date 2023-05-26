@@ -5,7 +5,6 @@ public class RunA implements Runnable {
             System.out.println("run a");
             String a = null;
             a.length();
-                    
         }
         
     }
