@@ -1,5 +1,9 @@
 microservice-common-util 发版日志
 
+1.3.10 （2023-06-16)
+ - 优化新增com.zhongkexinli.micro.serv.common.task
+ ------------------
+ 
 1.3.9 （2023-05-26)
  - 优化新增com.zhongkexinli.micro.serv.common.config.swagger
  ------------------
